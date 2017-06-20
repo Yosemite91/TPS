@@ -431,6 +431,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTA.Emprendedoras.Clases\UTA.Emprendedoras.Clases.vbproj">
+      <Project>{94d5ef75-911a-4308-afec-7e8b01bf8c93}</Project>
+      <Name>UTA.Emprendedoras.Clases</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

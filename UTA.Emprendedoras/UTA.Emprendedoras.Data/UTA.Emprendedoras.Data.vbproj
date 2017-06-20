@@ -54,6 +54,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmprendedorasDbContext.vb" />
+    <Compile Include="Migrations\201706200215195_initial-migration.Designer.vb">
+      <DependentUpon>201706200215195_initial-migration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706200215195_initial-migration.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -90,6 +97,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706200215195_initial-migration.resx">
+      <DependentUpon>201706200215195_initial-migration.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

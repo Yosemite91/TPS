@@ -40,6 +40,26 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/devextreme")
+    @Scripts.Render("~/bundles/app")
+
+    <script>
+        esAdminSistema = App.esAdminSistema;
+        esAdminPersona = App.esAdminPersona;
+        esGerente = App.esGerente;
+        esJefe = App.esJefe;
+
+        App.apiRoot = '@Url.Content("~/")api/';
+        App.appRoot = '@Url.Content("~/")';
+        var Token = localStorage.getItem(App.appPrefix + 'login.token');
+
+        function Salir(){
+            App.goToLogin();
+        }
+
+    </script>
+
     @RenderSection("scripts", required:=False)
 </body>
 </html>

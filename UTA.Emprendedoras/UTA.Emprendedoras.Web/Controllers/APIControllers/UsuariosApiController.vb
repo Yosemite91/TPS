@@ -14,14 +14,15 @@ Namespace Controllers.APIControllers
 
 
         Dim mapperConfig As New AutoMapper.MapperConfiguration(Sub(config)
-                                                                   config.CreateMap(Of UsuarioCreateModel, Usuario)()
+                                                                   config.CreateMap(Of UsuarioModel, Usuario)()
+                                                                   config.CreateMap(Of Usuario, UsuarioModel)()
                                                                End Sub)
 
 
 #Region "CrearUsuario"
         <Route("crear", Name:="crearUsuario")>
         <HttpPost>
-        Public Async Function CrearUsuario(<FromBody> model As UsuarioCreateModel) As Task(Of IHttpActionResult)
+        Public Async Function CrearUsuario(<FromBody> model As UsuarioModel) As Task(Of IHttpActionResult)
 
             Dim db As New EmprendedorasDbContext()
             Dim usuario As Usuario = Nothing
@@ -46,7 +47,33 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "GetUsuario"
+        <Route("get/{run:regex(^[1-9][0-9]{0,7}-[0-9kK]$)}", Name:="getUsuario")>
+        <HttpGet>
+        Public Async Function GetUsuario(run As String) As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim result As UsuarioModel = New UsuarioModel
+            Dim mapper As AutoMapper.IMapper
+            Try
 
+                Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = run).SingleOrDefaultAsync()
+                mapper = mapperConfig.CreateMapper()
+                mapper.Map(user, result)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+
+            If result IsNot Nothing Then Return Me.Ok(result)
+            Return Me.Content(HttpStatusCode.NotFound, "Información no encontrada")
+
+        End Function
+#End Region
+
+#Region "EditarUsuario"
+
+#End Region
 
     End Class
 End Namespace

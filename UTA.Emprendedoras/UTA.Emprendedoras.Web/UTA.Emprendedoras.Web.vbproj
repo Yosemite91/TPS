@@ -233,7 +233,7 @@
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
-    <Compile Include="Models\UsuarioCreateModel.vb" />
+    <Compile Include="Models\UsuarioModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -393,6 +393,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Usuarios\CrearUsuario.vbhtml" />
+    <Content Include="Views\Usuarios\EditarUsuario.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -436,6 +437,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\CrearUsuarioViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Usuarios\EditarUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\IUsuarioModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Utils.ts" />
   </ItemGroup>

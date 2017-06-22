@@ -2,7 +2,7 @@
 
 Namespace Models
 
-    Public Class UsuarioCreateModel
+    Public Class UsuarioModel
         Public Property ID As Integer
         Public Property Nombre As String
         Public Property Apellido As String

@@ -106,6 +106,12 @@ End Code
 
         </div>
     </div>
+    <div class="row">
+        <div id="botonesDetalle">
+            <div id="solicitar-button" data-bind="dxButton: botonDesbloquear"> </div>
+            <div id="solicitar-button" data-bind="dxButton: botonBloquear"> </div>
+        </div>
+    </div>
 </div>
 
 

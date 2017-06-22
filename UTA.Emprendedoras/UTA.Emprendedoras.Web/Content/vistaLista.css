@@ -1,0 +1,328 @@
+﻿/*    INFO COLORES    */
+/*  calipso: #5DBCD2    */
+/*  crema: #F7F7F6    */
+/* creamJIRA: #f5f5f5 */
+/*  naranjo: #eaa72f    */
+/* azul button devExtreme: #337ab7  */
+/* negro navbar: #444  */
+
+html {
+    height: 100%;
+}
+#perfil {
+    margin: auto;
+    width: 40%;
+    height: 40%;
+    border-radius: 1px;
+}
+#cuerpoLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;    
+}
+#login-form{    
+    background-color: white;        
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    display: table-cell;   
+    text-align: center; 
+    height: auto;
+    width: auto;    
+}
+#formularioLogin {            
+    padding-bottom: 6%;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 4%;
+    width: auto;
+    height: auto;
+}
+#top {    
+    background-color: #337ab7;    
+    align-content: center;
+    align-items: center;
+    margin-bottom: 5%;     
+    padding-top: 2%;   
+    padding-bottom: 2%;  
+    width: 350px;
+    height: auto; 
+}
+body{
+    background-color: #f5f5f5;  
+    min-height: 100vh;           
+}
+#cuerpoLista {
+    width: 95%;     
+    margin: 0 auto;       
+    min-height: 70vh;
+}
+#cuerpoSolicitud {
+    width: 80%;     
+    margin: 0 auto;       
+    min-height: 70vh;
+    margin-top: 7%;
+}
+#logo{    
+    padding-top: 7px;    
+    max-width: 250px;            
+    height: auto;    
+}
+#botonesDetalle {   
+    display: inline;        
+}
+#solicitar-button{
+    float: right;
+    margin-right: 5px;
+}
+#modificar-button{
+    float: right;
+    margin-right: 5px;
+}
+#crear-button{
+    float: right;
+    margin-right: 5px;
+}
+#cancelar-button{
+    float: right;
+    margin-right: 5px;
+}
+#eliminar-button{
+    float: right;
+    margin-right: 5px;
+}
+#volver {
+    float: left;
+}
+#botonCrear{            
+    display: block;
+    float: right; 
+    margin-bottom: 2%;
+}
+#grid {
+    display: inline-block ;     
+}
+.navbar {    
+    background-color: #444;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+#footerTexto{
+    text-align:center;       
+}
+
+/* RESPONSIVE NAVBAR */
+@media (max-width: 2000px) {   
+    #cuerpoSolicitud {
+        width: 70%;
+    }
+    .container.body-content {
+        margin-top: 2%;
+    }
+    #perfil {    
+        width: 20%;
+        height: 20%;   
+    }
+}
+@media (max-width: 1200px) {
+    #cuerpoSolicitud {
+        width: 70%;
+    }
+    .container.body-content {
+        margin-top: 0%;
+    }
+    #perfil {    
+        width: 20%;
+        height: 20%;   
+    }
+}
+@media (max-width: 992px) {
+    #cuerpoSolicitud {
+        width: 80%;
+    }
+    .container.body-content {
+        margin-top: 0%;
+    }
+    #perfil {    
+        width: 30%;
+        height: 30%;   
+    }
+}
+@media (max-width: 767px) {
+    #cuerpoSolicitud {
+        width: 90%;
+    }
+    .container.body-content {
+        margin-top: 1%;
+    }
+    #perfil {    
+        width: 30%;
+        height: 30%;   
+    }
+}
+@media (max-width: 600px) {    
+    #logo{    
+        margin-left: 15px;
+    }   
+    #cuerpoSolicitud {
+        width: 90%;
+    }
+    .container.body-content {
+        margin-top: 1%;
+    } 
+    #perfil {    
+        width: 40%;
+        height: 40%;   
+    }
+}
+@media (max-width: 425px) {    
+    #logo{    
+        margin-left: 10px;
+        max-width: 200px; 
+    }
+    #cuerpoSolicitud {
+        width: 100%;
+    }
+    .container.body-content {
+        margin-top: 5%;
+    }
+    #perfil {    
+        width: 40%;
+        height: 40%;   
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    #login-form {
+        background-color: white;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        display: table-cell;
+        text-align: center;
+        height: 250px;
+        width: 300px;        
+    }
+    #formularioLogin {            
+        padding-bottom: 0px;
+        padding-left: 6%;
+        padding-right: 6%;
+        padding-top: 2%;
+        width: auto;
+        height: auto;
+    }
+    #top {    
+        background-color: #337ab7;    
+        align-content: center;
+        align-items: center;
+        margin-bottom: 5%;     
+        padding-top: 1%;   
+        padding-bottom: 1%;  
+        width: 300px;
+        height: auto; 
+    }
+}
+
+/** CSS BOOTSTRAP **/
+
+/************************ COLOR TEXTO NavBar *************************/
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: white;
+  background-color: #eaa72f; /*color cuando se da hover & focus*/  
+}   
+/*********************************************************************/
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #080808;  
+  border-radius: 25px; /* BORDE NAVBAR */
+}
+.navbar-inverse .navbar-nav > .disabled > a,
+.navbar-inverse .navbar-nav > .disabled > a:hover,
+.navbar-inverse .navbar-nav > .disabled > a:focus {
+  color: #444;
+  background-color: transparent;
+}                                                                                                
+/****************************** TOGGLE *******************************/
+.navbar-inverse .navbar-toggle {
+  border-color: #F7F7F6;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #F7F7F6;
+}
+.navbar-inverse .navbar-toggle:hover .icon-bar,
+.navbar-inverse .navbar-toggle:focus .icon-bar {
+  background-color: #444;
+}
+/****************************** COLLAPSE *******************************/
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #F7F7F6;  
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #F7F7F6;
+  background-color: #080808;
+}
+/************************************************************************/
+/* configuracion navbar cuando se contrae */
+.navbar-toggle {
+  position: relative;
+  float: left ;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-left: 15px;
+  margin-bottom: 8px;
+  background-color: #444;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.navbar-toggle:focus {
+  outline: 0;  
+}
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;  
+  background-color: white;
+}
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+  background-color: white;
+}
+/********************************************/
+.nav > li > a {
+  position: relative;
+  display: block;  
+  color: white; /* color texto items navbar*/
+}
+.navbar-inverse {
+    border-color: transparent;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    border-radius: 25px; /* BORDE NAVBAR */
+}
+.navbar navbar-inverse navbar-fixed-top {
+    border-color: transparent;    
+}
+.long-title h3 {
+    font-family: 'Segoe UI Light', 'Helvetica Neue Light', 'Segoe UI', 'Helvetica Neue', 'Trebuchet MS', Verdana;
+    font-weight: 200;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+}

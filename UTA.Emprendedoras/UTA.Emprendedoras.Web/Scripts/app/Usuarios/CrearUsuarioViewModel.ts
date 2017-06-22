@@ -7,17 +7,19 @@ namespace Usuarios {
     export class CrearUsuarioViewModel {
         public usuario: KnockoutObservable<IUsuarioModel> = ko.observable<IUsuarioModel>({
             id: null, nombre: null, apellido: null, run: null, contrasena: null, telefono: null, fechaNacimiento: null,
-            esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null
+            esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null,
+            correo: null
         });
 
         //PopUp
         private popUpCancelarCreacionUsuario = ko.observable(false);
         private popUpCrearUsuario = ko.observable(false);
 
+		// POP-UP CANCELAR
         public popUpCancelar = {
             width: 'auto',
             height: 'auto',
-            contentTemplate: '¿Quiere volver a la página anterior?',
+            contentTemplate: '¿Volver a la página anterior?',
             showTitle: true,
             showCloseButton: true,
             title: 'Alerta',
@@ -30,6 +32,7 @@ namespace Usuarios {
                 options: { text: 'OK' },
                 onClick: function (e: any) {
                     window.location.assign(App.appRoot + 'Usuarios/ListaUsuarios');
+					// CORREGIR PARA CUANDO SE TENGA LA LISTA DE USUARIOS
                 }
             }
             ]
@@ -63,7 +66,8 @@ namespace Usuarios {
                         esAdministrador: this.usuario().esAdministrador,
                         esAdminPublicacion: this.usuario().esAdminPublicacion,
                         sitioWebUrl: this.usuario().sitioWebUrl,
-                        categoria: this.usuario().categoria
+                        categoria: this.usuario().categoria,
+                        correo: this.usuario().correo
                     };
 
                     var info = JSON.stringify(UsuarioDTO);
@@ -86,7 +90,8 @@ namespace Usuarios {
                 }
             }]
         };
-        //Buttons
+
+        // BOTONES GUARDAR
         public botonGuardar = {
             text: 'Guardar',
             icon: 'floppy',
@@ -97,7 +102,11 @@ namespace Usuarios {
                 var UsuarioValidacion = {
                     Nombre: this.usuario().nombre,
                     Apellido: this.usuario().apellido,
-                    Run: this.usuario().run
+                    Run: this.usuario().run,
+                    Correo: this.usuario().correo,
+                    Telefono: this.usuario().telefono,
+                    SitioWeb: this.usuario().sitioWebUrl,
+                    Categoria: this.usuario().categoria
                 };
 
                 if (result.isValid) {
@@ -109,6 +118,7 @@ namespace Usuarios {
             }
         };
 
+		// BOTONES CANCELAR
         public botonCancelar = {
             text: 'Cancelar',
             icon: 'close',
@@ -118,15 +128,25 @@ namespace Usuarios {
             }
         };   
 
-
-
+		// VALIDADOR DE DATOS
         public validatorOptions: DevExpress.ui.dxValidatorOptions = {
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
             }]
         };
-       
+        public emailValidatorOptions: DevExpress.ui.dxValidatorOptions = {
+            validationRules: [{
+                type: "pattern",
+                pattern: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+                message: 'Formato inválido'
+            }, {
+                    type: 'required',
+                    message: 'Campo requerido'
+                }]
+        };
+
+		// FORMULARIO
         public dxNombre = {
             width: 'auto',
             editorOptions: {
@@ -187,8 +207,9 @@ namespace Usuarios {
         public dxTelefono = {
             width: 'auto',
             editorOptions: {
-                mode: 'tel'
-            },
+                mode: 'tel',
+                value: 0
+            },            
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.usuario().telefono = e.value;
@@ -207,6 +228,19 @@ namespace Usuarios {
                 this.usuario().fechaNacimiento = new Date(e.value);
             }
         }
+        public dxEmail = {
+            width: 'auto',
+            placeholder: 'ejemplo@uta.cl',
+            onKeyDown: (e: any) => {
+                if (!/[_a-zA-Z0-9-@.]$/.test(e.jQueryEvent.key)) {
+                    e.jQueryEvent.preventDefault();
+                }
+            },
+            showClearButton: true,
+            onValueChanged: (e: any) => {
+                this.usuario().correo = e.value;
+            }
+        }		
         public dxEsAdminSistema = {
             value: false,
             onText: 'SI',
@@ -252,7 +286,6 @@ namespace Usuarios {
             }
         }
         
-
         constructor() {
 
         }

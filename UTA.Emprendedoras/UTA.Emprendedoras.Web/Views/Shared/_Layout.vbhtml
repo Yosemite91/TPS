@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - UTA Emprendedoras</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", New With { .area = "" }, New With { .class = "navbar-brand" })
+                @Html.ActionLink("Asociación de Emprendedoras", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p id="footerTexto">&copy; @DateTime.Now.Year - Asociación de Emprendedoras - Arica</p>
         </footer>
     </div>
 
@@ -44,11 +44,10 @@
     @Scripts.Render("~/bundles/devextreme")
     @Scripts.Render("~/bundles/app")
 
+    @* LOGIN *@
     <script>
         esAdminSistema = App.esAdminSistema;
-        esAdminPersona = App.esAdminPersona;
-        esGerente = App.esGerente;
-        esJefe = App.esJefe;
+        esAdminPublicacion = App.esAdminPublicacion;
 
         App.apiRoot = '@Url.Content("~/")api/';
         App.appRoot = '@Url.Content("~/")';
@@ -57,9 +56,8 @@
         function Salir(){
             App.goToLogin();
         }
-
     </script>
-
+    
     @RenderSection("scripts", required:=False)
 </body>
 </html>

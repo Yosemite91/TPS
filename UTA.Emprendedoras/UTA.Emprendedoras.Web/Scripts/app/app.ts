@@ -1,15 +1,14 @@
 ﻿/// <reference path='Utils.ts' />
 
 namespace App {
-    'use strict';
+    'use strict'; 
     export var appRoot: string;
     export var apiRoot: string;
-    export var appPrefix: string = 'PERSONAS.';    
-    export var esJefe: boolean = localStorage.getItem(App.appPrefix + 'login.esJefe');
-    export var esGerente: boolean = localStorage.getItem(App.appPrefix + 'login.esGerente');
-    export var esAdminPersona: boolean = localStorage.getItem(App.appPrefix + 'login.esAdminPersona');
+    //MODIFICAR PARA LOGIN
+    export var appPrefix: string = 'EMPRENDEDORAS.';        
     export var esAdminSistema: boolean = localStorage.getItem(App.appPrefix + 'login.esAdminSistema');
-    export var runColaborador: string  = localStorage.getItem(App.appPrefix + 'login.run');
+    export var esAdminSistema: boolean = localStorage.getItem(App.appPrefix + 'login.esAdminPublicacion');
+    export var runEmprendedor: string  = localStorage.getItem(App.appPrefix + 'login.run');
     
     $.ajaxSetup({
         headers: GetAutorizationHeaders(),
@@ -28,10 +27,9 @@ namespace App {
     }
 
     export function goToLogin(): any {
-        localStorage.removeItem(appPrefix + 'login.esJefe');
-        localStorage.removeItem(appPrefix + 'login.esGerente');
-        localStorage.removeItem(appPrefix + 'login.esAdminPersona');
+        // MODIFICAR PARA LOGIN               
         localStorage.removeItem(appPrefix + 'login.esAdminSistema');
+        localStorage.removeItem(appPrefix + 'login.esAdminPublicacion');
         localStorage.removeItem(appPrefix + 'login.token');
         localStorage.removeItem(appPrefix + 'login.run');
         let urlLogin: string = 'http://' + window.location.host + App.apiRoot.replace('/api/', '/');

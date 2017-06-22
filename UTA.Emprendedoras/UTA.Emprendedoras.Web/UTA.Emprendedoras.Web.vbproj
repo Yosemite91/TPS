@@ -292,6 +292,7 @@
     <Content Include="Content\icons\dxiconsios.ttf" />
     <Content Include="Content\icons\dxicons.woff" />
     <Content Include="Content\icons\dxicons.ttf" />
+    <Content Include="Content\vistaLista.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -456,7 +457,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1316</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

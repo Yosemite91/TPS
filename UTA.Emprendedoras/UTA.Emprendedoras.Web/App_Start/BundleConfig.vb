@@ -26,7 +26,8 @@ Public Module BundleConfig
                   "~/Content/bootstrap.css",
                   "~/Content/dx.light.css",
                   "~/Content/dx.common.css",
-                  "~/Content/Site.css"))
+                  "~/Content/Site.css",
+                  "~/Content/vistaLista.css"))
 
         bundles.Add(New ScriptBundle("~/bundles/app").Include(
                   "~/Scripts/app/app.js",

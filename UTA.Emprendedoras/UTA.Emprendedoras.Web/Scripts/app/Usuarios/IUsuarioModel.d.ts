@@ -13,7 +13,7 @@
         esAdminPublicacion: boolean,
         sitioWebUrl: string,
         categoria: string,
-        foto: string
-        //correo: string
+        foto: string,
+        correo: string
     }
 }

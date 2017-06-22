@@ -8,7 +8,7 @@ namespace Usuarios {
         public usuario: KnockoutObservable<IUsuarioModel> = ko.observable<IUsuarioModel>({
             id: null, nombre: null, apellido: null, run: null, contrasena: null, telefono: null, fechaNacimiento: null,
             esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null,
-            correo: null
+            correo: null,email: null
         });
 
         //PopUp

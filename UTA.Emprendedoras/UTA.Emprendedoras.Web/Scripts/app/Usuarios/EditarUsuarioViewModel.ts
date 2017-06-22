@@ -9,7 +9,7 @@ namespace Usuarios {
         public usuario: KnockoutObservable<IUsuarioModel> = ko.observable<IUsuarioModel>({
             id: null, nombre: null, apellido: null, run: null, contrasena: null, telefono: null, fechaNacimiento: null,
             esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null,
-            correo: null
+            correo: null, email: null
         });
         //PopUp
         private popUpCancelarModificar = ko.observable(false);
@@ -45,7 +45,7 @@ namespace Usuarios {
                     var info = JSON.stringify(UsuarioDTO);
 
                     $.ajax({
-                        url: App.apiRoot + 'usuarios/editar',
+                        url: App.apiRoot + 'usuarios/editar/',
                         cache: false,
                         type: 'PUT',
                         contentType: 'application/json; charset=utf-8',
@@ -267,7 +267,7 @@ namespace Usuarios {
             }
         }
         public dxEsAdminPublicacion = {
-            value: this.dxEsAdminPublicacion,
+            value: this.esAdminPublicacionDX,
             onText: 'SI',
             offText: 'NO',
             onValueChanged: (e: any) => {

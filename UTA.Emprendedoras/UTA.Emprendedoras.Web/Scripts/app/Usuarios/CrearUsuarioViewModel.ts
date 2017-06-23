@@ -8,7 +8,7 @@ namespace Usuarios {
         public usuario: KnockoutObservable<IUsuarioModel> = ko.observable<IUsuarioModel>({
             id: null, nombre: null, apellido: null, run: null, contrasena: null, telefono: null, fechaNacimiento: null,
             esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null,
-            correo: null,email: null
+            email: null
         });
 
         //PopUp
@@ -67,7 +67,7 @@ namespace Usuarios {
                         esAdminPublicacion: this.usuario().esAdminPublicacion,
                         sitioWebUrl: this.usuario().sitioWebUrl,
                         categoria: this.usuario().categoria,
-                        correo: this.usuario().correo
+                        email: this.usuario().email
                     };
 
                     var info = JSON.stringify(UsuarioDTO);
@@ -103,7 +103,7 @@ namespace Usuarios {
                     Nombre: this.usuario().nombre,
                     Apellido: this.usuario().apellido,
                     Run: this.usuario().run,
-                    Correo: this.usuario().correo,
+                    Email: this.usuario().email,
                     Telefono: this.usuario().telefono,
                     SitioWeb: this.usuario().sitioWebUrl,
                     Categoria: this.usuario().categoria
@@ -238,7 +238,7 @@ namespace Usuarios {
             },
             showClearButton: true,
             onValueChanged: (e: any) => {
-                this.usuario().correo = e.value;
+                this.usuario().email = e.value;
             }
         }		
         public dxEsAdminSistema = {

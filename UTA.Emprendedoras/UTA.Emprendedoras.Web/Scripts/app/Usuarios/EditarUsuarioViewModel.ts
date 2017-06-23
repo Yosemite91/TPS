@@ -9,7 +9,7 @@ namespace Usuarios {
         public usuario: KnockoutObservable<IUsuarioModel> = ko.observable<IUsuarioModel>({
             id: null, nombre: null, apellido: null, run: null, contrasena: null, telefono: null, fechaNacimiento: null,
             esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null,
-            correo: null, email: null
+            email: null
         });
         //PopUp
         private popUpCancelarModificar = ko.observable(false);
@@ -116,59 +116,7 @@ namespace Usuarios {
             }
         };
 
-        public botonBloquear = {
-            text: 'Bloquear',
-            type: 'success',
-            icon: 'floppy',
-            onClick: function (e: any) {
-                var UsuarioDTO = {
-                    run: this.usuario().run,
-                };
-                var info = JSON.stringify(UsuarioDTO);
-                $.ajax({
-                    url: App.apiRoot + 'usuarios/bloquear/',
-                    cache: false,
-                    type: 'PUT',
-                    contentType: 'application/json; charset=utf-8',
-                    data: info,
-                    dataType: 'json'
-                }).then(
-                    function (data) {
-                        DevExpress.ui.notify('Usuario Bloqueado', 'success', 3000);
-                        window.location.assign(App.appRoot + 'Usuarios/ListaUsuarios');
-                    },
-                    function (xhr, textStatus, err) {
-                        alert(err);
-                    });
-            }
-        };
-
-        public botonDesbloquear = {
-            text: 'Desbloquear',
-            icon: 'close',
-            type: 'danger',
-            onClick: (e: any): void => {
-                var UsuarioDTO = {
-                    run: this.usuario().run,
-                };
-                var info = JSON.stringify(UsuarioDTO);
-                $.ajax({
-                    url: App.apiRoot + 'usuarios/desbloquear/',
-                    cache: false,
-                    type: 'PUT',
-                    contentType: 'application/json; charset=utf-8',
-                    data: info,
-                    dataType: 'json'
-                }).then(
-                    function (data) {
-                        DevExpress.ui.notify('Usuario Desbloqueado', 'success', 3000);
-                        window.location.assign(App.appRoot + 'Usuarios/ListaUsuarios');
-                    },
-                    function (xhr, textStatus, err) {
-                        alert(err);
-                    });
-            }
-        };
+       
         //Declaración de observables
         public nombreDX: KnockoutObservable<string> = ko.observable<string>();
         public apellidoDX: KnockoutObservable<string> = ko.observable<string>();

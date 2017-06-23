@@ -14,5 +14,11 @@ Namespace Controllers
             ViewData("Title") = "Editar Usuario"
             Return View()
         End Function
+        'Detalle Usuario
+        Function DetalleUsuario() As ActionResult
+            ViewData("Title") = "Detalle Usuario"
+            Return View()
+        End Function
+
     End Class
 End Namespace

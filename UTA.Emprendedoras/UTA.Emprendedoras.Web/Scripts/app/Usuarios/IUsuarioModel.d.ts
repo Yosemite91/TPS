@@ -14,8 +14,6 @@
         sitioWebUrl: string,
         categoria: string,
         foto: string,
-        correo: string,
-
         email: string
     }
 }

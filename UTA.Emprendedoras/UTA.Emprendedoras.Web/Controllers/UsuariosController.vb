@@ -19,6 +19,10 @@ Namespace Controllers
             ViewData("Title") = "Detalle Usuario"
             Return View()
         End Function
-
+        'Mi Perfil
+        Function MiPerfil() As ActionResult
+            ViewData("Title") = "Mi Perfil"
+            Return View()
+        End Function
     End Class
 End Namespace

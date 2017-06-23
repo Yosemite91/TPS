@@ -3,7 +3,6 @@
 End Code
 
 
-
 <div id="cuerpoLista">
     <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
@@ -23,13 +22,6 @@ End Code
     <div id="solicitar-button" data-bind="dxButton: botonBloquear"> </div>
 
 </div>
-
-
-
-
-
-
-
 
 @Section Scripts
     <script src="~/Scripts/app/Usuarios/DetalleUsuarioViewModel.js"></script>

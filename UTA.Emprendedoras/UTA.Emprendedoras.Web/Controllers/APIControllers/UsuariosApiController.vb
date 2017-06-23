@@ -195,5 +195,33 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Restablacer Contraseña"
+        <Route("restablecer-contrasena", Name:="restablecerContrasena")>
+        <HttpPut>
+        Public Async Function RestablecerContrasena(<FromBody> model As UsuarioModel) As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim usuario As New Usuario
+            Try
+                Dim ID As Integer? = Await db.Usuarios _
+                        .Where(Function(u) u.Run = model.Run) _
+                        .Select(Function(u) u.ID) _
+                        .FirstOrDefaultAsync()
+                If String.IsNullOrEmpty(ID) Then
+                    Return Me.Content(HttpStatusCode.BadRequest, String.Format("No existe el usuario asociado a este run. error"))
+                End If
+                usuario = db.Usuarios.Find(ID)
+                With usuario
+                    .Contrasena = My.Settings.PasswordDefault
+                End With
+                Await db.SaveChangesAsync()
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para restablecer contraseña. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+            Return Me.CreatedAtRoute("restablecerContrasena", New With {.Run = usuario.Run}, "Contrseña restablecida")
+        End Function
+#End Region
+
     End Class
 End Namespace

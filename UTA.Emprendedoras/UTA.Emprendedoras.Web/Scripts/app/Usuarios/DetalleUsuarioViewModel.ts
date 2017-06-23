@@ -83,12 +83,25 @@ namespace Usuarios {
             icon: 'refresh',
             type: 'success',
             onClick: function (e: any): void {
-                var run = this.usuario().run;
-                $.getJSON(App.apiRoot + 'usuarios/password/' + run).then((result: IUsuarioModel): void => {
-                    $('#usuario-form').dxForm('instance').repaint();
-                    this.loading(false);
-                });
-                DevExpress.ui.notify('Contraseña Restablecida', 'success', 3000);
+                var UsuarioDTO = {
+                    run: this.usuario().run,
+                };
+                var info = JSON.stringify(UsuarioDTO);
+                $.ajax({
+                    url: App.apiRoot + 'usuarios/restablecer-contrasena/',
+                    cache: false,
+                    type: 'PUT',
+                    contentType: 'application/json; charset=utf-8',
+                    data: info,
+                    dataType: 'json'
+                }).then(
+                    function (data) {
+                        DevExpress.ui.notify('Contraseña Restablecida', 'success', 3000);
+                        window.location.assign(App.appRoot + 'Usuarios/ListaUsuarios');
+                    },
+                    function (xhr, textStatus, err) {
+                        alert(err);
+                    });
             }
         };
         public goBack = {

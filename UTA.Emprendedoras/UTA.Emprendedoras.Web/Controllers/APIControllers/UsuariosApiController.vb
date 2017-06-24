@@ -223,5 +223,23 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Get Usuarios"
+        <Route("get-usuarios", Name:="getUsuarios")>
+        <HttpGet>
+        Public Async Function GetUsuarios() As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim usuarios As List(Of UsuarioModel) = Nothing
+
+            Try
+                usuarios = Await db.Usuarios.ProjectTo(Of UsuarioModel)(mapperConfig).ToListAsync()
+                Return Me.Ok(usuarios)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuarios. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+        End Function
+#End Region
+
     End Class
 End Namespace

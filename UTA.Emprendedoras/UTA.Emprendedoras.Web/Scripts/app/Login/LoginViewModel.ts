@@ -31,8 +31,8 @@ namespace Login {
                 url: App.apiRoot + 'login',
                 type: 'POST',
                 data: {
-                    run: formData.run,
-                    password: formData.contrasena
+                    Run: formData.run,
+                    Contrasena: formData.contrasena
                 },
                 success: (result: any): void => {
                     if (result) {
@@ -80,11 +80,15 @@ namespace Login {
                         editorType: 'dxTextBox',
                         editorOptions: {
                             mode: 'password',
+                            value: ''
                         },
                         validationRules: [{
                             type: 'required',
                             message: 'Campo requerido.'
-                        }]
+                        }],
+                        onValueChanged: (e: any) => {
+                            this.login().contrasena = e.value;
+                        }
                     },
                     <DevExpress.ui.dxButtonOptions>{
                         editorType: 'dxButton',

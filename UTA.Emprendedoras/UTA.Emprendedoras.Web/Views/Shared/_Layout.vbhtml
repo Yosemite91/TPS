@@ -55,7 +55,7 @@
 
     @* LOGIN *@
     <script>
-        esAdminSistema = App.esAdministrador;
+        esAdministrador = App.esAdministrador;
         esAdminPublicacion = App.esAdminPublicacion;
 
         App.apiRoot = '@Url.Content("~/")api/';

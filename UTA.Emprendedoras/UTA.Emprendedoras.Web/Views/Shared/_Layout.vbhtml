@@ -22,11 +22,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    @* SIN LOGIN *@
+                    <!-- ko if: Token !== null -->
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+
+                    @* ADMINISTRADOR O ADMIN-PUBLICACION *@
+                    <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+                    <!-- /ko -->
+
+                        <li> <a href="#" onClick="Salir();"> Cerrar Sesión</a> </li>
+                    <!-- /ko -->
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
@@ -46,7 +55,7 @@
 
     @* LOGIN *@
     <script>
-        esAdminSistema = App.esAdminSistema;
+        esAdminSistema = App.esAdministrador;
         esAdminPublicacion = App.esAdminPublicacion;
 
         App.apiRoot = '@Url.Content("~/")api/';

@@ -6,8 +6,8 @@ namespace App {
     export var apiRoot: string;
     //MODIFICAR PARA LOGIN
     export var appPrefix: string = 'EMPRENDEDORAS.';        
-    export var esAdminSistema: boolean = localStorage.getItem(App.appPrefix + 'login.esAdminSistema');
-    export var esAdminSistema: boolean = localStorage.getItem(App.appPrefix + 'login.esAdminPublicacion');
+    export var esAdministrador: boolean = localStorage.getItem(App.appPrefix + 'login.esAdministrador');
+    export var esAdminPublicacion: boolean = localStorage.getItem(App.appPrefix + 'login.esAdminPublicacion');
     export var runEmprendedor: string  = localStorage.getItem(App.appPrefix + 'login.run');
     
     $.ajaxSetup({
@@ -26,9 +26,8 @@ namespace App {
         }
     }
 
-    export function goToLogin(): any {
-        // MODIFICAR PARA LOGIN               
-        localStorage.removeItem(appPrefix + 'login.esAdminSistema');
+    export function goToLogin(): any {                      
+        localStorage.removeItem(appPrefix + 'login.esAdministrador');
         localStorage.removeItem(appPrefix + 'login.esAdminPublicacion');
         localStorage.removeItem(appPrefix + 'login.token');
         localStorage.removeItem(appPrefix + 'login.run');
@@ -39,7 +38,7 @@ namespace App {
       
     export function anioMinimo(): any {
         var actual = new Date(); 
-        var anioMinimo = actual.getFullYear() - 18;
+        var anioMinimo = actual.getFullYear() - 18;        
         return anioMinimo;
     };
    

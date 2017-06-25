@@ -93,7 +93,6 @@ Namespace Controllers.APIControllers
                     .Run = model.Run
                     .Telefono = model.Telefono
                     .FechaNacimiento = model.FechaNacimiento
-                    .EsActivo = model.EsActivo
                     .EsAdministrador = model.EsAdministrador
                     .EsAdminPublicacion = model.EsAdminPublicacion
                     .SitioWebUrl = model.SitioWebUrl
@@ -238,6 +237,32 @@ Namespace Controllers.APIControllers
             Finally
                 db.Dispose()
             End Try
+        End Function
+#End Region
+
+#Region "Mi Perfil"
+        <Route("mi-perfil", Name:="miPerfil")>
+        <HttpGet>
+        Public Async Function MiPerfil() As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim result As UsuarioModel = New UsuarioModel
+            Dim mapper As AutoMapper.IMapper
+
+
+            Try
+                Dim loggedUser As Usuario = CType(Me.User, Modules.SuitePrincipal).Identity.User
+                Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = loggedUser.Run).SingleOrDefaultAsync()
+                mapper = mapperConfig.CreateMapper()
+                mapper.Map(user, result)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+
+            If result IsNot Nothing Then Return Me.Ok(result)
+            Return Me.Content(HttpStatusCode.NotFound, "Información no encontrada")
+
         End Function
 #End Region
 

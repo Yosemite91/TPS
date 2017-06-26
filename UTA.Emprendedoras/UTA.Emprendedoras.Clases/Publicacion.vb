@@ -7,5 +7,4 @@
     Public Property FechaPublicacion As String
     Public Property Creador As Usuario
     Public Property PublicacionTipo As TipoPublicacion
-
 End Class

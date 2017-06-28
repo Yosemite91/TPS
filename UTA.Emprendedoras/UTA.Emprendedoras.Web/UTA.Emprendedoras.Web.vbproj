@@ -226,10 +226,12 @@
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\APIControllers\LoginApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionEventosApiController.vb" />
+    <Compile Include="Controllers\APIControllers\PublicacionNoticiasApiController.vb" />
     <Compile Include="Controllers\APIControllers\UsuariosApiController.vb" />
     <Compile Include="Controllers\LoginController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\PublicacionEventosController.vb" />
+    <Compile Include="Controllers\PublicacionNoticiasController.vb" />
     <Compile Include="Controllers\UsuariosController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,6 +241,7 @@
     <Compile Include="Models\LoginModel.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="Models\PublicacionEventoModel.vb" />
+    <Compile Include="Models\PublicacionNoticiaModel.vb" />
     <Compile Include="Models\UsuarioModel.vb" />
     <Compile Include="Modules\BasicAuthHttpModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -406,6 +409,7 @@
     <Content Include="Views\Usuarios\ListaUsuarios.vbhtml" />
     <Content Include="Views\Login\Login.vbhtml" />
     <Content Include="Views\PublicacionEventos\CrearPublicacionEvento.vbhtml" />
+    <Content Include="Views\PublicacionNoticias\CrearPublicacionNoticia.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -452,6 +456,8 @@
     <TypeScriptCompile Include="Scripts\app\Login\LoginViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\CrearPublicacionEventoViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\IPublicacionEventoModel.d.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\CrearPublicacionNoticiaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IPublicacionNoticiaModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\CrearUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\DetalleUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\EditarUsuarioViewModel.ts" />

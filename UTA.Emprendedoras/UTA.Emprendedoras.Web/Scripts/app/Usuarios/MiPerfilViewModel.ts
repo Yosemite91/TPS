@@ -164,7 +164,8 @@ namespace Usuarios {
         }
         public loading: KnockoutObservable<boolean> = ko.observable(false);
         constructor() {
-            const run: string = window.location.search.replace('?run=', '');
+            //const run: string = window.location.search.replace('?run=', '');
+            const run: string = window.localStorage.getItem(App.appPrefix + 'login.run');
 
             this.loading(true);
             $.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {

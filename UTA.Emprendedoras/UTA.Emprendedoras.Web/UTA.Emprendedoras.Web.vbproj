@@ -410,6 +410,7 @@
     <Content Include="Views\Login\Login.vbhtml" />
     <Content Include="Views\PublicacionEventos\CrearPublicacionEvento.vbhtml" />
     <Content Include="Views\PublicacionNoticias\CrearPublicacionNoticia.vbhtml" />
+    <Content Include="Views\PublicacionEventos\EditarPublicacionEvento.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -455,6 +456,7 @@
     <TypeScriptCompile Include="Scripts\app\Login\LoginModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Login\LoginViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\CrearPublicacionEventoViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionEventos\EditarPublicacionEventoViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\IPublicacionEventoModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\CrearPublicacionNoticiaViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IPublicacionNoticiaModel.d.ts" />

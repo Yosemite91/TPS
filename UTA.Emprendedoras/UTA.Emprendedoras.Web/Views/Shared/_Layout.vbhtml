@@ -22,7 +22,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                                            @*Etiqueta, Vista, Controlador*@                   
+                           @*Html.ActionLink("Etiqueta", "Vista", "Controlador")*@
                     @* SIN LOGIN *@
                     <!-- ko if: Token !== null -->
                         <li>@Html.ActionLink("Inicio", "Index", "Home")</li>

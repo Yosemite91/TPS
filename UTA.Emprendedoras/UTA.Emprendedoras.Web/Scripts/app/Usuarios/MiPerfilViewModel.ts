@@ -168,13 +168,13 @@ namespace Usuarios {
             const run: string = window.localStorage.getItem(App.appPrefix + 'login.run');
 
             this.loading(true);
-            $.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
+            //$.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
+            $.getJSON(App.apiRoot + 'usuarios/mi-perfil/' + run).then((result: IUsuarioModel): void => {
                 this.usuario(result);
                 $('#usuario-form').dxForm('instance').repaint();
                 $('#usuario-form-contrasena').dxForm('instance').repaint();
                 this.loading(false);
             });
-
         }
     }
 }

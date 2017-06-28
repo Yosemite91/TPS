@@ -17,10 +17,10 @@ End Code
     <div class="row">
         @* INFORMACIÓN EVENTO *@
         <div class="dx-fieldset">
-            <div class="dx-fieldset-header">Información del Noticia</div>
+            <div class="dx-fieldset-header">Información de la Noticia</div>
 
             <div class="dx-field">
-                <div class="dx-field-label">Titulo</div>
+                <div class="dx-field-label">Título</div>
                 <div class="dx-field-value">
                     <div data-bind="dxTextBox: dxTitulo, dxValidator: validatorOptions"></div>
                 </div>

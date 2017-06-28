@@ -17,7 +17,7 @@ End Code
     <div class="row">
         @* INFORMACIÓN USUARIO *@
         <div class="dx-fieldset">
-            <div class="dx-fieldset-header">Información del Emprendedor(a)</div>
+            <div class="dx-fieldset-header">Información del Usuario(a)</div>
 
             <div class="dx-field">
                 <div class="dx-field-label">Nombre</div>

@@ -1,5 +1,5 @@
 ﻿@Code
-    ViewData("Title") = "DetallePublicacionEvento"
+    ViewData("Title") = "DetallePublicacionNoticia"
 End Code
 
 <div id="cuerpoLista">
@@ -11,15 +11,15 @@ End Code
         </div>
     </div>
 
-    <div id="evento-form" data-bind="dxForm: form"></div>
+    <div id="noticia-form" data-bind="dxForm: form"></div>
 
 </div>
 
 
 @Section Scripts
-    <script src="~/Scripts/app/PublicacionEventos/DetallePublicacionEventoViewModel.js"></script>
+    <script src="~/Scripts/app/PublicacionNoticias/DetallePublicacionNoticiaViewModel.js"></script>
     <script>
-        ko.applyBindings(new PublicacionEventos.DetallePublicacionEventoViewModel());
+        ko.applyBindings(new PublicacionNoticias.DetallePublicacionNoticiaViewModel());
     </script>
 End Section
 

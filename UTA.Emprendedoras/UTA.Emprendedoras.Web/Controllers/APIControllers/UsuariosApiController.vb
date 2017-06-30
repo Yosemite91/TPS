@@ -241,17 +241,15 @@ Namespace Controllers.APIControllers
 #End Region
 
 #Region "Mi Perfil"
-        <Route("mi-perfil", Name:="miPerfil")>
+        <Route("mi-perfil/{run:regex(^[1-9][0-9]{0,7}-[0-9kK]$)}", Name:="miPerfil")>
         <HttpGet>
-        Public Async Function MiPerfil() As Task(Of IHttpActionResult)
+        Public Async Function MiPerfil(run As String) As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
             Dim result As UsuarioModel = New UsuarioModel
             Dim mapper As AutoMapper.IMapper
 
-
             Try
-                Dim loggedUser As Usuario = CType(Me.User, Modules.SuitePrincipal).Identity.User
-                Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = loggedUser.Run).SingleOrDefaultAsync()
+                Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = run).SingleOrDefaultAsync()
                 mapper = mapperConfig.CreateMapper()
                 mapper.Map(user, result)
             Catch ex As Exception

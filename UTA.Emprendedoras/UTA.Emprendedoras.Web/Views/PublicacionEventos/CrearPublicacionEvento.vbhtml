@@ -20,7 +20,7 @@ End Code
             <div class="dx-fieldset-header">Información del Evento</div>
 
             <div class="dx-field">
-                <div class="dx-field-label">Titulo</div>
+                <div class="dx-field-label">Título</div>
                 <div class="dx-field-value">
                     <div data-bind="dxTextBox: dxTitulo, dxValidator: validatorOptions"></div>
                 </div>

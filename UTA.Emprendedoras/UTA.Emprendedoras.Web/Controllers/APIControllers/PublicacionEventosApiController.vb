@@ -47,5 +47,51 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Get Evento"
+        <Route("get/{id:int}", Name:="getEvento")>
+        <HttpGet>
+        Public Async Function GetEvento(id As Integer) As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim result As PublicacionEventoModel = New PublicacionEventoModel
+            Dim mapper As AutoMapper.IMapper
+            Try
+                Dim evento As Publicacion = Await db.Publicaciones.Where(Function(u) u.ID = id).SingleOrDefaultAsync()
+                mapper = mapperConfig.CreateMapper()
+                mapper.Map(evento, result)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar evento. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+
+            If result IsNot Nothing Then Return Me.Ok(result)
+            Return Me.Content(HttpStatusCode.NotFound, "Información no encontrada")
+
+        End Function
+#End Region
+
+#Region "Editar Evento"
+        <Route("editar", Name:="editarEvento")>
+        <HttpPut>
+        Public Async Function EditarEvento(<FromBody> model As PublicacionEventoModel) As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim evento As New Publicacion
+            Try
+
+                evento = db.Publicaciones.Find(model.ID)
+                With evento
+                    .Titulo = model.Titulo
+                    .Descripcion = model.Descripcion
+                End With
+                Await db.SaveChangesAsync()
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para guardar cambios. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+            Return Me.CreatedAtRoute("editarEvento", New With {.ID = evento.ID}, "Evento  Modificado exitosamente")
+        End Function
+#End Region
+
     End Class
 End Namespace

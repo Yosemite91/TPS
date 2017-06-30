@@ -8,5 +8,10 @@ Namespace Controllers
         Function CrearPublicacionEvento() As ActionResult
             Return View()
         End Function
+
+        ' Editar Publicación Eventos
+        Function EditarPublicacionEvento() As ActionResult
+            Return View()
+        End Function
     End Class
 End Namespace

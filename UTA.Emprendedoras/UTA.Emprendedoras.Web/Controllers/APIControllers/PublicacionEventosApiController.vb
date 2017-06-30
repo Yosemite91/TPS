@@ -32,7 +32,7 @@ Namespace Controllers.APIControllers
                 mapper.Map(model, evento)
 
                 With evento
-                    .FechaPublicacion = Now
+                    'fechaPublicacion = Now
                     .PublicacionTipo = TipoPublicacion.Evento
                 End With
 

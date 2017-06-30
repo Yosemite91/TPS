@@ -4,13 +4,18 @@ Namespace Controllers
     Public Class PublicacionEventosController
         Inherits Controller
 
-        ' Crear Publicación Eventos
+        ' Crear Publicación Evento
         Function CrearPublicacionEvento() As ActionResult
             Return View()
         End Function
 
-        ' Editar Publicación Eventos
+        ' Editar Publicación Evento
         Function EditarPublicacionEvento() As ActionResult
+            Return View()
+        End Function
+
+        'Detalle Publicacion Envento
+        Function DetallePublicacionEvento() As ActionResult
             Return View()
         End Function
     End Class

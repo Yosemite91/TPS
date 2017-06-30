@@ -8,5 +8,11 @@ Namespace Controllers
         Function CrearPublicacionNoticia() As ActionResult
             Return View()
         End Function
+
+        ' Editar Publicación Noticias
+        Function EditarPublicacionNoticia() As ActionResult
+            Return View()
+        End Function
+
     End Class
 End Namespace

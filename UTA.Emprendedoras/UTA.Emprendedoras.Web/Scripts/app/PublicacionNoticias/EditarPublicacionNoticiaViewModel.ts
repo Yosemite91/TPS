@@ -28,12 +28,12 @@ namespace PublicacionNoticias {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: (e: any): void => {
-                    var EventoDTO = {
+                    var NoticiaDTO = {
                         id: this.noticia().id,
                         titulo: this.noticia().titulo,
                         descripcion: this.noticia().descripcion
                     };
-                    var info = JSON.stringify(EventoDTO);
+                    var info = JSON.stringify(NoticiaDTO);
 
                     $.ajax({
                         url: App.apiRoot + 'publicacion-noticias/editar/',
@@ -82,16 +82,16 @@ namespace PublicacionNoticias {
             onClick: function (e: any) {
                 var result = e.validationGroup.validate();
 
-                var UsuarioValidacion = {
-                    nombre: this.evento().titulo,
-                    descripcion: this.evento().descripcion,
+                var NoticiaValidacion = {
+                    titulo: this.noticia().titulo,
+                    descripcion: this.noticia().descripcion,
                 };
 
                 if (result.isValid) {
                     this.popUpModificarUsuario(true);
                 }
                 else {
-                    App.alertaFormulario(UsuarioValidacion);
+                    App.alertaFormulario(NoticiaValidacion);
                 }
             }
         };

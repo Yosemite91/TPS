@@ -92,5 +92,6 @@ Namespace Controllers.APIControllers
             Return Me.CreatedAtRoute("editarEvento", New With {.ID = evento.ID}, "Evento  Modificado exitosamente")
         End Function
 #End Region
+
     End Class
 End Namespace

@@ -18,5 +18,10 @@ Namespace Controllers
         Function DetallePublicacionEvento() As ActionResult
             Return View()
         End Function
+
+        'Listar Eventos
+        Function ListarPublicacionEventos() As ActionResult
+            Return View()
+        End Function
     End Class
 End Namespace

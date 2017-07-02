@@ -93,5 +93,22 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Get Eventos"
+        <Route("get-eventos", Name:="getEventos")>
+        <HttpGet>
+        Public Async Function GetEventos() As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim eventos As List(Of PublicacionEventoModel) = Nothing
+            Try
+                eventos = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Evento).ProjectTo(Of PublicacionEventoModel)(mapperConfig).ToListAsync()
+                Return Me.Ok(eventos)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar eventos. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+        End Function
+#End Region
+
     End Class
 End Namespace

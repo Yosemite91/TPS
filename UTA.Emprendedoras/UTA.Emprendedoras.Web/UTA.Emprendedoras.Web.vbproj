@@ -415,6 +415,7 @@
     <Content Include="Views\PublicacionEventos\DetallePublicacionEvento.vbhtml" />
     <Content Include="Views\PublicacionNoticias\DetallePublicacionNoticia.vbhtml" />
     <Content Include="Views\PublicacionEventos\ListarPublicacionEventos.vbhtml" />
+    <Content Include="Views\PublicacionNoticias\ListarPublicacionNoticias.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -468,6 +469,7 @@
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\DetallePublicacionNoticiaViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\EditarPublicacionNoticiaViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IPublicacionNoticiaModel.d.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\ListarPublicacionNoticiasViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\CrearUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\DetalleUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\EditarUsuarioViewModel.ts" />

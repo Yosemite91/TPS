@@ -18,5 +18,10 @@ Namespace Controllers
         Function DetallePublicacionNoticia() As ActionResult
             Return View()
         End Function
+
+        ' Listar Publicacion Noticias
+        Function ListarPublicacionNoticias() As ActionResult
+            Return View()
+        End Function
     End Class
 End Namespace

@@ -94,5 +94,22 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Get Noticias"
+        <Route("get-noticias", Name:="getnoticias")>
+        <HttpGet>
+        Public Async Function GetNoticias() As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim noticias As List(Of PublicacionNoticiaModel) = Nothing
+            Try
+                noticias = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Noticia).ProjectTo(Of PublicacionNoticiaModel)(mapperConfig).ToListAsync()
+                Return Me.Ok(noticias)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar noticias. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+        End Function
+#End Region
+
     End Class
 End Namespace

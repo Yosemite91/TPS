@@ -1,29 +1,29 @@
 ﻿/// <reference path='../../typings/jquery/jquery.d.ts' />
 /// <reference path='../../typings/knockout/knockout.d.ts' />
 /// <reference path='../../typings/devextreme/devextreme.d.ts' />
-/// <reference path='IPublicacionEventoModel.d.ts' />
+/// <reference path='IPublicacionNoticiaModel.d.ts' />
 
-namespace PublicacionEventos {
-    export class ListarPublicacionEventosViewModel {
-        public eventos: KnockoutObservable<any> = ko.observable<any>();
+namespace PublicacionNoticias {
+    export class ListarPublicacionNoticiasViewModel {
+        public noticias: KnockoutObservable<any> = ko.observable<any>();
 
         //Buttons
         public applyButtonOptionsCrear = {
-            text: 'Crear Evento',
+            text: 'Crear Noticia',
             icon: 'plus',
             type: 'success',
             onClick: function (e: any) {
-                let url: string = App.appRoot + 'PublicacionEventos/CrearPublicacionEvento';
+                let url: string = App.appRoot + 'PublicacionNoticias/CrearPublicacionNoticia';
                 window.location.assign(url);
             }
         };
 
         //Formulario
         public grid: DevExpress.ui.dxDataGridOptions = {
-            dataSource: this.eventos,
+            dataSource: this.noticias,
             onRowClick: (e: DevExpress.ui.dxDataGridRow) => {
-                const data: IPublicacionEventoModel = <IPublicacionEventoModel>e.data;
-                let url: string = App.appRoot + 'PublicacionEventos/DetallePublicacionEvento';
+                const data: IPublicacionNoticiaModel = <IPublicacionNoticiaModel>e.data;
+                let url: string = App.appRoot + 'PublicacionNoticias/DetallePublicacionNoticia';
                 if (data.id != undefined) {
                     url = url + '?id=' + data.id;
                 }
@@ -52,8 +52,8 @@ namespace PublicacionEventos {
         constructor() {
             this.loading(true);
             //Cargar Eventos
-            $.getJSON(App.apiRoot + 'publicacion-eventos/get-eventos/').then((result: IPublicacionEventoModel[]): void => {
-                this.eventos(result);
+            $.getJSON(App.apiRoot + 'publicacion-noticias/get-noticias/').then((result: IPublicacionNoticiaModel[]): void => {
+                this.noticias(result);
                 this.loading(false);
             });
         }

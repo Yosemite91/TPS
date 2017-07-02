@@ -25,14 +25,13 @@
                            @*Html.ActionLink("Etiqueta", "Vista", "Controlador")*@
                     @* SIN LOGIN *@
                     <!-- ko if: Token !== null -->
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Perfil", "MiPerfil", "Usuarios")</li>
 
                     @* ADMINISTRADOR O ADMIN-PUBLICACION *@
                     <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
                         <li>@Html.ActionLink("Usuarios", "ListaUsuarios", "Usuarios")</li>
+                        <li>@Html.ActionLink("Eventos", "ListaPublicacionEventos", "PublicacionEventos")</li>
+                        <li>@Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")</li>
                     <!-- /ko -->
 
                         <li> <a href="#" onClick="Salir();"> Cerrar Sesión</a> </li>

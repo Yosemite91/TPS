@@ -20,7 +20,7 @@ Namespace Controllers
         End Function
 
         'Listar Eventos
-        Function ListarPublicacionEventos() As ActionResult
+        Function ListaPublicacionEventos() As ActionResult
             Return View()
         End Function
     End Class

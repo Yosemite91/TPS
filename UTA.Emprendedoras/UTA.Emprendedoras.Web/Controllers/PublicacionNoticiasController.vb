@@ -20,7 +20,7 @@ Namespace Controllers
         End Function
 
         ' Listar Publicacion Noticias
-        Function ListarPublicacionNoticias() As ActionResult
+        Function ListaPublicacionNoticias() As ActionResult
             Return View()
         End Function
     End Class

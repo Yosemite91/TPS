@@ -223,13 +223,11 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
-    <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\APIControllers\LoginApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionEventosApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionNoticiasApiController.vb" />
     <Compile Include="Controllers\APIControllers\UsuariosApiController.vb" />
     <Compile Include="Controllers\LoginController.vb" />
-    <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\PublicacionEventosController.vb" />
     <Compile Include="Controllers\PublicacionNoticiasController.vb" />
     <Compile Include="Controllers\UsuariosController.vb" />
@@ -259,7 +257,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -380,24 +377,6 @@
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.debug.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.node.js" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.vbhtml" />
-    <Content Include="Views\Account\ConfirmEmail.vbhtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.vbhtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.vbhtml" />
-    <Content Include="Views\Account\ForgotPassword.vbhtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.vbhtml" />
-    <Content Include="Views\Account\Login.vbhtml" />
-    <Content Include="Views\Account\Register.vbhtml" />
-    <Content Include="Views\Account\ResetPassword.vbhtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.vbhtml" />
-    <Content Include="Views\Account\SendCode.vbhtml" />
-    <Content Include="Views\Account\VerifyCode.vbhtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.vbhtml" />
-    <Content Include="Views\Manage\ChangePassword.vbhtml" />
-    <Content Include="Views\Manage\Index.vbhtml" />
-    <Content Include="Views\Manage\ManageLogins.vbhtml" />
-    <Content Include="Views\Manage\SetPassword.vbhtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.vbhtml" />
     <Content Include="Views\Shared\Lockout.vbhtml" />
     <Content Include="Views\Shared\_LoginPartial.vbhtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
@@ -414,8 +393,8 @@
     <Content Include="Views\PublicacionNoticias\EditarPublicacionNoticia.vbhtml" />
     <Content Include="Views\PublicacionEventos\DetallePublicacionEvento.vbhtml" />
     <Content Include="Views\PublicacionNoticias\DetallePublicacionNoticia.vbhtml" />
-    <Content Include="Views\PublicacionEventos\ListarPublicacionEventos.vbhtml" />
-    <Content Include="Views\PublicacionNoticias\ListarPublicacionNoticias.vbhtml" />
+    <Content Include="Views\PublicacionEventos\ListaPublicacionEventos.vbhtml" />
+    <Content Include="Views\PublicacionNoticias\ListaPublicacionNoticias.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -432,9 +411,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.vbhtml" />
-    <Content Include="Views\Home\About.vbhtml" />
-    <Content Include="Views\Home\Contact.vbhtml" />
-    <Content Include="Views\Home\Index.vbhtml" />
     <Content Include="Views\Shared\Error.vbhtml" />
     <Content Include="Views\Shared\_Layout.vbhtml" />
     <Content Include="Views\Web.config" />

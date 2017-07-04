@@ -18,7 +18,32 @@ namespace PublicacionEventos {
                 window.location.assign(App.appRoot + 'PublicacionEventos/EditarPublicacionEvento?id=' + id);
             }
         };
-
+        public botonEliminar= {
+            text: 'Eliminar',
+            type: 'danger',
+            icon: 'close',
+            onClick: function (e: any) {
+                var EventoDTO = {
+                    id: this.evento().id,
+                };
+                var info = JSON.stringify(EventoDTO);
+                $.ajax({
+                    url: App.apiRoot + 'publicacion-eventos/eliminar/',
+                    cache: false,
+                    type: 'PUT',
+                    contentType: 'application/json; charset=utf-8',
+                    data: info,
+                    dataType: 'json'
+                }).then(
+                    function (data) {
+                        DevExpress.ui.notify('Evento Eliminado', 'success', 3000);
+                        window.location.assign(App.appRoot + 'PublicacionEventos/ListaPublicacionEventos');
+                    },
+                    function (xhr, textStatus, err) {
+                        alert(err);
+                    });
+            }
+        };
         //Formulario
         public form: DevExpress.ui.dxFormOptions = {
             formData: this.evento,
@@ -35,15 +60,15 @@ namespace PublicacionEventos {
                     itemType: 'group',
                     caption: 'Información Evento',
                     items: ['titulo', 'descripcion'
-                        //,
-                        //<DevExpress.ui.dxFormSimpleItem>{
-                        //    dataField: 'fechaPublicacion',
-                        //    editorType: 'dxDateBox',
-                        //    editorOptions: {
-                        //        displayFormat: 'MM/dd/yyyy',
-                        //        width: 'auto'
-                        //    }
-                        //}
+                        ,
+                        <DevExpress.ui.dxFormSimpleItem>{
+                            dataField: 'fechaPublicacion',
+                            editorType: 'dxDateBox',
+                            editorOptions: {
+                                displayFormat: 'MM/dd/yyyy',
+                                width: 'auto'
+                            }
+                        }
                     ]
                 }]
         };

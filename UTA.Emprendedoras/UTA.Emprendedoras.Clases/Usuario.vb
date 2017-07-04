@@ -14,5 +14,5 @@
     Public Property Categoria As String
     Public Property Foto As String
     Public Overridable Property PublicacionesCreadas As IList(Of Publicacion)
-
+    Public Property Email As String
 End Class

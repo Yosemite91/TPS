@@ -12,7 +12,7 @@ End Code
     </div>
 
     <div id="evento-form" data-bind="dxForm: form"></div>
-
+    <div id="solicitar-button" data-bind="dxButton: botonEliminar"> </div>
 </div>
 
 

@@ -30,7 +30,7 @@ namespace PublicacionEventos {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: function (e: any) {
-                    window.location.assign(App.appRoot + 'PublicacionEventos/ListaEventos');
+                    window.location.assign(App.appRoot + 'PublicacionEventos/ListaPublicacionEventos');
                 }
             }
             ]
@@ -69,7 +69,7 @@ namespace PublicacionEventos {
                     }).then(
                         function (data) {
                             DevExpress.ui.notify('EVENTO CREADO', 'success', 3000);
-                            window.location.assign(App.appRoot + 'PublicacionEventos/ListaEventos');
+                            window.location.assign(App.appRoot + 'PublicacionEventos/ListaPublicacionEventos');
                         },
                         function (xhr, textStatus, err) {
                             alert(err);

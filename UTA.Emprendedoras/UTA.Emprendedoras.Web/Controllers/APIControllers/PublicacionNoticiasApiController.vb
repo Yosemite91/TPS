@@ -33,7 +33,8 @@ Namespace Controllers.APIControllers
                 mapper.Map(model, noticia)
 
                 With noticia
-                    '    .FechaPublicacion = Now
+                    .FechaPublicacion = Now
+                    .EsActivo = True
                     .PublicacionTipo = TipoPublicacion.Noticia
                 End With
 
@@ -101,7 +102,7 @@ Namespace Controllers.APIControllers
             Dim db As New EmprendedorasDbContext()
             Dim noticias As List(Of PublicacionNoticiaModel) = Nothing
             Try
-                noticias = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Noticia).ProjectTo(Of PublicacionNoticiaModel)(mapperConfig).ToListAsync()
+                noticias = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Noticia AndAlso e.EsActivo).ProjectTo(Of PublicacionNoticiaModel)(mapperConfig).ToListAsync()
                 Return Me.Ok(noticias)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar noticias. Error: {0}", ex.Message))

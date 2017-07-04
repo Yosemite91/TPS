@@ -32,7 +32,8 @@ Namespace Controllers.APIControllers
                 mapper.Map(model, evento)
 
                 With evento
-                    'fechaPublicacion = Now
+                    .FechaPublicacion = Now
+                    .EsActivo = True
                     .PublicacionTipo = TipoPublicacion.Evento
                 End With
 
@@ -100,7 +101,7 @@ Namespace Controllers.APIControllers
             Dim db As New EmprendedorasDbContext()
             Dim eventos As List(Of PublicacionEventoModel) = Nothing
             Try
-                eventos = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Evento).ProjectTo(Of PublicacionEventoModel)(mapperConfig).ToListAsync()
+                eventos = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Evento AndAlso e.EsActivo).ProjectTo(Of PublicacionEventoModel)(mapperConfig).ToListAsync()
                 Return Me.Ok(eventos)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar eventos. Error: {0}", ex.Message))
@@ -110,5 +111,25 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Eliminar Evento"
+        <Route("eliminar", Name:="eliminarEvento")>
+        <HttpPut>
+        Public Async Function EliminarEvento(<FromBody> model As PublicacionEventoModel) As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim evento As New Publicacion
+            Try
+                evento = db.Publicaciones.Find(model.ID)
+                With evento
+                    .EsActivo = False
+                End With
+                Await db.SaveChangesAsync()
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para deshabilitar el evento. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+            Return Me.CreatedAtRoute("eliminarEvento", New With {.ID = evento.ID}, "Evento deshabilitado")
+        End Function
+#End Region
     End Class
 End Namespace

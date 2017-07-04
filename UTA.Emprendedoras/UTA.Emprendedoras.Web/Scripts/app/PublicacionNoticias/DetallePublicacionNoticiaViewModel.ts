@@ -19,6 +19,32 @@ namespace PublicacionNoticias {
             }
         };
 
+        public botonEliminar = {
+            text: 'Eliminar',
+            type: 'danger',
+            icon: 'close',
+            onClick: function (e: any) {
+                var EventoDTO = {
+                    id: this.evento().id,
+                };
+                var info = JSON.stringify(EventoDTO);
+                $.ajax({
+                    url: App.apiRoot + 'publicacion-noticias/eliminar/',
+                    cache: false,
+                    type: 'PUT',
+                    contentType: 'application/json; charset=utf-8',
+                    data: info,
+                    dataType: 'json'
+                }).then(
+                    function (data) {
+                        DevExpress.ui.notify('Noticia Eliminado', 'success', 3000);
+                        window.location.assign(App.appRoot + 'PublicacionNoticias/ListaPublicacionNoticias');
+                    },
+                    function (xhr, textStatus, err) {
+                        alert(err);
+                    });
+            }
+        };
         //Formulario
         public form: DevExpress.ui.dxFormOptions = {
             formData: this.noticia,
@@ -35,15 +61,15 @@ namespace PublicacionNoticias {
                     itemType: 'group',
                     caption: 'Información Noticia',
                     items: ['titulo', 'descripcion'
-                        //,
-                        //<DevExpress.ui.dxFormSimpleItem>{
-                        //    dataField: 'fechaPublicacion',
-                        //    editorType: 'dxDateBox',
-                        //    editorOptions: {
-                        //        displayFormat: 'MM/dd/yyyy',
-                        //        width: 'auto'
-                        //    }
-                        //}
+                        ,
+                        <DevExpress.ui.dxFormSimpleItem>{
+                            dataField: 'fechaPublicacion',
+                            editorType: 'dxDateBox',
+                            editorOptions: {
+                                displayFormat: 'MM/dd/yyyy',
+                                width: 'auto'
+                            }
+                        }
                     ]
                 }]
         };

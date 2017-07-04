@@ -3,7 +3,7 @@ Imports System.Data.Entity.Migrations
 Imports Microsoft.VisualBasic
 
 Namespace Migrations
-    Public Partial Class initialmigration
+    Public Partial Class initial
         Inherits DbMigration
     
         Public Overrides Sub Up()
@@ -49,6 +49,7 @@ Namespace Migrations
                         .SitioWebUrl = c.String(),
                         .Categoria = c.String(),
                         .Foto = c.String(),
+                        .Email = c.String(),
                         .Reunion_ID = c.Int()
                     }) _
                 .PrimaryKey(Function(t) t.ID) _
@@ -63,8 +64,10 @@ Namespace Migrations
                         .Titulo = c.String(),
                         .Descripcion = c.String(),
                         .Foto = c.String(),
-                        .FechaPublicacion = c.String(),
+                        .FechaPublicacion = c.DateTime(nullable := False),
                         .PublicacionTipo = c.Int(nullable := False),
+                        .FechaRealizacion = c.DateTime(nullable := False),
+                        .EsActivo = c.Boolean(nullable := False),
                         .Creador_ID = c.Int()
                     }) _
                 .PrimaryKey(Function(t) t.ID) _

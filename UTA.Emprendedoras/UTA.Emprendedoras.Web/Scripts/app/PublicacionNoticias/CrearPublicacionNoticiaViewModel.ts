@@ -30,7 +30,7 @@ namespace PublicacionNoticias {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: function (e: any) {
-                    window.location.assign(App.appRoot + 'PublicacionNoticias/ListaNoticias');
+                    window.location.assign(App.appRoot + 'PublicacionNoticias/ListaPublicacionNoticias');
                 }
             }
             ]
@@ -68,7 +68,7 @@ namespace PublicacionNoticias {
                     }).then(
                         function (data) {
                             DevExpress.ui.notify('NOTICIA CREADO', 'success', 3000);
-                            window.location.assign(App.appRoot + 'PublicacionNoticias/ListasNoticias');
+                            window.location.assign(App.appRoot + 'PublicacionNoticias/ListaPublicacionNoticias');
                         },
                         function (xhr, textStatus, err) {
                             alert(err);

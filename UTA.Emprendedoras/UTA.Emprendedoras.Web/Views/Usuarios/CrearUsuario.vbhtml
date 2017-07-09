@@ -5,8 +5,7 @@ End Code
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 
-<div id="cuerpoLista">
-
+<div class="container">
     <div class="row">
         <div id="botonesDetalle">
             <div id="solicitar-button" data-bind="dxButton: botonCancelar"> </div>
@@ -17,7 +16,7 @@ End Code
     <div class="row">
         @* INFORMACIÓN USUARIO *@
         <div class="dx-fieldset">
-            <div class="dx-fieldset-header">Información del Usuario(a)</div>
+            <div class="dx-fieldset-header">Información del Usuario</div>
 
             <div class="dx-field">
                 <div class="dx-field-label">Nombre</div>

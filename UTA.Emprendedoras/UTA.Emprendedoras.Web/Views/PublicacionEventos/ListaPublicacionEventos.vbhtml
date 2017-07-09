@@ -2,7 +2,7 @@
     ViewData("Title") = "ListarPublicacionEventos"
 End Code
 
-<div id="cuerpoLista">
+<divclass="container">
     <div class="long-title"><h3>Eventos</h3></div>
     <div id="botonCrear" data-bind="dxButton: applyButtonOptionsCrear"> </div>
     <div id="grid" data-bind="dxDataGrid: grid"></div>

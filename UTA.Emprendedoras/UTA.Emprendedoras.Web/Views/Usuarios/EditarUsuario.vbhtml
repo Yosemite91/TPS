@@ -5,7 +5,7 @@ End Code
 <div data-bind="dxPopup: popUpModificar"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 
-<div id="cuerpoLista">
+<div class="container">
     <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
     <div class="row">

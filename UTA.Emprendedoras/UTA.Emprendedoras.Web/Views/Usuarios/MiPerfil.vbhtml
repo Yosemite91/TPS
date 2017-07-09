@@ -2,12 +2,9 @@
     ViewData("Title") = "MiPerfil"
 End Code
 <div data-bind="dxPopup: popUpCambiarPass"></div>
-<div id="cuerpoLista">
-    <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
-    <div id="botonesDetalle">
-        <div id="volver" data-bind="dxButton: goBack"> </div>
-    </div>
+<div class="container">    
+    <div data-bind="dxLoadPanel: { visible: loading }"></div>    
 
     <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
     <div id="usuario-form" data-bind="dxForm: form"></div>

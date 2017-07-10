@@ -5,7 +5,7 @@ End Code
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 
-<div id="cuerpoLista">
+<div class="container">
 
     <div class="row">
         <div id="botonesDetalle">

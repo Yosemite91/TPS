@@ -2,7 +2,7 @@
     ViewData("Title") = "Lista Usuarios"
 End Code
 
-<div id="cuerpoLista">
+<div class="container">
     <div class="long-title"><h3>Usuarios</h3></div>
 
     <div id="botonCrear" data-bind="dxButton: applyButtonOptionsCrear"> </div>

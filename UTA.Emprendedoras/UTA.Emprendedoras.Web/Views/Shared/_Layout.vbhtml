@@ -10,42 +10,60 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Asociación de Emprendedoras", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                           @*Html.ActionLink("Etiqueta", "Vista", "Controlador")*@
-                    @* SIN LOGIN *@
-                    <!-- ko if: Token !== null -->
-                        <li>@Html.ActionLink("Perfil", "MiPerfil", "Usuarios")</li>
-
-                    @* ADMINISTRADOR O ADMIN-PUBLICACION *@
-                    <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
-                        <li>@Html.ActionLink("Usuarios", "ListaUsuarios", "Usuarios")</li>
-                        <li>@Html.ActionLink("Eventos", "ListaPublicacionEventos", "PublicacionEventos")</li>
-                        <li>@Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")</li>
-                    <!-- /ko -->
-
-                        <li> <a href="#" onClick="Salir();"> Cerrar Sesión</a> </li>
-                    <!-- /ko -->
-                </ul>
-                @*@Html.Partial("_LoginPartial")*@
-            </div>
-        </div>
-    </div>
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+        <i class="glyphicon glyphicon-menu-hamburger"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+                <i class="glyphicon glyphicon-remove"> </i>
+            </a>
+            <!-- ko if: Token !== null -->
+            <li class="sidebar-brand">                
+                @Html.ActionLink("Perfil", "MiPerfil", "Usuarios")
+                @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@                
+            </li>
+            @* ADMINISTRADOR O ADMIN-PUBLICACION *@
+            <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+            <li>                
+                @Html.ActionLink("Usuarios", "ListaUsuarios", "Usuarios")
+                @*<a href="#top" onclick=$("#menu-close").click();>Home</a>*@                
+            </li>
+            <li>
+                @Html.ActionLink("Eventos", "ListaPublicacionEventos", "PublicacionEventos")
+                @*<a href="#about" onclick=$("#menu-close").click();>About</a>*@
+            </li>
+            <li>
+                @Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
+                @*<a href="#services" onclick=$("#menu-close").click();>Services</a>*@
+            </li>
+            <li>
+                @*<a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>*@
+            </li>
+            <li>
+                <a href="#" onClick="Salir();"> Cerrar Sesión</a>
+                @*<a href="#contact" onclick=$("#menu-close").click();>Contact</a>*@
+            </li>
+            <!-- /ko -->
+            <!-- /ko -->
+        </ul>
+    </nav>
+    
     <div class="container body-content">
-        @RenderBody()
-        <hr />
+        @RenderBody()      
+
+        <!-- Footer -->
         <footer>
-            <p id="footerTexto">&copy; @DateTime.Now.Year - Asociación de Emprendedoras - Arica</p>
+            <div class="container">
+                <div class="row">                              
+                    <hr class="small">
+                    <p id="footerTexto">&copy; @DateTime.Now.Year - Asociación de Emprendedoras - Arica</p>
+                </div>                
+            </div>
+            <a id="to-top" href="#top" class="btn btn-dark btn-lg">
+                <i class="glyphicon glyphicon-chevron-up"></i>
+            </a>
         </footer>
     </div>
 
@@ -67,6 +85,57 @@
         function Salir(){
             App.goToLogin();
         }
+
+        // Closes the sidebar menu
+        $("#menu-close").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        //Opens the sidebar menu
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        // Scrolls to the selected menu item on the page
+        $(function () {
+            $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+        //#to-top button appears after scrolling
+        var fixed = false;
+        $(document).scroll(function () {
+            if ($(this).scrollTop() > 250) {
+                if (!fixed) {
+                    fixed = true;
+                    // $('#to-top').css({position:'fixed', display:'block'});
+                    $('#to-top').show("slow", function () {
+                        $('#to-top').css({
+                            position: 'fixed',
+                            display: 'block'
+                        });
+                    });
+                }
+            } else {
+                if (fixed) {
+                    fixed = false;
+                    $('#to-top').hide("slow", function () {
+                        $('#to-top').css({
+                            display: 'none'
+                        });
+                    });
+                }
+            }
+        });
     </script>
     
     @RenderSection("scripts", required:=False)

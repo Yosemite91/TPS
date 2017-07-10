@@ -2,7 +2,7 @@
     ViewData("Title") = "DetallePublicacionEvento"
 End Code
 
-<div id="cuerpoLista">
+<div class="container">
     <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
     <div class="row">

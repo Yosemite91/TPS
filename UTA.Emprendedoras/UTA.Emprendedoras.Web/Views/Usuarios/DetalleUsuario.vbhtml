@@ -2,11 +2,12 @@
     ViewData("Title") = "DetalleUsuario"
 End Code
 
-
 <div class="container">
+    <div class="long-title"><h3>Detalle Usuario</h3></div>
+
     <div class="row">
         <div data-bind="dxLoadPanel: { visible: loading }"></div>
-
+        
         <div id="botonesDetalle">
             <div id="volver" data-bind="dxButton: goBack"> </div>
             <div id="solicitar-button" data-bind="dxButton: applyButtonOptionsRestaurarPass"> </div>
@@ -14,9 +15,11 @@ End Code
 
         <div id="usuario-form" data-bind="dxForm: form"></div>
 
-        <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
-        <div id="solicitar-button" data-bind="dxButton: botonDesbloquear"> </div>
-        <div id="solicitar-button" data-bind="dxButton: botonBloquear"> </div>
+        <div class="row">
+            <div id="solicitar-button" data-bind="dxButton: botonBloquear"> </div>
+            <div id="solicitar-button" data-bind="dxButton: botonDesbloquear"> </div>            
+            <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
+        </div>
     </div>
 </div>
 

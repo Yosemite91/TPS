@@ -45,6 +45,15 @@ namespace PublicacionNoticias {
                     });
             }
         };
+
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
+            }
+        };
+
         //Formulario
         public form: DevExpress.ui.dxFormOptions = {
             formData: this.noticia,
@@ -60,8 +69,11 @@ namespace PublicacionNoticias {
                 <DevExpress.ui.dxFormGroupItem>{
                     itemType: 'group',
                     caption: 'Información Noticia',
-                    items: ['titulo', 'descripcion'
-                        ,
+                    items: ['titulo', 
+                        <DevExpress.ui.dxFormSimpleItem>{
+                            dataField: 'descripcion',
+                            editorType: 'dxTextArea'
+                        },                        
                         <DevExpress.ui.dxFormSimpleItem>{
                             dataField: 'fechaPublicacion',
                             editorType: 'dxDateBox',

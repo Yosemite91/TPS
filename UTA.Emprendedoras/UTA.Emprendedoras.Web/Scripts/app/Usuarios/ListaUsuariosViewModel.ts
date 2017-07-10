@@ -30,6 +30,14 @@ namespace Usuarios{
                 }
                 window.location.assign(url);
             },
+            //selection: {
+            //    mode: "multiple",
+            //},
+            //"export": {
+            //    enabled: true,
+            //    fileName: "ListaUsuarios",
+            //    allowExportSelectedData: true
+            //},
             searchPanel: {
                 visible: true,
                 width: 240,
@@ -41,7 +49,7 @@ namespace Usuarios{
             columnHidingEnabled: false,
             paging: {
                 pageSize: 9
-            },
+            },            
             columns: [
                 'nombre',
                 'apellido',

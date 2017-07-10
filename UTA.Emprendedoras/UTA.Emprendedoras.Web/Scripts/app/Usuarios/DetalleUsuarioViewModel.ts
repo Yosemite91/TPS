@@ -24,6 +24,7 @@ namespace Usuarios {
                 window.location.assign(App.appRoot + 'Usuarios/EditarUsuario?run=' + run);
             }
         };
+
         public botonBloquear = {
             text: 'Bloquear',
             type: 'danger',

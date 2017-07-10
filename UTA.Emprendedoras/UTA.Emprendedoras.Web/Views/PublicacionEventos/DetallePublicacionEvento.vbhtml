@@ -5,16 +5,23 @@ End Code
 <div class="container">
     <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
-    <div class="row">
-        <div id="botonesDetalle">
-            <div id="solicitar-button" data-bind="dxButton: botonEditar"> </div>
-        </div>
+    <div class="long-title"><h3>Detalle del Evento</h3></div>
+
+    <div id="botonesDetalle">
+        <div id="volver" data-bind="dxButton: goBack"> </div>        
     </div>
 
     <div id="evento-form" data-bind="dxForm: form"></div>
-    <div id="solicitar-button" data-bind="dxButton: botonEliminar"> </div>
+    
+    <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+    <div class="row">
+        <div id="botonesDetalle">
+            <div id="solicitar-button" data-bind="dxButton: botonEliminar"> </div>
+            <div id="solicitar-button" data-bind="dxButton: botonEditar"> </div>
+        </div>
+    </div>
+    <!-- /ko -->
 </div>
-
 
 @Section Scripts
     <script src="~/Scripts/app/PublicacionEventos/DetallePublicacionEventoViewModel.js"></script>

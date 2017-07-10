@@ -6,19 +6,14 @@ End Code
 <div data-bind="dxPopup: popUpCancelar"></div>
 
 <div class="container">
-    <div data-bind="dxLoadPanel: { visible: loading }"></div>
+    <div data-bind="dxLoadPanel: { visible: loading }"></div>    
 
-    <div class="row">
-        <div id="botonesDetalle">
-            <div id="solicitar-button" data-bind="dxButton: botonCancelarEdicion"> </div>
-            <div id="solicitar-button" data-bind="dxButton: botonGuardar"> </div>
-        </div>
-    </div>
+    <div class="long-title"><h3>Modificar Usuario</h3></div>
 
     <div class="row">
         @* INFORMACIÓN USUARIO *@
         <div class="dx-fieldset">
-            <div class="dx-fieldset-header">Información del Emprendedor(a)</div>
+            <div class="dx-fieldset-header">Información del Usuario</div>
 
             <div class="dx-field">
                 <div class="dx-field-label">Nombre</div>
@@ -77,6 +72,7 @@ End Code
                 </div>
             </div>
 
+            <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
             <br />
             <div class="dx-fieldset-header">Privilegios Otorgables</div>
 
@@ -93,6 +89,7 @@ End Code
                     <div data-bind="dxSwitch: dxEsAdminPublicacion"></div>
                 </div>
             </div>
+            <!-- /ko -->
 
             @* UPLOAD IMAGE *@
             @*<div class="dx-fieldset">
@@ -103,10 +100,15 @@ End Code
                         </div>
                     </div>
                 </div>*@
-
         </div>
     </div>
    
+    <div class="row">
+        <div id="botonesDetalle">
+            <div id="solicitar-button" data-bind="dxButton: botonCancelarEdicion"> </div>
+            <div id="solicitar-button" data-bind="dxButton: botonGuardar"> </div>
+        </div>
+    </div>
 </div>
 
 

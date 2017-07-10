@@ -142,6 +142,8 @@ namespace PublicacionNoticias {
             editorOptions: {
                 mode: 'text'
             },
+            maxLength: 120,
+            height: 90,
             onKeyDown: (e) => {
                 if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
                     e.jQueryEvent.preventDefault();

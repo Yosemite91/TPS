@@ -30,6 +30,7 @@
                 @Html.ActionLink("Usuarios", "ListaUsuarios", "Usuarios")
                 @*<a href="#top" onclick=$("#menu-close").click();>Home</a>*@                
             </li>
+            <!-- /ko -->
             <li>
                 @Html.ActionLink("Eventos", "ListaPublicacionEventos", "PublicacionEventos")
                 @*<a href="#about" onclick=$("#menu-close").click();>About</a>*@
@@ -44,8 +45,7 @@
             <li>
                 <a href="#" onClick="Salir();"> Cerrar Sesión</a>
                 @*<a href="#contact" onclick=$("#menu-close").click();>Contact</a>*@
-            </li>
-            <!-- /ko -->
+            </li>           
             <!-- /ko -->
         </ul>
     </nav>

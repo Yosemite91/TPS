@@ -10,6 +10,10 @@
     padding-right: 15px;
     padding-top: 15px;
 }
+.containerLogin{    
+    justify-content: center;
+    align-items: center;    
+}
 .dx-layout-manager dx-widget{
     padding-top: 5px;
 }
@@ -48,12 +52,11 @@ html {
 #top {    
     background-color: #337ab7;    
     align-content: center;
-    align-items: center;
-    margin-bottom: 5%;     
+    align-items: center;       
     padding-top: 2%;   
     padding-bottom: 2%;  
-    width: 350px;
-    height: auto; 
+    width: 100%;
+    height: auto;
 }
 
 body{
@@ -209,11 +212,10 @@ body{
     #top {    
         background-color: #337ab7;    
         align-content: center;
-        align-items: center;
-        margin-bottom: 5%;     
+        align-items: center;        
         padding-top: 1%;   
         padding-bottom: 1%;  
-        width: 300px;
+        width: 100%;
         height: auto; 
     }
 }
@@ -559,7 +561,9 @@ hr.small {
 /* Footer */
 
 footer {
-    padding: 25px 0;    
+    padding-bottom:25px;
+    padding-left:25px;
+    padding-right:25px;
     right: 0;
     bottom: 0;
     left: 0;    

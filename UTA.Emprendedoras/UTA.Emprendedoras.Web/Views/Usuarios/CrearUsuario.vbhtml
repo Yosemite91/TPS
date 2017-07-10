@@ -6,12 +6,7 @@ End Code
 <div data-bind="dxPopup: popUpCancelar"></div>
 
 <div class="container">
-    <div class="row">
-        <div id="botonesDetalle">
-            <div id="solicitar-button" data-bind="dxButton: botonCancelar"> </div>
-            <div id="solicitar-button" data-bind="dxButton: botonGuardar"> </div>                       
-        </div>
-    </div>
+    <div class="long-title"><h3>Crear Usuario</h3></div>
 
     <div class="row">
         @* INFORMACIÓN USUARIO *@
@@ -102,6 +97,13 @@ End Code
                 </div>
             </div>*@
            
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="botonesDetalle">
+            <div id="solicitar-button" data-bind="dxButton: botonCancelar"> </div>
+            <div id="solicitar-button" data-bind="dxButton: botonGuardar"> </div>
         </div>
     </div>
 </div>

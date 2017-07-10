@@ -44,6 +44,15 @@ namespace PublicacionEventos {
                     });
             }
         };
+
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
+            }
+        };
+
         //Formulario
         public form: DevExpress.ui.dxFormOptions = {
             formData: this.evento,
@@ -59,8 +68,11 @@ namespace PublicacionEventos {
                 <DevExpress.ui.dxFormGroupItem>{
                     itemType: 'group',
                     caption: 'Información Evento',
-                    items: ['titulo', 'descripcion'
-                        ,
+                    items: ['titulo',
+                        <DevExpress.ui.dxFormSimpleItem>{
+                            dataField: 'descripcion',
+                            editorType: 'dxTextArea'
+                        },
                         <DevExpress.ui.dxFormSimpleItem>{
                             dataField: 'fechaPublicacion',
                             editorType: 'dxDateBox',

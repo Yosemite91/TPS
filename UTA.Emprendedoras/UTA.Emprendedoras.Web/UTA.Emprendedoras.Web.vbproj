@@ -227,6 +227,7 @@
     <Compile Include="Controllers\APIControllers\PublicacionEventosApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionNoticiasApiController.vb" />
     <Compile Include="Controllers\APIControllers\UsuariosApiController.vb" />
+    <Compile Include="Controllers\IndexController.vb" />
     <Compile Include="Controllers\LoginController.vb" />
     <Compile Include="Controllers\PublicacionEventosController.vb" />
     <Compile Include="Controllers\PublicacionNoticiasController.vb" />
@@ -286,6 +287,12 @@
     <Content Include="Content\dx.win10.white.css" />
     <Content Include="Content\dx.win8.black.css" />
     <Content Include="Content\dx.win8.white.css" />
+    <Content Include="Content\img\bg.jpg" />
+    <Content Include="Content\img\callout.jpg" />
+    <Content Include="Content\img\portfolio-1.jpg" />
+    <Content Include="Content\img\portfolio-2.jpg" />
+    <Content Include="Content\img\portfolio-3.jpg" />
+    <Content Include="Content\img\portfolio-4.jpg" />
     <Content Include="Content\layouts\Desktop\DesktopLayout.css" />
     <Content Include="Content\layouts\Desktop\DesktopLayout.html" />
     <Content Include="Content\layouts\Desktop\DesktopLayout.js" />
@@ -395,6 +402,7 @@
     <Content Include="Views\PublicacionNoticias\DetallePublicacionNoticia.vbhtml" />
     <Content Include="Views\PublicacionEventos\ListaPublicacionEventos.vbhtml" />
     <Content Include="Views\PublicacionNoticias\ListaPublicacionNoticias.vbhtml" />
+    <Content Include="Views\Index\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

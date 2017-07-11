@@ -7,7 +7,6 @@
     <title>@ViewBag.Title - UTA Emprendedoras</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <!-- Navigation -->
@@ -19,11 +18,16 @@
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
                 <i class="glyphicon glyphicon-remove"> </i>
             </a>
+            <li class="sidebar-brand">
+                @Html.ActionLink("Inicio", "Index", "Index")
+                @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@
+            </li>
+            @* TIENE SESIÓN *@
             <!-- ko if: Token !== null -->
-            <li class="sidebar-brand">                
+            <li>
                 @Html.ActionLink("Perfil", "MiPerfil", "Usuarios")
                 @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@                
-            </li>
+            </li>            
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@
             <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
             <li>                
@@ -39,33 +43,38 @@
                 @Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
                 @*<a href="#services" onclick=$("#menu-close").click();>Services</a>*@
             </li>
+            <!-- /ko -->
+            <!-- ko if: Token === null -->
             <li>
+                @Html.ActionLink("Iniciar Sesión", "Login", "Login")
                 @*<a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>*@
             </li>
+            <!-- /ko -->
+            <!-- ko if: Token !== null -->
             <li>
                 <a href="#" onClick="Salir();"> Cerrar Sesión</a>
                 @*<a href="#contact" onclick=$("#menu-close").click();>Contact</a>*@
-            </li>           
+            </li>            
             <!-- /ko -->
         </ul>
     </nav>
     
     <div class="container body-content">
-        @RenderBody()      
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">                              
-                    <hr class="small">
-                    <p id="footerTexto">&copy; @DateTime.Now.Year - Asociación de Emprendedoras - Arica</p>
-                </div>                
-            </div>
-            <a id="to-top" href="#top" class="btn btn-dark btn-lg">
-                <i class="glyphicon glyphicon-chevron-up"></i>
-            </a>
-        </footer>
+        @RenderBody()        
     </div>
+
+    @*Footer*@
+    <footer>
+        <div class="container">
+            <div class="row">
+                <hr class="small">
+                <p id="footerTexto">&copy; @DateTime.Now.Year - Arica, Chile</p>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg">
+            <i class="glyphicon glyphicon-chevron-up"></i>
+        </a>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

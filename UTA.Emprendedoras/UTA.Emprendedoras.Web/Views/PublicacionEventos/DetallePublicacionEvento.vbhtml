@@ -1,26 +1,28 @@
 ﻿@Code
-    ViewData("Title") = "DetallePublicacionEvento"
+    ViewData("Title") = "Detalle Evento"
 End Code
 
 <div class="container">
-    <div data-bind="dxLoadPanel: { visible: loading }"></div>
+    <div id="customPadding">
+        <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
-    <div class="long-title"><h3>Detalle del Evento</h3></div>
+        <div class="long-title"><h3>Detalle del Evento</h3></div>
 
-    <div id="botonesDetalle">
-        <div id="volver" data-bind="dxButton: goBack"> </div>        
-    </div>
-
-    <div id="evento-form" data-bind="dxForm: form"></div>
-    
-    <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
-    <div class="row">
         <div id="botonesDetalle">
-            <div id="solicitar-button" data-bind="dxButton: botonEliminar"> </div>
-            <div id="solicitar-button" data-bind="dxButton: botonEditar"> </div>
+            <div id="volver" data-bind="dxButton: goBack"> </div>
         </div>
+
+        <div id="evento-form" data-bind="dxForm: form"></div>
+
+        <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+        <div class="row">
+            <div id="botonesDetalle">
+                <div id="solicitar-button" data-bind="dxButton: botonEliminar"> </div>
+                <div id="solicitar-button" data-bind="dxButton: botonEditar"> </div>
+            </div>
+        </div>
+        <!-- /ko -->
     </div>
-    <!-- /ko -->
 </div>
 
 @Section Scripts

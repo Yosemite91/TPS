@@ -93,9 +93,10 @@ namespace Login {
                     <DevExpress.ui.dxButtonOptions>{
                         editorType: 'dxButton',
                         editorOptions: {
-                            text: 'Aceptar',
+                            text: 'Ingresar',
                             icon: 'key',
                             type: 'default',
+                            width: '100%',
                             onClick: this.aceptar
                         }
                     }

@@ -1,5 +1,5 @@
 ﻿@Code
-    ViewData("Title") = "EditarPublicacionNoticia"
+    ViewData("Title") = "Modificar Noticia"
 End Code
 
 <div data-bind="dxPopup: popUpModificar"></div>
@@ -7,46 +7,48 @@ End Code
 
 
 <div id="cuerpoLista">
-    <div data-bind="dxLoadPanel: { visible: loading }"></div>
+    <div id="customPadding">
+        <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
-    <div class="long-title"><h3>Editar Noticia</h3></div>    
+        <div class="long-title"><h3>Editar Noticia</h3></div>
 
-    <div class="row">
-        @* INFORMACIÓN EVENTO *@
-        <div class="dx-fieldset">
-            <div class="dx-fieldset-header">Información de la Noticia</div>
+        <div class="row">
+            @* INFORMACIÓN EVENTO *@
+            <div class="dx-fieldset">
+                <div class="dx-fieldset-header">Información de la Noticia</div>
 
-            <div class="dx-field">
-                <div class="dx-field-label">Titulo</div>
-                <div class="dx-field-value">
-                    <div data-bind="dxTextBox: dxTitulo, dxValidator: validatorOptions"></div>
-                </div>
-            </div>
-
-            <div class="dx-field">
-                <div class="dx-field-label">Descripción</div>
-                <div class="dx-field-value">
-                    <div data-bind="dxTextArea: dxDescripcion, dxValidator: validatorOptions"></div>
-                </div>
-            </div>
-
-            @* UPLOAD IMAGE *@
-            @*<div class="dx-fieldset">
-                    <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
-                    <div class="dx-field">
-                        <div class="dx-field-value">
-                            <div data-bind="dxFileUploader: dxSubirImagen"></div>
-                        </div>
+                <div class="dx-field">
+                    <div class="dx-field-label">Titulo</div>
+                    <div class="dx-field-value">
+                        <div data-bind="dxTextBox: dxTitulo, dxValidator: validatorOptions"></div>
                     </div>
-                </div>*@
+                </div>
 
+                <div class="dx-field">
+                    <div class="dx-field-label">Descripción</div>
+                    <div class="dx-field-value">
+                        <div data-bind="dxTextArea: dxDescripcion, dxValidator: validatorOptions"></div>
+                    </div>
+                </div>
+
+                @* UPLOAD IMAGE *@
+                @*<div class="dx-fieldset">
+                        <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
+                        <div class="dx-field">
+                            <div class="dx-field-value">
+                                <div data-bind="dxFileUploader: dxSubirImagen"></div>
+                            </div>
+                        </div>
+                    </div>*@
+
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div id="botonesDetalle">
-            <div id="solicitar-button" data-bind="dxButton: botonCancelarEdicion"> </div>
-            <div id="solicitar-button" data-bind="dxButton: botonGuardar"> </div>
+        <div class="row">
+            <div id="botonesDetalle">
+                <div id="solicitar-button" data-bind="dxButton: botonCancelarEdicion"> </div>
+                <div id="solicitar-button" data-bind="dxButton: botonGuardar"> </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,18 +1,20 @@
 ﻿@Code
-    ViewData("Title") = "MiPerfil"
+    ViewData("Title") = "Mi Perfil"
 End Code
 <div data-bind="dxPopup: popUpCambiarPass"></div>
 
 <div class="container">    
-    <div data-bind="dxLoadPanel: { visible: loading }"></div> 
-    
-    <div class="long-title"><h3>Mi Perfil</h3></div>   
+    <div id="customPadding">
+        <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
-    <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
-    <div id="usuario-form" data-bind="dxForm: form"></div>
+        <div class="long-title"><h3>Mi Perfil</h3></div>
 
-    <div id="usuario-form-contrasena" data-bind="dxForm: formContrasena"></div>
-    <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificarContrasena"> </div>
+        <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
+        <div id="usuario-form" data-bind="dxForm: form"></div>
+
+        <div id="usuario-form-contrasena" data-bind="dxForm: formContrasena"></div>
+        <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificarContrasena"> </div>
+    </div>
 </div>
 
 @Section Scripts

@@ -112,5 +112,26 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Eliminar Noticia"
+        <Route("eliminar", Name:="eliminarNoticia")>
+        <HttpPut>
+        Public Async Function EliminarNoticia(<FromBody> model As PublicacionNoticiaModel) As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim noticia As New Publicacion
+            Try
+                noticia = db.Publicaciones.Find(model.ID)
+                With noticia
+                    .EsActivo = False
+                End With
+                Await db.SaveChangesAsync()
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para deshabilitar la noticia. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+            Return Me.CreatedAtRoute("eliminarNoticia", New With {.ID = noticia.ID}, "Noticia deshabilitado")
+        End Function
+#End Region
+
     End Class
 End Namespace

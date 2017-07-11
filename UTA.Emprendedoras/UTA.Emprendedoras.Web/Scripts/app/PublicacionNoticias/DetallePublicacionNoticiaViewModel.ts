@@ -24,10 +24,10 @@ namespace PublicacionNoticias {
             type: 'danger',
             icon: 'close',
             onClick: function (e: any) {
-                var EventoDTO = {
-                    id: this.evento().id,
+                var NoticiaDTO = {
+                    id: this.noticia().id,
                 };
-                var info = JSON.stringify(EventoDTO);
+                var info = JSON.stringify(NoticiaDTO);
                 $.ajax({
                     url: App.apiRoot + 'publicacion-noticias/eliminar/',
                     cache: false,

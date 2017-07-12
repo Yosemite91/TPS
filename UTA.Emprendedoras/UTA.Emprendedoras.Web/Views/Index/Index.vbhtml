@@ -204,3 +204,10 @@ End Code
         </div>
     </div>
 </div>
+
+@Section Scripts
+    <script src="~/Scripts/app/Index/IndexViewModel.js"></script>
+    <script>
+    ko.applyBindings(new Index.IndexViewModel());
+    </script>
+End Section

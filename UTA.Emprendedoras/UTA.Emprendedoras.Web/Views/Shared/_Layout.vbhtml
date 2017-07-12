@@ -27,7 +27,8 @@
             <li>
                 @Html.ActionLink("Perfil", "MiPerfil", "Usuarios")
                 @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@                
-            </li>            
+            </li>
+            <!-- /ko -->
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@
             <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
             <li>                
@@ -42,8 +43,7 @@
             <li>
                 @Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
                 @*<a href="#services" onclick=$("#menu-close").click();>Services</a>*@
-            </li>
-            <!-- /ko -->
+            </li>            
             <!-- ko if: Token === null -->
             <li>
                 @Html.ActionLink("Iniciar Sesión", "Login", "Login")

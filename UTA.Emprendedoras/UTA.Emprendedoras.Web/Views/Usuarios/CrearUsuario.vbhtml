@@ -5,10 +5,9 @@ End Code
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 
-<div class="container">
+<div id="titulo" class="long-title"><h3>Crear Usuario</h3></div>
+<div class="container">    
     <div id="customPadding">
-        <div class="long-title"><h3>Crear Usuario</h3></div>
-
         <div class="row">
             @* INFORMACIÓN USUARIO *@
             <div class="dx-fieldset">
@@ -52,7 +51,7 @@ End Code
                 <div class="dx-field">
                     <div class="dx-field-label">Teléfono</div>
                     <div class="dx-field-value">
-                        <div data-bind="dxNumberBox: dxTelefono"></div>
+                        <div data-bind="dxNumberBox: dxTelefono, dxValidator: telefonoValidatorOptions"></div>
                     </div>
                 </div>
 
@@ -60,7 +59,7 @@ End Code
                 <div class="dx-field">
                     <div class="dx-field-label">URL Sitio Web</div>
                     <div class="dx-field-value">
-                        <div data-bind="dxTextBox: dxSitioWeb, dxValidator: validatorOptions"></div>
+                        <div data-bind="dxTextBox: dxSitioWeb, dxValidator: urlValidatorOptions"></div>
                     </div>
                 </div>
 

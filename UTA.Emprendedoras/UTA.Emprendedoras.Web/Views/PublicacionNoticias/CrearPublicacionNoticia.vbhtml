@@ -4,11 +4,10 @@ End Code
 
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
+<div id="titulo" class="long-title"><h3>Crear Noticia</h3></div>
 
 <div id="cuerpoLista">
-    <div id="customPadding">
-        <div class="long-title"><h3>Crear Noticia</h3></div>
-
+    <div id="customPadding">        
         <div class="row">
             @* INFORMACIÓN EVENTO *@
             <div class="dx-fieldset">

@@ -1,11 +1,10 @@
 ﻿@Code
     ViewData("Title") = "Detalle Usuario"
 End Code
+<div id="titulo" class="long-title"><h3>Detalle Usuario</h3></div>
 
 <div class="container">
     <div id="customPadding">
-        <div class="long-title"><h3>Detalle Usuario</h3></div>
-
         <div class="row">
             <div data-bind="dxLoadPanel: { visible: loading }"></div>
 

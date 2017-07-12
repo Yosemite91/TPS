@@ -145,6 +145,26 @@ namespace Usuarios {
                     message: 'Campo requerido'
                 }]
         };
+        public telefonoValidatorOptions: DevExpress.ui.dxValidatorOptions = {
+            validationRules: [{
+                type: "pattern",
+                pattern: /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,
+                message: 'Formato inválido'
+            }, {
+                    type: 'required',
+                    message: 'Campo requerido'
+                }]
+        };
+        public urlValidatorOptions: DevExpress.ui.dxValidatorOptions = {
+            validationRules: [{
+                type: "pattern",
+                pattern: /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
+                message: 'Formato inválido'
+            }, {
+                    type: 'required',
+                    message: 'Campo requerido'
+                }]
+        };
 
 		// FORMULARIO
         public dxNombre = {
@@ -206,10 +226,11 @@ namespace Usuarios {
         }
         public dxTelefono = {
             width: 'auto',
+            placeholder: '+56 9 1234 5678',
             editorOptions: {
                 mode: 'tel',
                 value: 0
-            },            
+            },
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.usuario().telefono = e.value;
@@ -259,6 +280,7 @@ namespace Usuarios {
         }
         public dxSitioWeb = {
             width: 'auto',
+            placeholder: 'http://www.miPagina.com',
             editorOptions: {
                 mode: 'text'
             },

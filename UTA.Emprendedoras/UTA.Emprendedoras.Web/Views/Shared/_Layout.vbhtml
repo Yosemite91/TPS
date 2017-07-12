@@ -1,7 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom Fonts -->
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - UTA Emprendedoras</title>
@@ -43,7 +52,10 @@
             <li>
                 @Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
                 @*<a href="#services" onclick=$("#menu-close").click();>Services</a>*@
-            </li>            
+            </li>
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();>Contacto</a>
+            </li>
             <!-- ko if: Token === null -->
             <li>
                 @Html.ActionLink("Iniciar Sesión", "Login", "Login")
@@ -63,18 +75,14 @@
         @RenderBody()        
     </div>
 
-    @*Footer*@
-    <footer>
-        <div class="container">
-            <div class="row">
-                <hr class="small">
-                <p id="footerTexto">&copy; @DateTime.Now.Year - Arica, Chile</p>
-            </div>
-        </div>
+    @*Footer*@    
+    <footer2>
+        <hr class="small">
+        <p style="margin-bottom:30px" id="footerTexto">&copy; @DateTime.Now.Year - Asociación de Emprendedoras - Arica</p>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg">
             <i class="glyphicon glyphicon-chevron-up"></i>
         </a>
-    </footer>
+    </footer2>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

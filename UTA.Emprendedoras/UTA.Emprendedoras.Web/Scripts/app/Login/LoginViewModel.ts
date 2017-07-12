@@ -68,11 +68,11 @@ namespace Login {
                             type: 'required',
                             message: 'Campo requerido.'
                         },
-                            {
-                                type: "pattern",
-                                pattern: /(\d{2}\d{3}\d{3}-)([kK]{1}$|\d{1})$/,
-                                message: 'Formato inválido'
-                            }]
+                        {
+                            type: "pattern",
+                            pattern: /(\d{2}\d{3}\d{3}-)([kK]{1}$|\d{1})$/,
+                            message: 'Formato inválido'
+                        }]
                     },
                     <DevExpress.ui.dxFormSimpleItem>{
                         dataField: 'contrasena',
@@ -80,7 +80,7 @@ namespace Login {
                         editorType: 'dxTextBox',
                         editorOptions: {
                             mode: 'password',
-                            value: ''
+                            value: ko.observable("")
                         },
                         validationRules: [{
                             type: 'required',
@@ -96,8 +96,17 @@ namespace Login {
                             text: 'Ingresar',
                             icon: 'key',
                             type: 'default',
-                            width: '100%',
-                            onClick: this.aceptar
+                            width: '100%',                            
+                            onClick: (e: any): void => {                                
+                                var UsuarioValidacion = {
+                                    Run: this.login().run,
+                                    Password: this.login().contrasena
+                                };
+
+                                if (App.alertaFormulario(UsuarioValidacion) !== false) {                                
+                                    this.aceptar();
+                                }
+                            }
                         }
                     }
                 ]

@@ -15,4 +15,6 @@
     Public Property Foto As String
     Public Overridable Property PublicacionesCreadas As IList(Of Publicacion)
     Public Property Email As String
+
+    Public Property EsAsistente As Boolean
 End Class

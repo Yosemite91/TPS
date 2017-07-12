@@ -231,6 +231,7 @@
     <Compile Include="Controllers\LoginController.vb" />
     <Compile Include="Controllers\PublicacionEventosController.vb" />
     <Compile Include="Controllers\PublicacionNoticiasController.vb" />
+    <Compile Include="Controllers\ReunionesController.vb" />
     <Compile Include="Controllers\UsuariosController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -403,6 +404,7 @@
     <Content Include="Views\PublicacionEventos\ListaPublicacionEventos.vbhtml" />
     <Content Include="Views\PublicacionNoticias\ListaPublicacionNoticias.vbhtml" />
     <Content Include="Views\Index\Index.vbhtml" />
+    <Content Include="Views\Reuniones\CrearReunion.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -454,6 +456,8 @@
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\EditarPublicacionNoticiaViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IPublicacionNoticiaModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\ListarPublicacionNoticiasViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\CrearReunionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\IReunionModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\CrearUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\DetalleUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\EditarUsuarioViewModel.ts" />

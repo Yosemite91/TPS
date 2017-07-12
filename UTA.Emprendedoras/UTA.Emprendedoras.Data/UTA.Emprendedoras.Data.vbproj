@@ -79,6 +79,10 @@
       <DependentUpon>201707041637527_initial.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201707041637527_initial.vb" />
+    <Compile Include="Migrations\201707111742120_add-es-asistente.Designer.vb">
+      <DependentUpon>201707111742120_add-es-asistente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707111742120_add-es-asistente.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -99,6 +103,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707041637527_initial.resx">
       <DependentUpon>201707041637527_initial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707111742120_add-es-asistente.resx">
+      <DependentUpon>201707111742120_add-es-asistente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

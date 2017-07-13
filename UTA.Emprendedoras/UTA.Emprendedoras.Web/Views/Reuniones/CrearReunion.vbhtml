@@ -14,7 +14,7 @@ End Code
                 <div class="dx-field">
                     <div class="dx-field-label">Descripción</div>
                     <div class="dx-field-value">
-                        <div data-bind="dxTextArea: dxDescripcion, dxValidator: validatorOptions"></div>
+                        <div data-bind="dxTextBox: dxDescripcion"></div>
                     </div>
                 </div>
             </div>

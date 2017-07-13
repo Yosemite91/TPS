@@ -6,11 +6,12 @@
 namespace Reuniones {
     export class CrearReunionViewModel {
         public usuarios: KnockoutObservable<any> = ko.observable<any>({
-            id: null, nombre: null, apellido: null, run: null, esAsistente: false
+            id: null, nombre: null, apellido: null, run: null, esAsistente: false, descripcion: null 
         });
-              
+
+
         public applyButtonOptionsCrear = {
-            text: 'Finalizar',
+            text: 'Guardar',
             icon: 'plus',
             type: 'success',
             onClick: function (e: any) {
@@ -19,7 +20,7 @@ namespace Reuniones {
 
                 var info = JSON.stringify(listaUsuariosDTO);
                 $.ajax({
-                    url: App.apiRoot + 'reuniones/crear',
+                    url: App.apiRoot + 'reuniones/crear?descripcion='+ this.usuarios().descripcion,
                     cache: false,
                     type: 'POST',
                     contentType: 'application/json; charset=utf-8',
@@ -37,6 +38,29 @@ namespace Reuniones {
             }
         };
         //Formulario
+        public dxDescripcion = {
+            width: 'auto',
+            editorOptions: {
+                mode: 'text'
+            },
+            maxLength: 120,
+            height: 90,
+            onKeyDown: (e) => {
+                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
+                    e.jQueryEvent.preventDefault();
+                }
+                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
+                    e.jQueryEvent.preventDefault();
+                }
+            },
+            showClearButton: true,
+            onValueChanged: (e: any) => {
+                this.usuarios().descripcion = e.value;
+            }
+        }
+
+
+
         public grid: DevExpress.ui.dxDataGridOptions = {
             dataSource: this.usuarios,
             showRowLines: true,

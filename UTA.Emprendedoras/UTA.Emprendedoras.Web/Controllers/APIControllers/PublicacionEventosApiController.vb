@@ -57,10 +57,10 @@ Namespace Controllers.APIControllers
             Dim mapper As AutoMapper.IMapper
             Try
                 Dim evento As Publicacion = Await db.Publicaciones.Where(Function(u) u.ID = id).SingleOrDefaultAsync()
-                'mapper = mapperConfig.CreateMapper()
-                'mapper.Map(evento, result)
+
                 result = New PublicacionEventoModel With
                          {
+                            .ID = evento.ID,
                             .Titulo = evento.Titulo,
                             .Descripcion = evento.Descripcion,
                             .FechaRealizacion = evento.FechaRealizacion

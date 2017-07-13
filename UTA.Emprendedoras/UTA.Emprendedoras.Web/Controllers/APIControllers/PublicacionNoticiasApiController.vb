@@ -55,11 +55,15 @@ Namespace Controllers.APIControllers
         Public Async Function GetNoticia(id As Integer) As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
             Dim result As PublicacionNoticiaModel = New PublicacionNoticiaModel
-            Dim mapper As AutoMapper.IMapper
+
             Try
                 Dim noticia As Publicacion = Await db.Publicaciones.Where(Function(u) u.ID = id).SingleOrDefaultAsync()
-                mapper = mapperConfig.CreateMapper()
-                mapper.Map(noticia, result)
+                result = New PublicacionNoticiaModel With
+                         {
+                            .ID = noticia.ID,
+                            .Titulo = noticia.Titulo,
+                            .Descripcion = noticia.Descripcion
+                         }
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar noticia. Error: {0}", ex.Message))
             Finally
@@ -79,7 +83,6 @@ Namespace Controllers.APIControllers
             Dim db As New EmprendedorasDbContext()
             Dim noticia As New Publicacion
             Try
-
                 noticia = db.Publicaciones.Find(model.ID)
                 With noticia
                     .Titulo = model.Titulo
@@ -102,7 +105,13 @@ Namespace Controllers.APIControllers
             Dim db As New EmprendedorasDbContext()
             Dim noticias As List(Of PublicacionNoticiaModel) = Nothing
             Try
-                noticias = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Noticia AndAlso e.EsActivo).ProjectTo(Of PublicacionNoticiaModel)(mapperConfig).ToListAsync()
+                noticias = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Noticia AndAlso e.EsActivo) _
+                .Select(Function(e) New PublicacionNoticiaModel With {
+                                                            .ID = e.ID,
+                                                            .Titulo = e.Titulo,
+                                                            .Descripcion = e.Descripcion
+                                                            }) _
+                .ToListAsync()
                 Return Me.Ok(noticias)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar noticias. Error: {0}", ex.Message))

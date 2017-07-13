@@ -45,7 +45,7 @@ namespace PublicacionEventos {
                     }).then(
                         function (data) {
                             DevExpress.ui.notify('Evento Modificado', 'success', 3000);
-                            window.location.assign(App.appRoot + 'PublicacionEventos/ListaEventos');
+                            window.location.assign(App.appRoot + 'PublicacionEventos/ListaPublicacionEventos');
                         },
                         function (xhr, textStatus, err) {
                             alert(err);

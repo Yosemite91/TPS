@@ -12,14 +12,14 @@ Namespace Migrations
                 Function(c) New With
                     {
                         .ID = c.Int(nullable := False, identity := True),
-                        .QueReunion_ID = c.Int(),
-                        .QuienAsiste_ID = c.Int()
+                        .QuienAsisteID = c.Int(nullable := False),
+                        .QueReunionID = c.Int(nullable := False)
                     }) _
                 .PrimaryKey(Function(t) t.ID) _
-                .ForeignKey("dbo.Reunion", Function(t) t.QueReunion_ID) _
-                .ForeignKey("dbo.Usuario", Function(t) t.QuienAsiste_ID) _
-                .Index(Function(t) t.QueReunion_ID) _
-                .Index(Function(t) t.QuienAsiste_ID)
+                .ForeignKey("dbo.Reunion", Function(t) t.QueReunionID) _
+                .ForeignKey("dbo.Usuario", Function(t) t.QuienAsisteID) _
+                .Index(Function(t) t.QuienAsisteID) _
+                .Index(Function(t) t.QueReunionID)
             
             CreateTable(
                 "dbo.Reunion",
@@ -48,8 +48,9 @@ Namespace Migrations
                         .EsAdminPublicacion = c.Boolean(nullable := False),
                         .SitioWebUrl = c.String(),
                         .Categoria = c.String(),
-                        .Foto = c.String(),
+                        .Foto = c.Binary(),
                         .Email = c.String(),
+                        .EsAsistente = c.Boolean(nullable := False),
                         .Reunion_ID = c.Int()
                     }) _
                 .PrimaryKey(Function(t) t.ID) _
@@ -89,14 +90,14 @@ Namespace Migrations
         End Sub
         
         Public Overrides Sub Down()
-            DropForeignKey("dbo.AsistenciaReunion", "QuienAsiste_ID", "dbo.Usuario")
-            DropForeignKey("dbo.AsistenciaReunion", "QueReunion_ID", "dbo.Reunion")
+            DropForeignKey("dbo.AsistenciaReunion", "QuienAsisteID", "dbo.Usuario")
+            DropForeignKey("dbo.AsistenciaReunion", "QueReunionID", "dbo.Reunion")
             DropForeignKey("dbo.Usuario", "Reunion_ID", "dbo.Reunion")
             DropForeignKey("dbo.Publicacion", "Creador_ID", "dbo.Usuario")
             DropIndex("dbo.Publicacion", New String() { "Creador_ID" })
             DropIndex("dbo.Usuario", New String() { "Reunion_ID" })
-            DropIndex("dbo.AsistenciaReunion", New String() { "QuienAsiste_ID" })
-            DropIndex("dbo.AsistenciaReunion", New String() { "QueReunion_ID" })
+            DropIndex("dbo.AsistenciaReunion", New String() { "QueReunionID" })
+            DropIndex("dbo.AsistenciaReunion", New String() { "QuienAsisteID" })
             DropTable("dbo.Token")
             DropTable("dbo.Publicacion")
             DropTable("dbo.Usuario")

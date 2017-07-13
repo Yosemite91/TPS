@@ -15,10 +15,25 @@ namespace Reuniones {
             type: 'success',
             onClick: function (e: any) {
                 let that: any = this;
-                //$.each(this.grid.getSelectedRowsData(), function () {
-                //    alert('hola');
-                //});
-                that.grid.refresh();
+                var listaUsuariosDTO = this.usuarios();
+
+                var info = JSON.stringify(listaUsuariosDTO);
+                $.ajax({
+                    url: App.apiRoot + 'reuniones/crear',
+                    cache: false,
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: info,
+                    dataType: 'json'
+                }).then(
+                    function (data) {
+                        DevExpress.ui.notify('REUNION CREADA', 'success', 3000);
+                        window.location.assign(App.appRoot + 'Reuniones/ListaReuniones');
+                    },
+                    function (xhr, textStatus, err) {
+                        alert(err);
+                    }
+                    );
             }
         };
         //Formulario
@@ -31,25 +46,15 @@ namespace Reuniones {
             paging: {
                 pageSize: 9
             },
-            selection: {
-                mode: 'multiple'
+            editing: {
+                mode: "cell", allowUpdating : true
             },
             columns: [
-                'nombre',
-                'apellido',
-                'run'
-                ,
-                {
-                    dataField: 'esAsistente', caption: '¿Asistio?'
-                }
+                { dataField: 'nombre', allowEditing:false},
+                { dataField: 'apellido', allowEditing: false},
+                { dataField: 'run', allowEditing: false},
+                { dataField: 'esAsistente', caption: '¿Asistio?', allowEditing:true}
             ]
-            //,
-            //editing: {
-            //    mode: "colmun"
-            //},
-            //selection: {
-            //    mode: "multiple"
-            //},
         };
 
         public loading: KnockoutObservable<boolean> = ko.observable(false);

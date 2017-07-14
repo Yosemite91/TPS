@@ -226,6 +226,7 @@
     <Compile Include="Controllers\APIControllers\LoginApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionEventosApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionNoticiasApiController.vb" />
+    <Compile Include="Controllers\APIControllers\ReunionesController.vb" />
     <Compile Include="Controllers\APIControllers\UsuariosApiController.vb" />
     <Compile Include="Controllers\IndexController.vb" />
     <Compile Include="Controllers\LoginController.vb" />
@@ -243,6 +244,7 @@
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="Models\PublicacionEventoModel.vb" />
     <Compile Include="Models\PublicacionNoticiaModel.vb" />
+    <Compile Include="Models\ReunionModel.vb" />
     <Compile Include="Models\UsuarioModel.vb" />
     <Compile Include="Modules\BasicAuthHttpModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

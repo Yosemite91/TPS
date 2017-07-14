@@ -1,7 +1,8 @@
 ﻿Public Class AsistenciaReunion
 
     Public Property ID As Integer
-    Public Property QuienAsiste As Usuario
-    Public Property QueReunion As Reunion
-
+    Public Property QuienAsisteID As Integer
+    Public Overridable Property QuienAsiste As Usuario
+    Public Property QueReunionID As Integer
+    Public Overridable Property QueReunion As Reunion
 End Class

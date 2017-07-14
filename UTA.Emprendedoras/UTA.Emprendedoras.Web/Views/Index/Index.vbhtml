@@ -159,13 +159,15 @@ End Code
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h3>Acerca de Nosotros</h3>
-                <p id="aboutUs" style="font-size: 16px">
-                    La Asociación Gremial de Mujeres Emprendedoras Arica, lleva más de cinco años apoyando a la mujer microempresaria, posicionándose como una organización líder en la ciudad.  
+                <div id="aboutUs" style="font-size: 16px">
+                    La Asociación Gremial de Mujeres Emprendedoras Arica, lleva más de cinco años apoyando a la mujer microempresaria, posicionándose como una organización líder en la ciudad.                
+                <p id="revelar" style="font-size: 16px; display: none; margin-top: 0">
                     Hemos trabajado de manera independiente, a través de seminarios, charlas, ferias, escuelas, conferencias, promoviendo la inclusión en todo ámbito.  
                     Actualmente realizamos un convenio con el banco estado, dándole flexibilidad en sus créditos.  
                     Trabajamos transversalmente con los servicios públicos de la ciudad, dándole un enfoque de compromiso ciudadano.
                 </p>
-                <a href="#" class="btn btn-lg btn-light">Conocer más</a>
+                </div>
+                <a id="conocerMas" class="btn btn-lg btn-light">Conocer más</a>
             </div>
         </div>
     </div>
@@ -205,6 +207,11 @@ End Code
 @Section Scripts
     <script src="~/Scripts/app/Index/IndexViewModel.js"></script>
     <script>
+    $(document).ready(function () {
+        $("#conocerMas").click(function () {
+            $("#revelar").toggle(500);
+        });
+    });
     ko.applyBindings(new Index.IndexViewModel());
     </script>
 End Section

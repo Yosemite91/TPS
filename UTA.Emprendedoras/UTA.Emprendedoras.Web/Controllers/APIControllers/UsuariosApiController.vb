@@ -36,6 +36,7 @@ Namespace Controllers.APIControllers
                 mapper = mapperConfig.CreateMapper()
                 mapper.Map(model, usuario)
                 usuario.Contrasena = My.Settings.PasswordDefault
+                usuario.Foto = Encoding.ASCII.GetBytes(model.Foto)
                 db.Usuarios.Add(usuario)
                 Await db.SaveChangesAsync()
             Catch ex As Exception
@@ -59,6 +60,7 @@ Namespace Controllers.APIControllers
                 Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = run).SingleOrDefaultAsync()
                 mapper = mapperConfig.CreateMapper()
                 mapper.Map(user, result)
+                If user.Foto IsNot Nothing Then result.Foto = Encoding.Default.GetString(user.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
             Finally

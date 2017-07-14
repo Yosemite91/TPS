@@ -15,8 +15,9 @@ Namespace Models
         Public Property EsAdminPublicacion As Boolean
         Public Property SitioWebUrl As String
         Public Property Categoria As String
-        Public Property Foto As Byte()
+        Public Property Foto As String
         Public Property EsAsistente As Boolean
+        Public Property Email As String
     End Class
 
 End Namespace

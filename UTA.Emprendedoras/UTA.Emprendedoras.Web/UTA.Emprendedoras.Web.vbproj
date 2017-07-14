@@ -499,6 +499,7 @@
     <TypeScriptCompile Include="Scripts\app\Usuarios\CrearUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\DetalleUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\EditarUsuarioViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Usuarios\IFoto.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\IUsuarioModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\ListaUsuariosViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\MiPerfilViewModel.ts" />

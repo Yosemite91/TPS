@@ -242,6 +242,7 @@ Namespace Controllers.APIControllers
             Try
                 usuarios = Await db.Usuarios _
                            .Select(Function(u) New UsuarioModel With {
+                                                               .ID = u.ID,
                                                                .Nombre = u.Nombre,
                                                                .Apellido = u.Apellido,
                                                                .Run = u.Run,

@@ -5,4 +5,5 @@
     Public Overridable Property QuienAsiste As Usuario
     Public Property QueReunionID As Integer
     Public Overridable Property QueReunion As Reunion
+    Public Property EsAsistente As Boolean
 End Class

@@ -79,6 +79,10 @@
       <DependentUpon>201707131640279_initial.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201707131640279_initial.vb" />
+    <Compile Include="Migrations\201707140032279_add-es-asistente-asistencireunion.Designer.vb">
+      <DependentUpon>201707140032279_add-es-asistente-asistencireunion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707140032279_add-es-asistente-asistencireunion.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -99,6 +103,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707131640279_initial.resx">
       <DependentUpon>201707131640279_initial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707140032279_add-es-asistente-asistencireunion.resx">
+      <DependentUpon>201707140032279_add-es-asistente-asistencireunion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -6,7 +6,7 @@
 namespace Reuniones {
     export class CrearReunionViewModel {
         public usuarios: KnockoutObservable<any> = ko.observable<any>({
-            id: null, nombre: null, apellido: null, run: null, esAsistente: false, descripcion: null 
+            id: null, nombre: null, apellido: null, run: null, esAsistente: false, descripcion: null
         });
 
 

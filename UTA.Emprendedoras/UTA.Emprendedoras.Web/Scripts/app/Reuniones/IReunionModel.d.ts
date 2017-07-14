@@ -6,5 +6,6 @@
         apellido: string,
         run: string,
         esAsistente: boolean
+        descripcion: string
     }
 }

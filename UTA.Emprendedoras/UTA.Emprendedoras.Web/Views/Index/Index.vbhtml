@@ -2,31 +2,13 @@
     ViewData("Title") = "Emprendedoras"
 End Code
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Custom Fonts -->    
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->    
-</head>
-
 @*Header*@
 <header id="top" class="header">
     <div class="text-vertical-center">
-        <div class="long-title"><h2>
+        <div class="long-title"><h2><strong>
             Asociación de <br />Emprendedoras
-            </h2></div>
-        <h4>Free Bootstrap Themes &amp; Templates</h4>
+        </strong></h2></div>
+        <h4>Esfuerzo &amp; Compromiso</h4>
         <br>
         <a href="#about" class="btn btn-dark btn-lg">Conocer más</a>
     </div>
@@ -120,7 +102,7 @@ End Code
 @*Callout*@
 <aside class="callout">
     <div class="text-vertical-center">
-        <h2>Vertically Centered Text</h2>
+        <h2>Trabajo Enfocado</h2>
     </div>
 </aside>
 
@@ -171,39 +153,54 @@ End Code
     <!-- /.container -->
 </section>
 
-@*Call to Action*@
+@*ABOUT US*@
 <aside class="call-to-action bg-primary">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h3>The buttons below are impossible to resist.</h3>
-                <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+                <h3>Acerca de Nosotros</h3>
+                <p id="aboutUs" style="font-size: 16px">
+                    La Asociación Gremial de Mujeres Emprendedoras Arica, lleva más de cinco años apoyando a la mujer microempresaria, posicionándose como una organización líder en la ciudad.  
+                    Hemos trabajado de manera independiente, a través de seminarios, charlas, ferias, escuelas, conferencias, promoviendo la inclusión en todo ámbito.  
+                    Actualmente realizamos un convenio con el banco estado, dándole flexibilidad en sus créditos.  
+                    Trabajamos transversalmente con los servicios públicos de la ciudad, dándole un enfoque de compromiso ciudadano.
+                </p>
+                <a href="#" class="btn btn-lg btn-light">Conocer más</a>
             </div>
         </div>
     </div>
 </aside>
 
 @*Footer Just For Index*@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-lg-offset-1 text-center">
-            <h5>
-                <strong>Asociación de Emprendedoras</strong>
-            </h5>
-            <p>
-                3481 Melrose Place
-                <br>Beverly Hills, CA 90210
-            </p>
-            <ul class="list-unstyled">
-                <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                <li>
-                    <i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
-                </li>
-            </ul>            
+<footer>
+    <div id="contact" class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4>
+                    <strong>Contacto</strong>
+                </h4>
+                <p>
+                    3481 Melrose Place
+                    <br>Beverly Hills, CA 90210
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                    <li>
+                        <i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
+                    </li>
+                </ul>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+</footer>
 
 @Section Scripts
     <script src="~/Scripts/app/Index/IndexViewModel.js"></script>

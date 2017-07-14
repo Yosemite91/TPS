@@ -87,16 +87,16 @@ End Code
                     </div>
                 </div>
 
+                <br />
                 @* UPLOAD IMAGE *@
-                @*<div class="dx-fieldset">
-                        <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
-                        <div class="dx-field">
-                            <div class="dx-field-value">
-                                <div data-bind="dxFileUploader: dxSubirImagen"></div>
-                            </div>
+                <div class="dx-field">
+                    <div class="dx-fieldset-header">Foto Usuario</div>
+                    <div class="dx-field">
+                        <div class="dx-field-value">
+                            <div data-bind="dxFileUploader: dxSubirImagen"></div>
                         </div>
-                    </div>*@
-
+                    </div>
+                </div>
             </div>
         </div>
 

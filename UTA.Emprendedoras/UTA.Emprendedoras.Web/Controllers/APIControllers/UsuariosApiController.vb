@@ -36,6 +36,7 @@ Namespace Controllers.APIControllers
                 mapper = mapperConfig.CreateMapper()
                 mapper.Map(model, usuario)
                 usuario.Contrasena = My.Settings.PasswordDefault
+                usuario.Foto = Encoding.ASCII.GetBytes(model.Foto)
                 db.Usuarios.Add(usuario)
                 Await db.SaveChangesAsync()
             Catch ex As Exception
@@ -69,6 +70,7 @@ Namespace Controllers.APIControllers
                     .SitioWebUrl = user.SitioWebUrl,
                     .Categoria = user.Categoria
                 }
+                If result.Foto IsNot Nothing Then result.Foto = Encoding.Default.GetString(user.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
             Finally
@@ -107,6 +109,7 @@ Namespace Controllers.APIControllers
                     .EsAdminPublicacion = model.EsAdminPublicacion
                     .SitioWebUrl = model.SitioWebUrl
                     .Categoria = model.Categoria
+                    .Foto = Encoding.ASCII.GetBytes(model.Foto)
                 End With
                 Await db.SaveChangesAsync()
             Catch ex As Exception
@@ -279,7 +282,8 @@ Namespace Controllers.APIControllers
                    .EsAdminPublicacion = user.EsAdminPublicacion,
                    .SitioWebUrl = user.SitioWebUrl,
                    .Categoria = user.Categoria
-               }
+                }
+                If result.Foto IsNot Nothing Then result.Foto = Encoding.Default.GetString(user.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
             Finally

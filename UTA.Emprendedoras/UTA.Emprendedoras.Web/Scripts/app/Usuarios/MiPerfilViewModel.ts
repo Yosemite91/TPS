@@ -145,6 +145,18 @@ namespace Usuarios {
             ]
         };
 
+        // FOTO PERFIL
+        public fotoPerfil: KnockoutObservable<IFoto> = ko.observable<IFoto>();
+        public MakePhoto: (cuerpo: string) => void = (cuerpo: string): void => {
+            let foto: IFoto = {
+                id: null,
+                cuerpo: cuerpo,
+                nombre: null,
+                usuarioID: null
+            }
+            this.fotoPerfil(foto);
+        }        
+
         public formContrasena: DevExpress.ui.dxFormOptions = {
             formData: this.password,
             readOnly: false,
@@ -171,6 +183,7 @@ namespace Usuarios {
             //$.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
             $.getJSON(App.apiRoot + 'usuarios/mi-perfil/' + run).then((result: IUsuarioModel): void => {
                 this.usuario(result);
+                this.MakePhoto(result.foto);
                 $('#usuario-form').dxForm('instance').repaint();
                 $('#usuario-form-contrasena').dxForm('instance').repaint();
                 this.loading(false);

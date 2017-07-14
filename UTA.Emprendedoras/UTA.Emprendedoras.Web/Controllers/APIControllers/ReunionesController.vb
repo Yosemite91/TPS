@@ -21,7 +21,7 @@ Namespace Controllers.APIControllers
 #Region "CrearReunion"
         <Route("crear", Name:="crearReunion")>
         <HttpPost>
-        Public Async Function CrearReunion(<FromBody> model As List(Of ReunionModel)) As Task(Of IHttpActionResult)
+        Public Async Function CrearReunion(<FromBody> model As List(Of ReunionModel), descripcion As String) As Task(Of IHttpActionResult)
 
             Dim db As New EmprendedorasDbContext()
             Dim reunionModel As ReunionModel
@@ -33,7 +33,7 @@ Namespace Controllers.APIControllers
             Try
                 reunion = db.Reuniones.Create()
                 With reunion
-                    .Descripcion = "descripcion de reunion"
+                    .Descripcion = descripcion
                     .Fecha = Now
                 End With
                 db.Reuniones.Add(reunion)

@@ -53,12 +53,18 @@ Namespace Controllers.APIControllers
         <HttpGet>
         Public Async Function GetEvento(id As Integer) As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
-            Dim result As PublicacionEventoModel = New PublicacionEventoModel
+            Dim result As PublicacionEventoModel = Nothing
             Dim mapper As AutoMapper.IMapper
             Try
                 Dim evento As Publicacion = Await db.Publicaciones.Where(Function(u) u.ID = id).SingleOrDefaultAsync()
-                mapper = mapperConfig.CreateMapper()
-                mapper.Map(evento, result)
+
+                result = New PublicacionEventoModel With
+                         {
+                            .ID = evento.ID,
+                            .Titulo = evento.Titulo,
+                            .Descripcion = evento.Descripcion,
+                            .FechaRealizacion = evento.FechaRealizacion
+                         }
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar evento. Error: {0}", ex.Message))
             Finally
@@ -101,7 +107,13 @@ Namespace Controllers.APIControllers
             Dim db As New EmprendedorasDbContext()
             Dim eventos As List(Of PublicacionEventoModel) = Nothing
             Try
-                eventos = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Evento AndAlso e.EsActivo).ProjectTo(Of PublicacionEventoModel)(mapperConfig).ToListAsync()
+                eventos = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Evento AndAlso e.EsActivo) _
+                .Select(Function(e) New PublicacionEventoModel With {
+                                                            .ID = e.ID,
+                                                            .Titulo = e.Titulo,
+                                                            .Descripcion = e.Descripcion
+                                                            }) _
+                .ToListAsync()
                 Return Me.Ok(eventos)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar eventos. Error: {0}", ex.Message))

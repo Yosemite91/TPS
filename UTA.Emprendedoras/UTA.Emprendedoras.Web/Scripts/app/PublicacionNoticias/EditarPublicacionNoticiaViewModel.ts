@@ -45,7 +45,7 @@ namespace PublicacionNoticias {
                     }).then(
                         function (data) {
                             DevExpress.ui.notify('Noticia Modificado', 'success', 3000);
-                            window.location.assign(App.appRoot + 'PublicacionNoticias/ListaNoticias');
+                            window.location.assign(App.appRoot + 'PublicacionNoticias/ListaPublicacionNoticias');
                         },
                         function (xhr, textStatus, err) {
                             alert(err);

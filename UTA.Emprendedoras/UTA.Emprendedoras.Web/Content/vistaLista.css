@@ -8,9 +8,9 @@
 
 #perfil {
     margin: auto;
-    width: 40%;
-    height: 30%;
-    border-radius: 1px;
+    width: 180px;
+    height: auto;
+    border-radius: 0px;
 }
 #aboutUs{
     padding: 50px;
@@ -91,6 +91,9 @@
     #footerLogin{
         height: 10%;
     }
+    .long-title{
+        font-size: 17px;
+    }
 @media (min-width: 768px) {
     .container {
         width: 100%;
@@ -102,6 +105,10 @@
     #perfil {    
         width: 20%;
         height: 20%;   
+    }
+    #aboutUs{
+        padding-left: 150px;
+        padding-right: 150px;
     }
 }
 #elVato{

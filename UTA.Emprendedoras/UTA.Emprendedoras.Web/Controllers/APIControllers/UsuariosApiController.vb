@@ -264,7 +264,8 @@ Namespace Controllers.APIControllers
                                                                .Apellido = u.Apellido,
                                                                .Run = u.Run,
                                                                .Telefono = u.Telefono,
-                                                               .EsActivo = u.EsActivo
+                                                               .EsActivo = u.EsActivo,
+                                                               .Foto = Encoding.Default.GetString(u.Foto)
                                                             }) _
                            .ToListAsync()
                 Return Me.Ok(usuarios)
@@ -295,9 +296,10 @@ Namespace Controllers.APIControllers
                    .EsAdministrador = user.EsAdministrador,
                    .EsAdminPublicacion = user.EsAdminPublicacion,
                    .SitioWebUrl = user.SitioWebUrl,
-                   .Categoria = user.Categoria
+                   .Categoria = user.Categoria,
+                   .Email = user.Email,
+                   .Foto = Encoding.Default.GetString(user.Foto)
                 }
-                If result.Foto IsNot Nothing Then result.Foto = Encoding.Default.GetString(user.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
             Finally

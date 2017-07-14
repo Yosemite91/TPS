@@ -52,10 +52,7 @@
             <li>
                 @Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
                 @*<a href="#services" onclick=$("#menu-close").click();>Services</a>*@
-            </li>
-            <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contacto</a>
-            </li>
+            </li>            
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@
             <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
             <li>
@@ -63,6 +60,9 @@
                 @*<a href="#top" onclick=$("#menu-close").click();>Home</a>*@
             </li>
             <!-- /ko -->
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();>Contacto</a>
+            </li>
             <!-- ko if: Token === null -->
             <li>
                 @Html.ActionLink("Iniciar Sesión", "Login", "Login")
@@ -83,7 +83,7 @@
     </div>
 
     @*Footer*@    
-    <footer2>
+    <footer2 id="footer2">
         <hr class="small">
         <p style="margin-bottom:30px" id="footerTexto">&copy; @DateTime.Now.Year - Asociación de Emprendedoras - Arica</p>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg">

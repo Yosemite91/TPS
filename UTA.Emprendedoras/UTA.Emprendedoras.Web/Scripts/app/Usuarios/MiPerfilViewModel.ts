@@ -108,7 +108,7 @@ namespace Usuarios {
                 <DevExpress.ui.dxFormGroupItem>{
                     itemType: 'group',
                     caption: 'Información Personal',
-                    items: ['nombre', 'apellido', 'run', 'telefono',
+                    items: ['nombre', 'apellido', 'run', 'telefono', 'email',
                         <DevExpress.ui.dxFormSimpleItem>{
                             dataField: 'fechaNacimiento',
                             editorType: 'dxDateBox',

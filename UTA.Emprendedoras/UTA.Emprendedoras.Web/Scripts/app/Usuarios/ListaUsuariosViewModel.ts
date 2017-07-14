@@ -30,14 +30,6 @@ namespace Usuarios{
                 }
                 window.location.assign(url);
             },
-            //selection: {
-            //    mode: "multiple",
-            //},
-            //"export": {
-            //    enabled: true,
-            //    fileName: "ListaUsuarios",
-            //    allowExportSelectedData: true
-            //},
             searchPanel: {
                 visible: true,
                 width: 240,
@@ -51,6 +43,12 @@ namespace Usuarios{
                 pageSize: 9
             },            
             columns: [
+                {
+                    dataField: 'foto',
+                    width: 100,
+                    allowFiltering: false,
+                    allowSorting: false
+                },
                 'nombre',
                 'apellido',
                 'telefono',

@@ -132,5 +132,29 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Lista reuniones"
+        <Route("get-reuniones/", Name:="getReuniones")>
+        <HttpGet>
+        Public Async Function GetReuniones() As Task(Of IHttpActionResult)
+            Dim reunion As List(Of ReunionModel) = Nothing
+            Dim db As New EmprendedorasDbContext()
+
+            Try
+                reunion = Await db.Reuniones _
+                           .Select(Function(u) New ReunionModel With {
+                                                              .ID = u.ID,
+                                                               .Fecha = u.Fecha,
+                                                              .Descripcion = u.Descripcion
+                                                            }) _
+                           .ToListAsync()
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar reunion. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+            Return Me.Ok(reunion)
+            Return Me.Content(HttpStatusCode.NotFound, "Información no encontrada")
+        End Function
+#End Region
     End Class
 End Namespace

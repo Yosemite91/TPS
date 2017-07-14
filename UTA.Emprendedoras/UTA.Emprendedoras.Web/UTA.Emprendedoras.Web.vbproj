@@ -409,6 +409,7 @@
     <Content Include="Views\Reuniones\CrearReunion.vbhtml" />
     <Content Include="Views\Reuniones\EditarReunion.vbhtml" />
     <Content Include="Views\Reuniones\DetalleReunion.vbhtml" />
+    <Content Include="Views\Reuniones\ListaReuniones.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -464,6 +465,7 @@
     <TypeScriptCompile Include="Scripts\app\Reuniones\DetalleReunionViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Reuniones\EditarReunionViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Reuniones\IReunionModel.d.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\ListaReunionesViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\CrearUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\DetalleUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\EditarUsuarioViewModel.ts" />

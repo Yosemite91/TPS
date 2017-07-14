@@ -11,10 +11,10 @@ namespace Usuarios {
             esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null,
             email: null
         });
+
         //PopUp
         private popUpCancelarModificar = ko.observable(false);
         private popUpModificarUsuario = ko.observable(false);
-
         public popUpModificar = {
             width: 'auto',
             height: 'auto',
@@ -30,6 +30,16 @@ namespace Usuarios {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: (e: any): void => {
+                    if (this.FotoUsuario() === undefined) {
+                        let foto: IFoto = {
+                            cuerpo: this.fotoDX(),
+                            usuarioID: null,
+                            nombre: "foto",
+                            id: null
+                        }
+                        this.FotoUsuario(foto);
+                    }
+
                     var UsuarioDTO = {
                         nombre: this.usuario().nombre,
                         apellido: this.usuario().apellido,
@@ -40,7 +50,9 @@ namespace Usuarios {
                         esAdministrador: this.usuario().esAdministrador,
                         esAdminPublicacion: this.usuario().esAdminPublicacion,
                         sitioWebUrl: this.usuario().sitioWebUrl,
-                        categoria: this.usuario().categoria
+                        categoria: this.usuario().categoria,
+                        email: this.usuario().email,
+                        foto: this.FotoUsuario().cuerpo
                     };
                     var info = JSON.stringify(UsuarioDTO);
 
@@ -62,7 +74,6 @@ namespace Usuarios {
                 }
             }]
         };
-
         public popUpCancelar = {
             width: 'auto',
             height: 'auto',
@@ -106,7 +117,6 @@ namespace Usuarios {
                 }
             }
         };
-
         public botonCancelarEdicion = {
             text: 'Cancelar',
             icon: 'close',
@@ -115,7 +125,6 @@ namespace Usuarios {
                 this.popUpCancelarModificar(true);
             }
         };
-
        
         //Declaración de observables
         public nombreDX: KnockoutObservable<string> = ko.observable<string>();
@@ -130,9 +139,7 @@ namespace Usuarios {
         public sitioWebUrlDX: KnockoutObservable<string> = ko.observable<string>();
         public categoriaDX: KnockoutObservable<string> = ko.observable<string>();
         public emailDX: KnockoutObservable<string> = ko.observable<string>();
-
         public fotoDX: KnockoutObservable<string> = ko.observable<string>();
-
 
         //Estableciendo el enlace
         public loadObject: (result: IUsuarioModel) => void = (result: IUsuarioModel): void => {
@@ -147,7 +154,8 @@ namespace Usuarios {
             this.esAdminPublicacionDX(result.esAdminPublicacion);
             this.sitioWebUrlDX(result.sitioWebUrl);
             this.categoriaDX(result.categoria);    
-            this.emailDX("agregar@email.cl");
+            this.emailDX(result.email);
+            this.fotoDX(result.foto);
         }
 
         // VALIDADOR DE DATOS
@@ -327,7 +335,6 @@ namespace Usuarios {
                 this.usuario().categoria = e.value;
             }
         }
-
         public dxEmail = {
             value: this.emailDX,
             width: 'auto',
@@ -349,6 +356,40 @@ namespace Usuarios {
                 this.usuario().email = e.value;
             }
         }
+        public dxSubirImagen = {
+            allowCanceling: true,
+            multiple: false,
+            readyToUploadMessage: 'Listo para cargar achivo',
+            selectButtonText: 'Seleccionar imagen',
+            uploadButtonText: 'Subir',
+            uploadedMessage: 'Archivo cargado',
+            uploadedFailMessage: 'Error al cargar archivo',
+            uploadMethod: 'POST',
+            uploadMode: 'useForm',
+            focusStateEnabled: true,
+            uploadUrl: '/',
+            showFileList: true,
+            labelText: '',
+            accept: 'image/*',
+            onValueChanged: (e) => {
+                let createLoadHandler = (nombre: string) => {
+                    return (event) => {
+                        let foto: IFoto = {
+                            cuerpo: event.target.result,
+                            usuarioID: null,
+                            nombre: nombre,
+                            id: null
+                        }
+                        this.FotoUsuario(foto);
+                    }
+                }
+                let frb = new FileReader();
+                frb.onload = createLoadHandler(e.value[0].name);
+                frb.readAsDataURL(e.value[0]);
+            }
+        }
+
+        public FotoUsuario: KnockoutObservable<IFoto> = ko.observable<IFoto>();
 
         public loading: KnockoutObservable<boolean> = ko.observable(false);
         public esNuevo: KnockoutObservable<boolean> = ko.observable(false);
@@ -359,6 +400,7 @@ namespace Usuarios {
             this.loading(true);
             $.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
                 this.loadObject(result);
+                this.fotoDX(result.foto);
                 this.loading(false);
             });
         }

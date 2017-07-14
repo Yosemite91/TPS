@@ -6,6 +6,12 @@
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
 
+#perfil {
+    margin: auto;
+    width: 40%;
+    height: 30%;
+    border-radius: 1px;
+}
 #aboutUs{
     padding: 50px;
 }
@@ -92,6 +98,10 @@
     #customPadding{
         padding-left: 15%;
         padding-right: 15%;
+    }
+    #perfil {    
+        width: 20%;
+        height: 20%;   
     }
 }
 #elVato{

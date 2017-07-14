@@ -33,10 +33,21 @@ Namespace Controllers.APIControllers
                     Return Me.Content(HttpStatusCode.BadRequest, $"Ya existe un usuario con el run {model.Run}")
                 End If
                 usuario = db.Usuarios.Create()
-                mapper = mapperConfig.CreateMapper()
-                mapper.Map(model, usuario)
-                usuario.Contrasena = My.Settings.PasswordDefault
+                'mapper = mapperConfig.CreateMapper()
+                'mapper.Map(model, usuario)
+                usuario.Nombre = model.Nombre
+                usuario.Apellido = model.Apellido
+                usuario.Run = model.Run
+                usuario.Telefono = model.Telefono
+                usuario.Email = model.Email
+                usuario.FechaNacimiento = model.FechaNacimiento
+                usuario.EsAdministrador = model.EsAdministrador
+                usuario.EsAdminPublicacion = model.EsAdminPublicacion
+                usuario.SitioWebUrl = model.SitioWebUrl
+                usuario.Categoria = model.Categoria
                 usuario.Foto = Encoding.ASCII.GetBytes(model.Foto)
+                usuario.Contrasena = My.Settings.PasswordDefault
+                usuario.EsActivo = True
                 db.Usuarios.Add(usuario)
                 Await db.SaveChangesAsync()
             Catch ex As Exception
@@ -68,9 +79,10 @@ Namespace Controllers.APIControllers
                     .EsAdministrador = user.EsAdministrador,
                     .EsAdminPublicacion = user.EsAdminPublicacion,
                     .SitioWebUrl = user.SitioWebUrl,
-                    .Categoria = user.Categoria
+                    .Categoria = user.Categoria,
+                    .Email = user.Email,
+                    .Foto = Encoding.Default.GetString(user.Foto)
                 }
-                If result.Foto IsNot Nothing Then result.Foto = Encoding.Default.GetString(user.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
             Finally
@@ -109,7 +121,9 @@ Namespace Controllers.APIControllers
                     .EsAdminPublicacion = model.EsAdminPublicacion
                     .SitioWebUrl = model.SitioWebUrl
                     .Categoria = model.Categoria
+                    .Email = model.Email
                     .Foto = Encoding.ASCII.GetBytes(model.Foto)
+                    .EsActivo = model.EsActivo
                 End With
                 Await db.SaveChangesAsync()
             Catch ex As Exception

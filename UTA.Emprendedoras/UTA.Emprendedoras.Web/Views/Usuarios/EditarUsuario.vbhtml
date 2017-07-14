@@ -88,17 +88,16 @@ End Code
                     <div class="dx-field-value">
                         <div data-bind="dxSwitch: dxEsAdminPublicacion"></div>
                     </div>
-                </div>
+                </div>                
                 <!-- /ko -->
-                @* UPLOAD IMAGE *@
-                @*<div class="dx-fieldset">
-                        <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
-                        <div class="dx-field">
-                            <div class="dx-field-value">
-                                <div data-bind="dxFileUploader: dxSubirImagen"></div>
-                            </div>
-                        </div>
-                    </div>*@
+                <br />                
+                @* UPLOAD IMAGE *@                
+                <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
+                <div class="dx-field">
+                    <div class="dx-field-value">
+                        <div data-bind="dxFileUploader: dxSubirImagen"></div>
+                    </div>
+                </div>                                
             </div>
         </div>
 

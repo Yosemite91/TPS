@@ -19,5 +19,10 @@ Namespace Controllers
             Return View()
         End Function
 
+        ' Listar Reuniones
+        Function ListaReuniones() As ActionResult
+            Return View()
+        End Function
+
     End Class
 End Namespace

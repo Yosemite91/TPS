@@ -8,6 +8,10 @@ End Code
     <div id="customPadding">
         <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
+        <div data-bind="foreach: fotoPerfil">
+            <img style="margin-bottom: 10px" class="img-circle img-responsive bubble" id="perfil" data-bind="attr: {src: cuerpo, alt: nombre}">
+        </div>
+
         <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
         <div id="usuario-form" data-bind="dxForm: form"></div>
 

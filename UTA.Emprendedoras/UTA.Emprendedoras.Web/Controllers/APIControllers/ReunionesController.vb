@@ -107,7 +107,7 @@ Namespace Controllers.APIControllers
 
             Try
 
-                reunion = db.Reuniones.Find(model(1).ID)
+                reunion = db.Reuniones.Find(model(0).ID)
                 With reunion
                     .Descripcion = descripcion
                 End With

@@ -224,10 +224,12 @@ End Code
             $("#revelar").toggle(500);
             $("#mision").toggle(500);
             $("#vision").toggle(500);
+            $("#mision2").hide(500);
+            $("#vision2").hide(500);
         });
 
         $("#mision").click(function () {            
-            $("#mision2").toggle(500);            
+            $("#mision2").toggle(500);
         });
         $("#vision").click(function () {
             $("#vision2").toggle(500);

@@ -24,7 +24,7 @@
     </a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+            <a id="menu-close" class="btn btn-light btn-lg pull-right toggle">
                 <i class="glyphicon glyphicon-remove"> </i>
             </a>
             <li class="sidebar-brand">
@@ -61,10 +61,10 @@
             </li>
             <!-- /ko -->
             <li>
-                <a onclick=$("#menu-close").click();>Acerca de Nosotros</a>
+                <a id="acercaDe" onclick=$("#menu-close").click();>Acerca de Nosotros</a>
             </li>
             <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contacto</a>
+                <a id="contact" onclick=$("#menu-close").click();>Contacto</a>
             </li>
             <!-- ko if: Token === null -->
             <li>
@@ -117,7 +117,7 @@
         $("#menu-close").click(function (e) {
             e.preventDefault();
             $("#sidebar-wrapper").toggleClass("active");
-            $('html,body').animate({ scrollTop: $(document).height() }, 1500);
+            //$('html,body').animate({ scrollTop: $(document).height() }, 1500);
         });
         //Opens the sidebar menu
         $("#menu-toggle").click(function (e) {
@@ -154,7 +154,16 @@
             $('#to-top').click(function () {
                 $('html,body').animate({ scrollTop: 0 }, 1500);
             });
-        });        
+        });
+        //OTRO TOGGLES
+        $("#contact").click(function (e) {
+            e.preventDefault();
+            $('html,body').animate({ scrollTop: $(document).height() }, 1500);
+        });
+        $("#acercaDe").click(function (e) {
+            e.preventDefault();
+            $('html,body').animate({ scrollTop: $(document).height() }, 1500);
+        });
     </script>
     
     @RenderSection("scripts", required:=False)

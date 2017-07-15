@@ -182,15 +182,7 @@ namespace Usuarios {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
-            },
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            },            
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.usuario().nombre = e.value;
@@ -200,15 +192,7 @@ namespace Usuarios {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
-            },
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            },            
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
@@ -262,12 +246,7 @@ namespace Usuarios {
         }
         public dxEmail = {
             width: 'auto',
-            placeholder: 'ejemplo@uta.cl',
-            onKeyDown: (e: any) => {
-                if (!/[_a-zA-Z0-9-@.]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            placeholder: 'ejemplo@uta.cl',            
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.usuario().email = e.value;

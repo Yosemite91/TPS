@@ -94,7 +94,7 @@ End Code
                     <div class="dx-field-value">
                         <div data-bind="dxFileUploader: dxSubirImagen"></div>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
 

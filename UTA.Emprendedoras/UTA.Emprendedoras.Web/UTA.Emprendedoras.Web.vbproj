@@ -490,11 +490,13 @@
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\CrearPublicacionEventoViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\DetallePublicacionEventoViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\EditarPublicacionEventoViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionEventos\IFotoPublicacion.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\IPublicacionEventoModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\ListarPublicacionEventosViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\CrearPublicacionNoticiaViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\DetallePublicacionNoticiaViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\EditarPublicacionNoticiaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IFotoNoticia.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IPublicacionNoticiaModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\ListarPublicacionNoticiasViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Reuniones\CrearReunionViewModel.ts" />

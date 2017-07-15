@@ -20,11 +20,13 @@ End Code
 
             <div id="usuario-form" data-bind="dxForm: form"></div>
 
+            <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
             <div class="row">
                 <div id="solicitar-button" data-bind="dxButton: botonBloquear"> </div>
                 <div id="solicitar-button" data-bind="dxButton: botonDesbloquear"> </div>
                 <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
             </div>
+            <!-- /ko -->
         </div>
     </div>
 </div>

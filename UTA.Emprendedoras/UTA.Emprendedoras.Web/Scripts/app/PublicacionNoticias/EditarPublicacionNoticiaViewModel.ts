@@ -28,10 +28,21 @@ namespace PublicacionNoticias {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: (e: any): void => {
+                    if (this.FotoUsuario() === undefined) {
+                        let foto: IFoto = {
+                            cuerpo: this.fotoDX(),
+                            usuarioID: null,
+                            nombre: "foto",
+                            id: null
+                        }
+                        this.FotoUsuario(foto);
+                    }
+
                     var NoticiaDTO = {
                         id: this.noticia().id,
                         titulo: this.noticia().titulo,
-                        descripcion: this.noticia().descripcion
+                        descripcion: this.noticia().descripcion,
+                        foto: this.FotoUsuario().cuerpo
                     };
                     var info = JSON.stringify(NoticiaDTO);
 
@@ -95,7 +106,6 @@ namespace PublicacionNoticias {
                 }
             }
         };
-
         public botonCancelarEdicion = {
             text: 'Cancelar',
             icon: 'close',
@@ -108,10 +118,12 @@ namespace PublicacionNoticias {
         //Declaración de observables
         public tituloDX: KnockoutObservable<string> = ko.observable<string>();
         public descripcionDX: KnockoutObservable<string> = ko.observable<string>();
+        public fotoDX: KnockoutObservable<string> = ko.observable<string>();
 
         public loadObject: (result: IPublicacionNoticiaModel) => void = (result: IPublicacionNoticiaModel): void => {
             this.tituloDX(result.titulo);
             this.descripcionDX(result.descripcion);
+            this.fotoDX(result.foto);
         }
 
         // VALIDADOR DE DATOS
@@ -128,15 +140,7 @@ namespace PublicacionNoticias {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
-            },
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            },           
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
@@ -146,7 +150,6 @@ namespace PublicacionNoticias {
                 this.noticia().titulo = e.value;
             }
         }
-
         public dxDescripcion = {
             value: this.descripcionDX,
             width: 'auto',
@@ -154,15 +157,7 @@ namespace PublicacionNoticias {
                 mode: 'text'
             },
             maxLength: 120,
-            height: 90,
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            height: 90,            
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
@@ -172,14 +167,49 @@ namespace PublicacionNoticias {
                 this.noticia().descripcion = e.value;
             }
         }
+        public dxSubirImagen = {
+            allowCanceling: true,
+            multiple: false,
+            readyToUploadMessage: 'Listo para cargar achivo',
+            selectButtonText: 'Seleccionar imagen',
+            uploadButtonText: 'Subir',
+            uploadedMessage: 'Archivo cargado',
+            uploadedFailMessage: 'Error al cargar archivo',
+            uploadMethod: 'POST',
+            uploadMode: 'useForm',
+            focusStateEnabled: true,
+            uploadUrl: '/',
+            showFileList: true,
+            labelText: '',
+            accept: 'image/*',
+            onValueChanged: (e) => {
+                let createLoadHandler = (nombre: string) => {
+                    return (event) => {
+                        let foto: IFoto = {
+                            cuerpo: event.target.result,
+                            usuarioID: null,
+                            nombre: nombre,
+                            id: null
+                        }
+                        this.FotoUsuario(foto);
+                    }
+                }
+                let frb = new FileReader();
+                frb.onload = createLoadHandler(e.value[0].name);
+                frb.readAsDataURL(e.value[0]);
+            }
+        }
+
+        public FotoUsuario: KnockoutObservable<IFoto> = ko.observable<IFoto>();
         public loading: KnockoutObservable<boolean> = ko.observable(false);
 
         constructor() {
-            const id: string = window.location.search.replace('?id=', '');
-
             this.loading(true);
+            const id: string = window.location.search.replace('?id=', '');
+            
             $.getJSON(App.apiRoot + 'publicacion-noticias/get/' + id).then((result: IPublicacionNoticiaModel): void => {
                 this.loadObject(result);
+                this.fotoDX(result.foto);
                 this.noticia().id = result.id;
                 this.loading(false);
             });

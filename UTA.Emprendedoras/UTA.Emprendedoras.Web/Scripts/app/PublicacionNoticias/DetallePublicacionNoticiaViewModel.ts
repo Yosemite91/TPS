@@ -18,7 +18,6 @@ namespace PublicacionNoticias {
                 window.location.assign(App.appRoot + 'PublicacionNoticias/EditarPublicacionNoticia?id=' + id);
             }
         };
-
         public botonEliminar = {
             text: 'Eliminar',
             type: 'danger',
@@ -45,7 +44,6 @@ namespace PublicacionNoticias {
                     });
             }
         };
-
         public goBack = {
             icon: 'back',
             type: 'normal',
@@ -86,13 +84,26 @@ namespace PublicacionNoticias {
                 }]
         };
 
+        //Foto
+        public fotoPerfil: KnockoutObservable<IFoto> = ko.observable<IFoto>();
+        public MakePhoto: (cuerpo: string) => void = (cuerpo: string): void => {
+            let foto: IFoto = {
+                id: null,
+                cuerpo: cuerpo,
+                nombre: null,
+                usuarioID: null
+            }
+            this.fotoPerfil(foto);
+        }
+
         public loading: KnockoutObservable<boolean> = ko.observable(false);
         constructor() {
-            const id: string = window.location.search.replace('?id=', '');
-
             this.loading(true);
+            const id: string = window.location.search.replace('?id=', '');
+            
             $.getJSON(App.apiRoot + 'publicacion-noticias/get/' + id).then((result: IPublicacionNoticiaModel): void => {
                 this.noticia(result);
+                this.MakePhoto(result.foto);
                 $('#noticia-form').dxForm('instance').repaint();
                 this.loading(false);
             });

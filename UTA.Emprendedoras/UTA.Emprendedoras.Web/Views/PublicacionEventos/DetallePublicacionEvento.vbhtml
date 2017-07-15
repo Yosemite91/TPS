@@ -1,7 +1,12 @@
 ﻿@Code
     ViewData("Title") = "Detalle Evento"
 End Code
-<div id="titulo" class="long-title"><h3>Detalle del Evento</h3></div>
+<div id="titulo" class="long-title">
+    <h3>Detalle del Evento</h3>
+    <div data-bind="foreach: fotoPerfil">
+        <img style="margin-bottom: 10px" class="img-circle img-responsive bubble" id="perfil" data-bind="attr: {src: cuerpo, alt: nombre}">
+    </div>
+</div>
 
 <div class="container">
     <div id="customPadding">

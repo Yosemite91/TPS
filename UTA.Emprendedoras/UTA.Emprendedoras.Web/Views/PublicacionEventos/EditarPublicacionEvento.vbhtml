@@ -1,7 +1,7 @@
 ﻿@Code
     ViewData("Title") = "Modificar Evento"
 End Code
-
+<!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
 <div data-bind="dxPopup: popUpModificar"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Editar Evento</h3></div>
@@ -28,16 +28,14 @@ End Code
                     </div>
                 </div>
 
+                <br />
                 @* UPLOAD IMAGE *@
-                @*<div class="dx-fieldset">
-                        <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
-                        <div class="dx-field">
-                            <div class="dx-field-value">
-                                <div data-bind="dxFileUploader: dxSubirImagen"></div>
-                            </div>
-                        </div>
-                    </div>*@
-
+                <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
+                <div class="dx-field">
+                    <div class="dx-field-value">
+                        <div data-bind="dxFileUploader: dxSubirImagen"></div>
+                    </div>
+                </div> 
             </div>
         </div>
 
@@ -49,7 +47,7 @@ End Code
         </div>
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/PublicacionEventos/EditarPublicacionEventoViewModel.js"></script>
     <script>

@@ -57,8 +57,7 @@ End Code
                         <div data-bind="dxNumberBox: dxTelefono, dxValidator: telefonoValidatorOptions"></div>
                     </div>
                 </div>
-
-                @* CREAR VALIDADOR DE FORMATO *@
+                
                 <div class="dx-field">
                     <div class="dx-field-label">URL Sitio Web</div>
                     <div class="dx-field-value">

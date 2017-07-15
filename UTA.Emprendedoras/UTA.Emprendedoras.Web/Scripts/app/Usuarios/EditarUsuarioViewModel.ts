@@ -202,15 +202,7 @@ namespace Usuarios {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
-            },
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            },            
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
@@ -225,15 +217,7 @@ namespace Usuarios {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
-            },
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            },            
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
@@ -346,12 +330,7 @@ namespace Usuarios {
         public dxEmail = {
             value: this.emailDX,
             width: 'auto',
-            placeholder: 'ejemplo@tpa.cl',
-            onKeyDown: (e: any) => {
-                if (!/[_a-zA-Z0-9-@.]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            placeholder: 'ejemplo@tpa.cl',           
             editorOptions: {
                 mode: 'email',
             },
@@ -403,9 +382,9 @@ namespace Usuarios {
         public esNuevo: KnockoutObservable<boolean> = ko.observable(false);
 
         constructor() {
-            const run: string = window.location.search.replace('?run=', '');
-
             this.loading(true);
+            const run: string = window.location.search.replace('?run=', '');
+            
             $.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
                 this.loadObject(result);
                 this.fotoDX(result.foto);

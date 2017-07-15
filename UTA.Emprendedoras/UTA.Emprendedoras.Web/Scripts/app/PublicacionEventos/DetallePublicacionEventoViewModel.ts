@@ -44,7 +44,6 @@ namespace PublicacionEventos {
                     });
             }
         };
-
         public goBack = {
             icon: 'back',
             type: 'normal',
@@ -85,17 +84,29 @@ namespace PublicacionEventos {
                 }]
         };
 
+        //Foto
+        public fotoPerfil: KnockoutObservable<IFoto> = ko.observable<IFoto>();
+        public MakePhoto: (cuerpo: string) => void = (cuerpo: string): void => {
+            let foto: IFoto = {
+                id: null,
+                cuerpo: cuerpo,
+                nombre: null,
+                usuarioID: null
+            }
+            this.fotoPerfil(foto);
+        }
+
         public loading: KnockoutObservable<boolean> = ko.observable(false);
         constructor() {
-            const id: string = window.location.search.replace('?id=', '');
-
             this.loading(true);
+            const id: string = window.location.search.replace('?id=', '');
+            
             $.getJSON(App.apiRoot + 'publicacion-eventos/get/' + id).then((result: IPublicacionEventoModel): void => {
                 this.evento(result);
+                this.MakePhoto(result.foto);
                 $('#evento-form').dxForm('instance').repaint();
                 this.loading(false);
             });
-
         }
     }
 }

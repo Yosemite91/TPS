@@ -24,7 +24,6 @@ namespace Usuarios {
                 window.location.assign(App.appRoot + 'Usuarios/EditarUsuario?run=' + run);
             }
         };
-
         public botonBloquear = {
             text: 'Bloquear',
             type: 'danger',
@@ -51,7 +50,6 @@ namespace Usuarios {
                     });
             }
         };
-
         public botonDesbloquear = {
             text: 'Desbloquear',
             icon: 'check',
@@ -78,6 +76,7 @@ namespace Usuarios {
                     });
             }
         };
+
         //Notificaciones
         public applyButtonOptionsRestaurarPass = {
             text: 'Restablecer Contraseña',

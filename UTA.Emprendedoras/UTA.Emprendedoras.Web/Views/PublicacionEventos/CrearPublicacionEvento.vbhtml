@@ -28,21 +28,19 @@ End Code
                 </div>
 
                 @*<div class="dx-field">
-                        <div class="dx-field-label">Fecha Realización</div>
-                        <div class="dx-field-value">
-                            <div data-bind="dxDateBox: dxFechaRealizacion, dxValidator: validatorOptions"></div>
-                        </div>
-                    </div>*@
-
+                    <div class="dx-field-label">Fecha Realización</div>
+                    <div class="dx-field-value">
+                        <div data-bind="dxDateBox: dxFechaRealizacion, dxValidator: validatorOptions"></div>
+                    </div>
+                </div>*@
+                
                 @* UPLOAD IMAGE *@
-                @*<div class="dx-fieldset">
-                        <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>
-                        <div class="dx-field">
-                            <div class="dx-field-value">
-                                <div data-bind="dxFileUploader: dxSubirImagen"></div>
-                            </div>
-                        </div>
-                    </div>*@
+                <div class="dx-fieldset-header">Foto Usuario</div>
+                <div class="dx-field">
+                    <div class="dx-field-value">
+                        <div data-bind="dxFileUploader: dxSubirImagen"></div>
+                    </div>
+                </div>
             </div>
         </div>
 

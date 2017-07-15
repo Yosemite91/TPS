@@ -26,12 +26,14 @@ Namespace Controllers.APIControllers
             Dim mapper As AutoMapper.IMapper
 
             Try
-
                 evento = db.Publicaciones.Create()
-                mapper = mapperConfig.CreateMapper()
-                mapper.Map(model, evento)
+                'mapper = mapperConfig.CreateMapper()
+                'mapper.Map(model, evento)
 
                 With evento
+                    .Titulo = model.Titulo
+                    .Descripcion = model.Descripcion
+                    .Foto = Encoding.ASCII.GetBytes(model.Foto)
                     .FechaPublicacion = Now
                     .EsActivo = True
                     .PublicacionTipo = TipoPublicacion.Evento
@@ -63,7 +65,8 @@ Namespace Controllers.APIControllers
                             .ID = evento.ID,
                             .Titulo = evento.Titulo,
                             .Descripcion = evento.Descripcion,
-                            .FechaRealizacion = evento.FechaRealizacion
+                            .FechaRealizacion = evento.FechaRealizacion,
+                            .Foto = Encoding.Default.GetString(evento.Foto)
                          }
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar evento. Error: {0}", ex.Message))
@@ -89,6 +92,7 @@ Namespace Controllers.APIControllers
                 With evento
                     .Titulo = model.Titulo
                     .Descripcion = model.Descripcion
+                    .Foto = Encoding.ASCII.GetBytes(model.Foto)
                 End With
                 Await db.SaveChangesAsync()
             Catch ex As Exception

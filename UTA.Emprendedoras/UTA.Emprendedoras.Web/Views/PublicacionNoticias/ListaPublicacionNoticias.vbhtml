@@ -1,10 +1,10 @@
 ﻿@Code
     ViewData("Title") = "Lista Noticias"
 End Code
+<div id="titulo" class="long-title"><h3>Noticias</h3></div>
 
 <div id="cuerpoLista">
-    <div id="customPadding">
-        <div class="long-title"><h3>Noticias</h3></div>
+    <div id="customPadding">        
         <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
         <div id="botonCrear" data-bind="dxButton: applyButtonOptionsCrear"> </div>
         <!-- /ko -->

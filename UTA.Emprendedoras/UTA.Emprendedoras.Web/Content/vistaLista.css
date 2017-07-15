@@ -6,6 +6,30 @@
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
 
+#mision2, #vision2{
+    display: block;
+    width: 70%;
+    height: auto;    
+    font-size: 16px;
+}
+#perfil {
+    margin: auto;
+    width: 180px;
+    height: auto;
+    border-radius: 0px;
+}
+#aboutUs{
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#titulo{
+    background-color: #337ab7;
+    color: white;
+    width: 100%;
+    padding: 0.25%;
+    margin-bottom: 15px;
+}
 #customPadding{
     padding-left: 15px;
     padding-right: 15px;    
@@ -71,11 +95,28 @@
 @media (min-width: 375px) {
     #formularioLogin {
         padding: 40px;
+    }    
+    #footerLogin{
+        height: 10%;
     }
-}
+    .long-title{
+        font-size: 17px;
+    }
 @media (min-width: 768px) {
     .container {
         width: 100%;
+    }
+    #customPadding{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    #perfil {    
+        width: 20%;
+        height: 20%;   
+    }
+    #aboutUs{
+        padding-left: 200px;
+        padding-right: 200px;
     }
 }
 #elVato{
@@ -380,8 +421,10 @@ hr.small {
 
 /* Footer */
 
-footer {
-    padding-bottom:25px;    
+footer {    
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
     right: 0;
     bottom: 0;
     left: 0;    
@@ -419,14 +462,4 @@ footer {
     padding: 10px 16px;
     font-size: 18px;
     line-height: 1.3333333;    
-}
-
-.fa-remove:before, .fa-close:before, .fa-times:before {
-    /*content: "\e014";*/
-    /*ICONO CERRAR*/
-}
-
-.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
-    /*content: "\e236";*/
-    /*ICONO MENU*/
 }

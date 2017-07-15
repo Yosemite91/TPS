@@ -2,12 +2,15 @@
     ViewData("Title") = "Mi Perfil"
 End Code
 <div data-bind="dxPopup: popUpCambiarPass"></div>
+<div id="titulo" class="long-title"><h3>Mi Perfil</h3></div>
 
 <div class="container">    
     <div id="customPadding">
         <div data-bind="dxLoadPanel: { visible: loading }"></div>
 
-        <div class="long-title"><h3>Mi Perfil</h3></div>
+        <div data-bind="foreach: fotoPerfil">
+            <img style="margin-bottom: 10px" class="img-circle img-responsive bubble" id="perfil" data-bind="attr: {src: cuerpo, alt: nombre}">
+        </div>
 
         <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
         <div id="usuario-form" data-bind="dxForm: form"></div>

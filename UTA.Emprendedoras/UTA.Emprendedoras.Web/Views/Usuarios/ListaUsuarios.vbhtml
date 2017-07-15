@@ -3,10 +3,9 @@
 End Code
 
 <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+<div id="titulo" class="long-title"><h3>Usuarios</h3></div>
 <div class="container">
     <div id="customPadding">
-        <div class="long-title"><h3>Usuarios</h3></div>
-
         <div id="botonCrear" data-bind="dxButton: applyButtonOptionsCrear"> </div>
 
         <div id="grid" data-bind="dxDataGrid: grid"></div>

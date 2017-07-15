@@ -1,12 +1,10 @@
 ﻿@Code
     ViewData("Title") = "ListaReuniones"
 End Code
-
+<div id="titulo" class="long-title"><h3> Reuniones</h3></div>
 
 <div class="container">
-    <div id="customPadding">
-        <div class="long-title"><h3> Reuniones</h3></div>
-  
+    <div id="customPadding">         
         <div id="grid" data-bind="dxDataGrid: grid"></div>
 
         <div class="row">

@@ -1,7 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom Fonts -->
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - UTA Emprendedoras</title>
@@ -27,7 +36,8 @@
             <li>
                 @Html.ActionLink("Perfil", "MiPerfil", "Usuarios")
                 @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@                
-            </li>            
+            </li>
+            <!-- /ko -->
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@
             <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
             <li>                
@@ -42,8 +52,7 @@
             <li>
                 @Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
                 @*<a href="#services" onclick=$("#menu-close").click();>Services</a>*@
-            </li>
-            <!-- /ko -->
+            </li>            
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@
             <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
             <li>
@@ -51,6 +60,12 @@
                 @*<a href="#top" onclick=$("#menu-close").click();>Home</a>*@
             </li>
             <!-- /ko -->
+            <li>
+                <a onclick=$("#menu-close").click();>Acerca de Nosotros</a>
+            </li>
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();>Contacto</a>
+            </li>
             <!-- ko if: Token === null -->
             <li>
                 @Html.ActionLink("Iniciar Sesión", "Login", "Login")
@@ -70,18 +85,14 @@
         @RenderBody()        
     </div>
 
-    @*Footer*@
-    <footer>
-        <div class="container">
-            <div class="row">
-                <hr class="small">
-                <p id="footerTexto">&copy; @DateTime.Now.Year - Arica, Chile</p>
-            </div>
-        </div>
+    @*Footer*@    
+    <footer2 id="footer2">
+        <hr class="small">
+        <p style="margin-bottom:30px" id="footerTexto">&copy; @DateTime.Now.Year - Asociación de Emprendedoras - Arica</p>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg">
             <i class="glyphicon glyphicon-chevron-up"></i>
         </a>
-    </footer>
+    </footer2>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -106,34 +117,20 @@
         $("#menu-close").click(function (e) {
             e.preventDefault();
             $("#sidebar-wrapper").toggleClass("active");
+            $('html,body').animate({ scrollTop: $(document).height() }, 1500);
         });
         //Opens the sidebar menu
         $("#menu-toggle").click(function (e) {
             e.preventDefault();
             $("#sidebar-wrapper").toggleClass("active");
-        });
-        // Scrolls to the selected menu item on the page
-        $(function () {
-            $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function () {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    if (target.length) {
-                        $('html,body').animate({
-                            scrollTop: target.offset().top
-                        }, 1000);
-                        return false;
-                    }
-                }
-            });
-        });
+        });        
         //#to-top button appears after scrolling
         var fixed = false;
         $(document).scroll(function () {
             if ($(this).scrollTop() > 250) {
                 if (!fixed) {
                     fixed = true;
-                    // $('#to-top').css({position:'fixed', display:'block'});
+                     //$('#to-top').css({position:'fixed', display:'block'});
                     $('#to-top').show("slow", function () {
                         $('#to-top').css({
                             position: 'fixed',
@@ -152,6 +149,12 @@
                 }
             }
         });
+        //Scrolling functions
+        $(document).ready(function () {
+            $('#to-top').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 1500);
+            });
+        });        
     </script>
     
     @RenderSection("scripts", required:=False)

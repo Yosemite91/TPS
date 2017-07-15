@@ -2,10 +2,10 @@
     ViewData("Title") = "EditarReunion"
 End Code
 <div data-bind="dxPopup: popUpModificar"></div>
+<div id="titulo" class="long-title"><h3>Editar Lista Asistencia</h3></div>
+
 <div class="container">
     <div id="customPadding">
-        <div class="long-title"><h3>Editar Lista Asistencia</h3></div>
-
         @*<div id="botonCrear" data-bind="dxButton: applyButtonOptionsCrear"> </div>*@
 
                 <div class="row">

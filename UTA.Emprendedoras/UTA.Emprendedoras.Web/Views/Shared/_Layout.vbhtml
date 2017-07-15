@@ -39,12 +39,13 @@
             </li>
             <!-- /ko -->
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@
-            <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+  
+
             <li>                
                 @Html.ActionLink("Usuarios", "ListaUsuarios", "Usuarios")
                 @*<a href="#top" onclick=$("#menu-close").click();>Home</a>*@                
             </li>
-            <!-- /ko -->
+  
             <li>
                 @Html.ActionLink("Eventos", "ListaPublicacionEventos", "PublicacionEventos")
                 @*<a href="#about" onclick=$("#menu-close").click();>About</a>*@

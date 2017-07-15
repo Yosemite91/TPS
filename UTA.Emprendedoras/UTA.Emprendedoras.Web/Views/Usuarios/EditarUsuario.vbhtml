@@ -28,7 +28,7 @@ End Code
                         <div data-bind="dxTextBox: dxApellido, dxValidator: validatorOptions"></div>
                     </div>
                 </div>
-
+                <!-- ko if: esAdministrador === 'true' -->
                 @* NO EDITABLE, CONFLICTOS EN BD *@
                 <div class="dx-field" style="display: none">
                     <div class="dx-field-label">Run</div>
@@ -36,7 +36,7 @@ End Code
                         <div data-bind="dxTextBox: dxRun, dxValidator: validatorOptions"></div>
                     </div>
                 </div>
-
+                <!-- /ko -->
                 <div class="dx-field">
                     <div class="dx-field-label">Fecha Nacimiento</div>
                     <div class="dx-field-value">
@@ -72,7 +72,7 @@ End Code
                     </div>
                 </div>
 
-                <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+                <!-- ko if: esAdministrador === 'true' -->
                 <br />
                 <div class="dx-fieldset-header">Privilegios Otorgables</div>
 

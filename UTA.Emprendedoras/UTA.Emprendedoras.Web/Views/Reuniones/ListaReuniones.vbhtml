@@ -1,6 +1,7 @@
 ﻿@Code
     ViewData("Title") = "ListaReuniones"
 End Code
+<!-- ko if: esAdministrador === 'true' -->
 <div id="titulo" class="long-title"><h3> Reuniones</h3></div>
 
 <div class="container">
@@ -12,10 +13,9 @@ End Code
                 <div id="solicitar-button" data-bind="dxButton: botonAgregar"> </div>
             </div>
         </div>
-
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/Reuniones/ListaReunionesViewModel.js"></script>
     <script>

@@ -1,7 +1,7 @@
 ﻿@Code
     ViewData("Title") = "Crear Usuario"
 End Code
-
+<!-- ko if: esAdministrador === 'true' -->
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 
@@ -106,7 +106,7 @@ End Code
         </div>
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/Usuarios/CrearUsuarioViewModel.js"></script>
     <script>

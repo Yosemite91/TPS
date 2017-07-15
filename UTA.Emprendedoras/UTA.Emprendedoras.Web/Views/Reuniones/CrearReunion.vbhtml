@@ -1,6 +1,7 @@
 ﻿@Code
     ViewData("Title") = "CrearReunion"
 End Code
+<!-- ko if: esAdministrador === 'true' -->
 <div id="titulo" class="long-title"><h3>Lista Asistencia</h3></div>
 
 <div class="container">
@@ -21,7 +22,7 @@ End Code
         <div id="grid" data-bind="dxDataGrid: grid"></div>
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/Reuniones/CrearReunionViewModel.js"></script>
     <script>

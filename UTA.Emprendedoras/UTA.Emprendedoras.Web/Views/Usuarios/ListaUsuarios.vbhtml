@@ -2,8 +2,7 @@
     ViewData("Title") = "Lista Usuarios"
 End Code
 
-<!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
-
+<!-- ko if: esAdministrador === 'true' -->
 <div id="titulo" class="long-title"><h3>Usuarios</h3></div>
 <div class="container">
     <div id="customPadding">

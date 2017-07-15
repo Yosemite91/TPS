@@ -1,7 +1,7 @@
 ﻿@Code
     ViewData("Title") = "Crear Evento"
 End Code
-
+<!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Crear Evento</h3></div>
@@ -52,7 +52,7 @@ End Code
         </div>
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/PublicacionEventos/CrearPublicacionEventoViewModel.js"></script>
     <script>

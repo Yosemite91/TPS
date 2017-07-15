@@ -1,7 +1,7 @@
 ﻿@Code
     ViewData("Title") = "Modificar Noticia"
 End Code
-
+<!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
 <div data-bind="dxPopup: popUpModificar"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Editar Noticia</h3></div>
@@ -48,7 +48,7 @@ End Code
         </div>
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/PublicacionNoticias/EditarPublicacionNoticiaViewModel.js"></script>
     <script>

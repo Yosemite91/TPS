@@ -1,7 +1,7 @@
 ﻿@Code
     ViewData("Title") = "Crear Noticia"
 End Code
-
+<!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Crear Noticia</h3></div>
@@ -35,12 +35,12 @@ End Code
                 </div>*@
 
                @* UPLOAD IMAGE *@
-            <div class="dx-fieldset-header">Foto Usuario</div>
-            <div class="dx-field">
-                <div class="dx-field-value">
-                    <div data-bind="dxFileUploader: dxSubirImagen"></div>
+                <div class="dx-fieldset-header">Foto Usuario</div>
+                <div class="dx-field">
+                    <div class="dx-field-value">
+                        <div data-bind="dxFileUploader: dxSubirImagen"></div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
 
@@ -52,7 +52,7 @@ End Code
         </div>
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/PublicacionNoticias/CrearPublicacionNoticiaViewModel.js"></script>
     <script>

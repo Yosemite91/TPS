@@ -2,6 +2,7 @@
     ViewData("Title") = "DetalleReunion"
 End Code
 
+<!-- ko if: esAdministrador === 'true' -->
 <div id="titulo" class="long-title"><h3>Editar Lista Asistencia</h3></div>
 <div class="container">
     <div id="customPadding">        
@@ -28,7 +29,7 @@ End Code
 
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/Reuniones/DetalleReunionViewModel.js"></script>
     <script>

@@ -1,14 +1,13 @@
 ﻿@Code
     ViewData("Title") = "EditarReunion"
 End Code
+<!-- ko if: esAdministrador === 'true' -->
 <div data-bind="dxPopup: popUpModificar"></div>
 <div id="titulo" class="long-title"><h3>Editar Lista Asistencia</h3></div>
 
 <div class="container">
     <div id="customPadding">
-        @*<div id="botonCrear" data-bind="dxButton: applyButtonOptionsCrear"> </div>*@
-
-                <div class="row">
+        <div class="row">
             <div class="dx-fieldset">
                 <div class="dx-field">
                     <div class="dx-field-label">Descripción</div>
@@ -28,7 +27,7 @@ End Code
         </div>
     </div>
 </div>
-
+<!-- /ko -->
 @Section Scripts
     <script src="~/Scripts/app/Reuniones/EditarReunionViewModel.js"></script>
     <script>

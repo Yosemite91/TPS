@@ -6,14 +6,14 @@ Imports System.Resources
 
 Namespace Migrations
     <GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")>
-    Public NotInheritable Partial Class addesasistenteasistencireunion
+    Public NotInheritable Partial Class initial
         Implements IMigrationMetadata
     
-        Private ReadOnly Resources As New ResourceManager(GetType(addesasistenteasistencireunion))
+        Private ReadOnly Resources As New ResourceManager(GetType(initial))
         
         Private ReadOnly Property IMigrationMetadata_Id() As String Implements IMigrationMetadata.Id
             Get
-                Return "201707140032279_add-es-asistente-asistencireunion"
+                Return "201707151442221_initial"
             End Get
         End Property
         

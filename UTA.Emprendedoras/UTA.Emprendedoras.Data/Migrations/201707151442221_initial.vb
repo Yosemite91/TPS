@@ -13,7 +13,8 @@ Namespace Migrations
                     {
                         .ID = c.Int(nullable := False, identity := True),
                         .QuienAsisteID = c.Int(nullable := False),
-                        .QueReunionID = c.Int(nullable := False)
+                        .QueReunionID = c.Int(nullable := False),
+                        .EsAsistente = c.Boolean(nullable := False)
                     }) _
                 .PrimaryKey(Function(t) t.ID) _
                 .ForeignKey("dbo.Reunion", Function(t) t.QueReunionID) _
@@ -64,7 +65,7 @@ Namespace Migrations
                         .ID = c.Int(nullable := False, identity := True),
                         .Titulo = c.String(),
                         .Descripcion = c.String(),
-                        .Foto = c.String(),
+                        .Foto = c.Binary(),
                         .FechaPublicacion = c.DateTime(nullable := False),
                         .PublicacionTipo = c.Int(nullable := False),
                         .FechaRealizacion = c.DateTime(nullable := False),

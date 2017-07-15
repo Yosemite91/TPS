@@ -10,7 +10,7 @@ End Code
         </strong></h2></div>
         <h4>Esfuerzo &amp; Compromiso</h4>
         <br>
-        <a href="#about" class="btn btn-dark btn-lg">Conocer más</a>
+        <a href="#about" class="btn btn-dark btn-lg">Conocer más</a>        
     </div>
 </header>
 
@@ -19,9 +19,8 @@ End Code
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
-            </div>
+                <h2>Motivados por un cambio</h2>                
+            </div>            
         </div>
         <!-- /.row -->
     </div>
@@ -106,12 +105,12 @@ End Code
     </div>
 </aside>
 
-@*Portfolio*@
+@*Noticias*@
 <section id="portfolio" class="portfolio">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
-                <h2>Nuestro Trabajo</h2>
+                <h2>Noticias</h2>
                 <hr class="small">
                 <div class="row">
                     <div class="col-md-6">
@@ -144,7 +143,7 @@ End Code
                     </div>
                 </div>
                 <!-- /.row (nested) -->
-                <a href="#" class="btn btn-dark">View More Items</a>
+                <a href="#" class="btn btn-dark">Ver más noticias</a>
             </div>
             <!-- /.col-lg-10 -->
         </div>
@@ -153,27 +152,40 @@ End Code
     <!-- /.container -->
 </section>
 
-@*ABOUT US*@
-<aside class="call-to-action bg-primary">
+@*Acerca de nosotros*@
+<aside id="acercaDe" class="call-to-action bg-primary">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h3>Acerca de Nosotros</h3>
                 <div id="aboutUs" style="font-size: 16px">
-                    La Asociación Gremial de Mujeres Emprendedoras Arica, lleva más de cinco años apoyando a la mujer microempresaria, posicionándose como una organización líder en la ciudad.                
-                <p id="revelar" style="font-size: 16px; display: none; margin-top: 0">
-                    Hemos trabajado de manera independiente, a través de seminarios, charlas, ferias, escuelas, conferencias, promoviendo la inclusión en todo ámbito.  
-                    Actualmente realizamos un convenio con el banco estado, dándole flexibilidad en sus créditos.  
-                    Trabajamos transversalmente con los servicios públicos de la ciudad, dándole un enfoque de compromiso ciudadano.
-                </p>
+                    La Asociación Gremial de Mujeres Emprendedoras Arica, lleva más de cinco años apoyando a la mujer microempresaria, posicionándose como una organización líder en la ciudad.
+                    <p id="revelar" style="font-size: 16px; display: none; margin-top: 0">
+                        Hemos trabajado de manera independiente, a través de seminarios, charlas, ferias, escuelas, conferencias, promoviendo la inclusión en todo ámbito.
+                        Actualmente realizamos un convenio con el banco estado, dándole flexibilidad en sus créditos.
+                        Trabajamos transversalmente con los servicios públicos de la ciudad, dándole un enfoque de compromiso ciudadano.
+                        <p id="mision" class="btn btn-dark btn-lg" style="display:none">Misión</p>
+                        <p id="vision" class="btn btn-dark btn-lg" style="display:none">Visión</p>
+                    </p>                    
                 </div>
-                <a id="conocerMas" class="btn btn-lg btn-light">Conocer más</a>
+
+                <div style="display:">
+                    <div id="mision2" style="display:none; margin-left:auto; margin-right:auto">
+                        <p><h3>Misión:</h3>Impulsar en nuestra organización a mujeres emprendedoras para que sean capaces de innovar, ser creativas, desarrollándose en lo social ofreciendo sus productos y servicios, para contribuir a su transformación en mujeres capaces de tomar decisiones para mejorar su nivel socioeconómico y el de sus familias </p>
+                    </div>
+
+                    <div id="vision2" style="display:none; margin-left:auto; margin-right:auto">
+                        <p><h3>Visión:</h3>Convertirse en una organización reconocida para el desarrollo de la mujer emprendedora en lo social con las expectativas de la competitividad en todo ámbito, impulsando procesos de empoderamiento, para poder tener presencia internacional</p>
+                    </div>
+                </div>
+
+                <p id="conocerMas" class="btn btn-lg btn-light">Conocer más</p>
             </div>
         </div>
     </div>
 </aside>
 
-@*Footer Just For Index*@
+@*Footer solo para Index*@
 <footer>
     <div id="contact" class="container">
         <div class="row">
@@ -210,6 +222,15 @@ End Code
     $(document).ready(function () {
         $("#conocerMas").click(function () {
             $("#revelar").toggle(500);
+            $("#mision").toggle(500);
+            $("#vision").toggle(500);
+        });
+
+        $("#mision").click(function () {            
+            $("#mision2").toggle(500);            
+        });
+        $("#vision").click(function () {
+            $("#vision2").toggle(500);
         });
     });
     ko.applyBindings(new Index.IndexViewModel());

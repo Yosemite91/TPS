@@ -43,12 +43,12 @@ namespace Usuarios{
                 pageSize: 9
             },            
             columns: [
-                {
-                    dataField: 'foto',
-                    width: 100,
-                    allowFiltering: false,
-                    allowSorting: false
-                },
+                //{
+                //    dataField: 'foto',
+                //    width: 100,
+                //    allowFiltering: false,
+                //    allowSorting: false
+                //},
                 'nombre',
                 'apellido',
                 'telefono',

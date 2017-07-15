@@ -264,11 +264,11 @@ Namespace Controllers.APIControllers
                                                                .Apellido = u.Apellido,
                                                                .Run = u.Run,
                                                                .Telefono = u.Telefono,
-                                                               .EsActivo = u.EsActivo,
-                                                               .Foto = Encoding.Default.GetString(u.Foto)
+                                                               .EsActivo = u.EsActivo
                                                             }) _
                            .ToListAsync()
                 Return Me.Ok(usuarios)
+                '.Foto = Encoding.Default.GetString(u.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuarios. Error: {0}", ex.Message))
             Finally

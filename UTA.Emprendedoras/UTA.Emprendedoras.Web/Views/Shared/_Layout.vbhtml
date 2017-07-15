@@ -61,6 +61,9 @@
             </li>
             <!-- /ko -->
             <li>
+                <a onclick=$("#menu-close").click();>Acerca de Nosotros</a>
+            </li>
+            <li>
                 <a href="#contact" onclick=$("#menu-close").click();>Contacto</a>
             </li>
             <!-- ko if: Token === null -->
@@ -150,7 +153,7 @@
         $(document).ready(function () {
             $('#to-top').click(function () {
                 $('html,body').animate({ scrollTop: 0 }, 1500);
-            })
+            });
         });        
     </script>
     

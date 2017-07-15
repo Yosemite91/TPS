@@ -6,6 +6,12 @@
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
 
+#mision2, #vision2{
+    display: block;
+    width: 70%;
+    height: auto;    
+    font-size: 16px;
+}
 #perfil {
     margin: auto;
     width: 180px;
@@ -13,7 +19,9 @@
     border-radius: 0px;
 }
 #aboutUs{
-    padding: 50px;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 #titulo{
     background-color: #337ab7;
@@ -107,8 +115,8 @@
         height: 20%;   
     }
     #aboutUs{
-        padding-left: 150px;
-        padding-right: 150px;
+        padding-left: 200px;
+        padding-right: 200px;
     }
 }
 #elVato{

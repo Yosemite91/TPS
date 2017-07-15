@@ -6,7 +6,7 @@ End Code
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Editar Noticia</h3></div>
 
-<div id="cuerpoLista">
+<div class="container">
     <div id="customPadding">
         <div data-bind="dxLoadPanel: { visible: loading }"></div>
 

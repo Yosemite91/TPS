@@ -6,7 +6,7 @@ End Code
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Crear Noticia</h3></div>
 
-<div id="cuerpoLista">
+<div class="container">
     <div id="customPadding">        
         <div class="row">
             @* INFORMACIÓN EVENTO *@

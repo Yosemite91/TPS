@@ -1,16 +1,17 @@
 ﻿@Code
     ViewData("Title") = "Detalle Usuario"
 End Code
-<div id="titulo" class="long-title"><h3>Detalle Usuario</h3></div>
+<div id="titulo" class="long-title">
+    <h3>Detalle Usuario</h3>
+    <div data-bind="foreach: fotoPerfil">
+        <img style="margin-bottom: 10px" class="img-circle img-responsive bubble" id="perfil" data-bind="attr: {src: cuerpo, alt: nombre}">
+    </div>
+</div>
 
 <div class="container">
     <div id="customPadding">
         <div class="row">
-            <div data-bind="dxLoadPanel: { visible: loading }"></div>
-
-            <div data-bind="foreach: fotoPerfil">
-                <img style="margin-bottom: 10px" class="img-circle img-responsive bubble" id="perfil" data-bind="attr: {src: cuerpo, alt: nombre}">
-            </div>
+            <div data-bind="dxLoadPanel: { visible: loading }"></div>        
 
             <div id="botonesDetalle">
                 <div id="volver" data-bind="dxButton: goBack"> </div>

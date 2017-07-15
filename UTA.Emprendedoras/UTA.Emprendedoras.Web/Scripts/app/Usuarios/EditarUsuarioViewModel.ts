@@ -304,6 +304,14 @@ namespace Usuarios {
                 this.usuario().esAdminPublicacion = e.value;
             }
         }
+        public dxActivo = {
+            value: this.esActivoDX,
+            onText: 'SI',
+            offText: 'NO',
+            onValueChanged: (e: any) => {
+                this.usuario().esActivo = e.value;
+            }
+        }
         public dxSitioWeb = {
             value: this.sitioWebUrlDX,
             width: 'auto',

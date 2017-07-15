@@ -29,7 +29,8 @@ End Code
                     </div>
                 </div>
 
-                <div class="dx-field">
+                @* NO EDITABLE, CONFLICTOS EN BD *@
+                <div class="dx-field" style="display: none">
                     <div class="dx-field-label">Run</div>
                     <div class="dx-field-value">
                         <div data-bind="dxTextBox: dxRun, dxValidator: validatorOptions"></div>
@@ -88,7 +89,15 @@ End Code
                     <div class="dx-field-value">
                         <div data-bind="dxSwitch: dxEsAdminPublicacion"></div>
                     </div>
-                </div>                
+                </div>     
+                
+                @* NO EDITABLE DE PREFERENCIA *@
+                <div class="dx-field">
+                    <div class="dx-field-label">¿Es Activo?</div>
+                    <div class="dx-field-value">
+                        <div data-bind="dxSwitch: dxActivo"></div>
+                    </div>
+                </div>           
                 <!-- /ko -->
                 <br />                
                 @* UPLOAD IMAGE *@                

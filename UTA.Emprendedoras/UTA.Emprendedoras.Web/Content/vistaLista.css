@@ -6,6 +6,9 @@
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
 
+#foto{
+    background-color: #337ab7;
+}
 #mision2, #vision2{
     display: block;
     width: 70%;
@@ -14,9 +17,8 @@
 }
 #perfil {
     margin: auto;
-    width: 180px;
-    height: auto;
-    border-radius: 0px;
+    width: 140px;
+    height: 100%;
 }
 #aboutUs{
     padding-top: 30px;
@@ -111,8 +113,8 @@
         padding-right: 15%;
     }
     #perfil {    
-        width: 20%;
-        height: 20%;   
+        margin: auto;
+        width: 180px;  
     }
     #aboutUs{
         padding-left: 200px;

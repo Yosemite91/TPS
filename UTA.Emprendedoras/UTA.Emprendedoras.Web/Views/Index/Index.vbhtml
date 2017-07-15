@@ -224,6 +224,8 @@ End Code
             $("#revelar").toggle(500);
             $("#mision").toggle(500);
             $("#vision").toggle(500);
+            $("#mision2").hide(500);
+            $("#vision2").hide(500);
         });
 
         $("#mision").click(function () {            

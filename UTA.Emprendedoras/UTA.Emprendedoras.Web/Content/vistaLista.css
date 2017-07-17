@@ -6,6 +6,10 @@
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
 
+#userPic {
+    height: 80px;
+    width: 80px;
+}
 #dxSlider{
     width: 100%;
     height: 300px;
@@ -123,6 +127,10 @@
     #aboutUs{
         padding-left: 200px;
         padding-right: 200px;
+    }
+    #userPic {
+        height: 100px;
+        width: 100px;
     }
 }
 #elVato{

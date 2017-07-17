@@ -255,6 +255,8 @@ Namespace Controllers.APIControllers
         Public Async Function GetUsuarios() As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
             Dim usuarios As List(Of UsuarioModel) = Nothing
+            Dim user As UsuarioModel = Nothing
+            Dim usuariosFinal As List(Of UsuarioModel) = New List(Of UsuarioModel)
 
             Try
                 usuarios = Await db.Usuarios _
@@ -264,9 +266,16 @@ Namespace Controllers.APIControllers
                                                                .Apellido = u.Apellido,
                                                                .Run = u.Run,
                                                                .Telefono = u.Telefono,
-                                                               .EsActivo = u.EsActivo
+                                                               .EsActivo = u.EsActivo,
+                                                               .FotoByte = u.Foto
                                                             }) _
                            .ToListAsync()
+
+                For Each User In usuarios
+                    user.Foto = Encoding.Default.GetString(user.FotoByte)
+                    usuariosFinal.Add(User)
+                Next
+
                 Return Me.Ok(usuarios)
                 '.Foto = Encoding.Default.GetString(u.Foto)
             Catch ex As Exception

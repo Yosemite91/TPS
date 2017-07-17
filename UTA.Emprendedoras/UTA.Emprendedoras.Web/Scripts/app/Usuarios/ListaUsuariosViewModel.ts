@@ -41,12 +41,20 @@ namespace Usuarios{
             columnHidingEnabled: false,
             paging: {
                 pageSize: 9
-            },            
-            columns: [               
+            },
+            loadPanel: true,
+            columns: [
+                {
+                    dataField: 'foto',
+                    width: 110,
+                    allowFiltering: false,
+                    allowSorting: false,
+                    cellTemplate: "cellTemplate",
+                },               
                 'nombre',
                 'apellido',
                 'telefono',
-                { dataField: 'esActivo', caption: '¿Activo?' }
+                { dataField: 'esActivo', caption: '¿Activo?', width: 80 }
             ]
         };
 

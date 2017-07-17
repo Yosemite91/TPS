@@ -8,7 +8,11 @@ End Code
     <div id="customPadding">
         <div id="botonCrear" data-bind="dxButton: applyButtonOptionsCrear"> </div>
 
-        <div id="grid" data-bind="dxDataGrid: grid"></div>
+        <div id="grid" data-bind="dxDataGrid: grid">
+            <div data-options="dxTemplate:{ name:'cellTemplate' }">
+                <img id="userPic" data-bind="attr:{src: $data.value}" />
+            </div>
+        </div>
     </div>
 </div>
  <!-- /ko -->

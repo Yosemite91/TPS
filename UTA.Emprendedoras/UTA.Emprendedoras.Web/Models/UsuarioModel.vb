@@ -18,6 +18,7 @@ Namespace Models
         Public Property Foto As String
         Public Property EsAsistente As Boolean
         Public Property Email As String
+        Public Property FotoByte As Byte()
     End Class
 
 End Namespace

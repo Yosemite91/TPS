@@ -485,6 +485,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />
     <TypeScriptCompile Include="Scripts\app\Index\IndexViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Index\IUsuarioModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Login\LoginModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Login\LoginViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\CrearPublicacionEventoViewModel.ts" />

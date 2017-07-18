@@ -333,9 +333,7 @@ Namespace Controllers.APIControllers
             Try
                 usuarios = Await db.Usuarios _
                            .Select(Function(u) New UsuarioModel With {
-                                                               .ID = u.ID,
-                                                               .FotoByte = u.Foto,
-                                                               .Run = u.Run
+                                                               .FotoByte = u.Foto
                                                             }) _
                            .ToListAsync()
 
@@ -344,7 +342,7 @@ Namespace Controllers.APIControllers
                     usuariosFinal.Add(user)
                 Next
 
-                Return Me.Ok(usuarios)
+                Return Me.Ok(usuarios.ToArray)
                 '.Foto = Encoding.Default.GetString(u.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuarios. Error: {0}", ex.Message))

@@ -21,7 +21,7 @@
     height: 300px;
 }
 #foto{
-    background-color: #337ab7;
+    background-color: #337ab7;    
 }
 #mision2, #vision2{
     display: block;
@@ -33,6 +33,7 @@
     margin: auto;
     width: 140px;
     height: 100%;
+    border-radius: 50px;
 }
 #aboutUs{
     padding-top: 30px;

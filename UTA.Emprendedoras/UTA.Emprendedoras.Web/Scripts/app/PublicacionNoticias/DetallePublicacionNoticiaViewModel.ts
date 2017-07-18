@@ -58,8 +58,8 @@ namespace PublicacionNoticias {
             readOnly: true,
             colCount: 'auto',
             colCountByScreen: {
-                lg: 2,
-                md: 2,
+                lg: 1,
+                md: 1,
                 sm: 1,
                 xs: 1
             },

@@ -6,8 +6,7 @@ End Code
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Crear Evento</h3></div>
 
-<div class="container">
-    <div data-bind="dxLoadPanel: { visible: loading }"></div>
+<div class="container">    
     <div id="customPadding">        
         <div class="row">
             @* INFORMACIÓN EVENTO *@

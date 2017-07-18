@@ -36,7 +36,7 @@ End Code
                 </div>*@
 
                @* UPLOAD IMAGE *@
-                <div class="dx-fieldset-header">Foto Usuario</div>
+                <div class="dx-fieldset-header">Foto Noticia</div>
                 <div class="dx-field">
                     <div class="dx-field-value">
                         <div data-bind="dxFileUploader: dxSubirImagen"></div>

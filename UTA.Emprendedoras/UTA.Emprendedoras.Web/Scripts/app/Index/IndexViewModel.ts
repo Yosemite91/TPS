@@ -8,7 +8,7 @@ namespace Index {
 
     export class IndexViewModel {
 
-        public usuarios: KnockoutObservable<any> = ko.observable<any>();        
+        public noticias: KnockoutObservable<any> = ko.observable<any>();        
 
         public galleryOptions: DevExpress.ui.dxGalleryOptions = {
             dataSource: [
@@ -27,12 +27,32 @@ namespace Index {
             stretchImages: true,
             swipeEnabled: true,
             onItemClick: null
-        }        
+        }
+       
+        public listOptions: DevExpress.ui.dxListOptions = {
+            dataSource: this.noticias,
+            height: "100%",
+            indicateLoading: true,
+            menuMode: "content",
+            nextButtonText: "Más",
+            noDataText: "Sin datos por mostrar",
+            pageLoadingText: "Cargando...",
+            refreshingText: "Recargando...",            
+            onItemClick: () => {
+                //const data: Text = $data.run;
+                //let url: string = App.appRoot + 'Usuarios/DetalleUsuario';
+                //if (data.run != undefined) {
+                //    url = url + '?run=' + data.run;
+                //    window.location.assign(url);
+                //}
 
+            }
+        };
+        
         constructor() {
             //Cargar Usuarios
-            $.getJSON(App.apiRoot + 'usuarios/get-fotos/').then((result: IUsuarioModel[]): void => {
-                this.usuarios(result);
+            $.getJSON(App.apiRoot + 'publicacion-noticias/get-lista/').then((result: IPublicacionNoticiaModel[]): void => {
+                this.noticias(result);
             });
         }
     }   

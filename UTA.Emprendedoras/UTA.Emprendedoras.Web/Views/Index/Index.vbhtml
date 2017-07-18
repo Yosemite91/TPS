@@ -74,39 +74,28 @@ End Code
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
                 <h2>Noticias</h2>
-                <hr class="small">
+                <br class="small">                                
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="portfolio-item">
-                            <a href="#">
-                                <img class="img-portfolio img-responsive" src="~/Content/img/portfolio-1.jpg">
-                            </a>
+                    @* dxList *@
+                    <div id="list" class="list-container">
+                        <div data-bind="dxList: listOptions">
+                            <div data-options="dxTemplate: {name: 'item'}">
+                                <div class="product" style="display: block">
+                                    <img id="imgList" data-bind="attr: {src: $data.foto}" />
+                                    <br />
+                                    <div data-bind="text: $data.titulo"></div>
+                                    <br />
+                                    <div data-bind="text: $data.descripcion"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="portfolio-item">
-                            <a href="#">
-                                <img class="img-portfolio img-responsive" src="~/Content/img/portfolio-2.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="portfolio-item">
-                            <a href="#">
-                                <img class="img-portfolio img-responsive" src="~/Content/img/portfolio-3.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="portfolio-item">
-                            <a href="#">
-                                <img class="img-portfolio img-responsive" src="~/Content/img/portfolio-4.jpg">
-                            </a>
-                        </div>
-                    </div>
+                    @* dxList *@              
                 </div>
                 <!-- /.row (nested) -->
-                <a href="#" class="btn btn-dark">Ver más noticias</a>
+                <div class="btn btn-lg btn-light">
+                    @Html.ActionLink("Ver más noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
+                </div>
             </div>
             <!-- /.col-lg-10 -->
         </div>

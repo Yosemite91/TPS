@@ -70,7 +70,7 @@ namespace PublicacionNoticias {
                     items: ['titulo', 
                         <DevExpress.ui.dxFormSimpleItem>{
                             dataField: 'descripcion',
-                            editorType: 'dxTextArea'
+                            editorType: 'dxTextArea',
                         },                        
                         <DevExpress.ui.dxDateBoxOptions>{
                             dataField: 'fechaPublicacion',
@@ -81,7 +81,8 @@ namespace PublicacionNoticias {
                             }
                         }
                     ]
-                }]
+                }
+            ]
         };
 
         //Foto

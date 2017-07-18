@@ -10,7 +10,7 @@ End Code
         </strong></h2></div>
         <h4>Esfuerzo &amp; Compromiso</h4>
         <br>
-        <a href="#about" class="btn btn-dark btn-lg">Conocer más</a>        
+        <a href="#about" class="btn btn-dark btn-lg">Conocer más</a>
     </div>
 </header>
 
@@ -43,7 +43,7 @@ End Code
             </div>
             <!-- /.col-lg-10 -->            
             <div class="btn btn-lg btn-light" style="margin-top:15px">
-                @Html.ActionLink("Ver todos los Emprendedores", "ListaUsuarios", "Usuarios")
+                <a>@Html.ActionLink("Ver todos los Emprendedores", "ListaUsuarios", "Usuarios")</a>
             </div>
         </div>
         <!-- /.row -->
@@ -92,10 +92,10 @@ End Code
                         </div>
                     </div>
                     @* dxList *@              
-                </div>
+                </div>                
                 <!-- /.row (nested) -->
-                <div class="btn btn-lg btn-light">
-                    @Html.ActionLink("Ver más noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
+                <div class="btn btn-lg btn-default" style="margin-top: 15px; border-radius: 0px">
+                    <a>@Html.ActionLink("Ver más noticias", "ListaPublicacionNoticias", "PublicacionNoticias")</a>
                 </div>
             </div>
             <!-- /.col-lg-10 -->

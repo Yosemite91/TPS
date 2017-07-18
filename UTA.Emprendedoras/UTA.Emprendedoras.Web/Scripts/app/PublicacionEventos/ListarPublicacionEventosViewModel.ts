@@ -50,7 +50,7 @@ namespace PublicacionEventos {
                 pageSize: 9
             },
             columns: [
-                'titulo',
+                { dataField: 'titulo', width: 120 },
                 'descripcion'
             ]
         };

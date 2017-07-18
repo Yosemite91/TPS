@@ -72,9 +72,9 @@ namespace PublicacionNoticias {
                             dataField: 'descripcion',
                             editorType: 'dxTextArea'
                         },                        
-                        <DevExpress.ui.dxFormSimpleItem>{
+                        <DevExpress.ui.dxDateBoxOptions>{
                             dataField: 'fechaPublicacion',
-                            editorType: 'dxDateBox',
+                            editorType: 'dxDateBox',                            
                             editorOptions: {
                                 displayFormat: 'dd/MM/yyyy',
                                 width: 'auto'

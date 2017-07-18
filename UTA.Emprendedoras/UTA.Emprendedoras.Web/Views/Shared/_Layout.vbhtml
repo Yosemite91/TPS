@@ -35,7 +35,7 @@
             <!-- ko if: Token !== null -->
             <li>
                 @Html.ActionLink("Perfil", "MiPerfil", "Usuarios")
-                @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@                
+                @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@
             </li>
             <!-- /ko -->
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@

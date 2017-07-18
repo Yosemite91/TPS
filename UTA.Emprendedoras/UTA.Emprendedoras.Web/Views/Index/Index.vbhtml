@@ -41,7 +41,10 @@ End Code
                 </div>
                 <!-- /.row (nested) -->
             </div>
-            <!-- /.col-lg-10 -->
+            <!-- /.col-lg-10 -->            
+            <div class="btn btn-lg btn-light" style="margin-top:15px">
+                @Html.ActionLink("Ver todos los Emprendedores", "ListaUsuarios", "Usuarios")
+            </div>
         </div>
         <!-- /.row -->
     </div>
@@ -52,8 +55,7 @@ End Code
 <section id="about" class="about">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Motivados por un cambio</h2>
+            <div class="col-lg-12 text-center">                
             </div>
         </div>
         <!-- /.row -->
@@ -81,11 +83,10 @@ End Code
                         <div data-bind="dxList: listOptions">
                             <div data-options="dxTemplate: {name: 'item'}">
                                 <div class="product" style="display: block">
-                                    <img id="imgList" data-bind="attr: {src: $data.foto}" />
+                                    <h4 data-bind="text: $data.titulo"></h4>
+                                    <img id="imgList" data-bind="attr: {src: $data.foto}"/>
                                     <br />
-                                    <div data-bind="text: $data.titulo"></div>
-                                    <br />
-                                    <div data-bind="text: $data.descripcion"></div>
+                                    @*<div data-bind="text: $data.descripcion"></div>*@
                                 </div>
                             </div>
                         </div>

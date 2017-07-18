@@ -5,7 +5,6 @@
 /*  naranjo: #eaa72f    */
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
-
 #gallery{
     width: 300px;
     height: 300px;
@@ -21,13 +20,20 @@
     height: 300px;
 }
 #foto{
-    background-color: #337ab7;    
+    background-color: #337ab7;
+    width: 100%;
+    height: auto;
 }
 #mision2, #vision2{
     display: block;
     width: 70%;
     height: auto;    
     font-size: 16px;
+}
+#perfilNoticia {
+    margin: auto;
+    width: 300px;
+    height: 100%;
 }
 #perfil {
     margin: auto;
@@ -59,7 +65,7 @@
     height:auto;    
     padding-top: 0px;
 }
-.containerLogin {
+.containerLogin{
     justify-content: center;
     align-items: center;
     display: flex;    
@@ -490,7 +496,7 @@ footer {
     width: 80%;
 }
 #imgList {
-    width: 100%;
+    width: 100%;    
 }
 @media (min-width: 375px) {    
     .list-container {
@@ -504,8 +510,10 @@ footer {
         display: block;
         max-height: 300px;        
         max-width: 375px;    
-        float: left;        
+        /*float: left;*/        
         overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
     }
     .product > div {
         padding-left: 10px;
@@ -527,13 +535,17 @@ footer {
     }
     .product {
         height: auto;
+        display: inline-block;
+        vertical-align: middle;
     }
     .product > img {
         display: block;
-        max-height: 400px;
-        max-width: 50%;
-        float: left;
+        max-height: 500px;
+        max-width: 60%;
+        /*float: left;*/
         overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
     }
     .product > div {
         padding-left: 10px;

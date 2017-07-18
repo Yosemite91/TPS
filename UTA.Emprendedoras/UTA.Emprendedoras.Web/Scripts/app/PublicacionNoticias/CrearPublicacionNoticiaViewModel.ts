@@ -144,8 +144,8 @@ namespace PublicacionNoticias {
             editorOptions: {
                 mode: 'text'
             },
-            maxLength: 120,
-            height: 90,            
+            maxLength: 500,
+            height: 100,
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.noticia().descripcion = e.value;

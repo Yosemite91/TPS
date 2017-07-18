@@ -76,7 +76,7 @@ namespace PublicacionNoticias {
                             dataField: 'fechaPublicacion',
                             editorType: 'dxDateBox',
                             editorOptions: {
-                                displayFormat: 'MM/dd/yyyy',
+                                displayFormat: 'dd/MM/yyyy',
                                 width: 'auto'
                             }
                         }

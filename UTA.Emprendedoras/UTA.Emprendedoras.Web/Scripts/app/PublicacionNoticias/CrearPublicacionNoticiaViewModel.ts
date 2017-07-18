@@ -185,9 +185,9 @@ namespace PublicacionNoticias {
         }
 
         public FotoUsuario: KnockoutObservable<IFoto> = ko.observable<IFoto>();
-
+        public loading: KnockoutObservable<boolean> = ko.observable(true);
         constructor() {
-            
+            this.loading(false);
         }
     }
 }

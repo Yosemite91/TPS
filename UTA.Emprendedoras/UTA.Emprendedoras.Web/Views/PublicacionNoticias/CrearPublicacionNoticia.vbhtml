@@ -1,12 +1,13 @@
 ﻿@Code
     ViewData("Title") = "Crear Noticia"
 End Code
+<div data-bind="dxLoadPanel: { visible: loading }"></div>
 <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Crear Noticia</h3></div>
 
-<div class="container">
+<div class="container">    
     <div id="customPadding">        
         <div class="row">
             @* INFORMACIÓN EVENTO *@

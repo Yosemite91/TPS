@@ -6,6 +6,12 @@
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
 
+#gallery{
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
 #userPic {
     height: 80px;
     width: 80px;

@@ -13,9 +13,17 @@ namespace Reuniones {
         public botonAgregar = {
             text: 'Crear',
             type: 'success',
-            icon: 'edit',
+            icon: 'plus',
             onClick: function (e: any) {
                 window.location.assign(App.appRoot + 'Reuniones/CrearReunion');
+            }
+        };
+
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
             }
         };
 
@@ -29,6 +37,11 @@ namespace Reuniones {
                     url = url + '?id=' + data.id;
                 }
                 window.location.assign(url);
+            },
+            searchPanel: {
+                visible: true,
+                width: 240,
+                placeholder: 'Buscar...'
             },
             showRowLines: true,
             rowAlternationEnabled: true,

@@ -192,6 +192,15 @@ namespace Usuarios {
             $.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
                 this.usuario(result);
                 this.MakePhoto(result.foto);
+
+                if (result.esActivo) {
+                    $('#bloquear-button').dxButton({ disabled: false });
+                    $('#desbloquear-button').dxButton({ disabled: true });
+                }
+                else {
+                    $('#bloquear-button').dxButton({ disabled: true });
+                    $('#desbloquear-button').dxButton({ disabled: false });
+                }
                 $('#usuario-form').dxForm('instance').repaint();
                 this.loading(false);
             });

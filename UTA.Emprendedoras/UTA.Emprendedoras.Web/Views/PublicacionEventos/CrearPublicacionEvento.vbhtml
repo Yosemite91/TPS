@@ -6,7 +6,7 @@ End Code
 <div data-bind="dxPopup: popUpCancelar"></div>
 <div id="titulo" class="long-title"><h3>Crear Evento</h3></div>
 
-<div class="container">
+<div class="container">    
     <div id="customPadding">        
         <div class="row">
             @* INFORMACIÓN EVENTO *@
@@ -35,7 +35,7 @@ End Code
                 </div>*@
                 
                 @* UPLOAD IMAGE *@
-                <div class="dx-fieldset-header">Foto Usuario</div>
+                <div class="dx-fieldset-header">Foto Evento</div>
                 <div class="dx-field">
                     <div class="dx-field-value">
                         <div data-bind="dxFileUploader: dxSubirImagen"></div>

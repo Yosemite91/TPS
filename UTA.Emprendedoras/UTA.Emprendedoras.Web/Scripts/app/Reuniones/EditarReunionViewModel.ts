@@ -60,6 +60,14 @@ namespace Reuniones {
             }
         };
 
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
+            }
+        };
+
         //Formulario
         public dxDescripcion = {
             value: this.descripcionDX,

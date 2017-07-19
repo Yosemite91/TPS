@@ -12,7 +12,7 @@ End Code
 <div class="container">    
     <div id="customPadding">
         <div data-bind="dxLoadPanel: { visible: loading }"></div>
-
+        
         <div id="modificar-button" data-bind="dxButton: applyButtonOptionsModificar"> </div>
         <div id="usuario-form" data-bind="dxForm: form"></div>
 

@@ -4,7 +4,7 @@ End Code
 <div id="titulo" class="long-title">
     <h3>Detalle de la Noticia</h3>
     <div data-bind="foreach: fotoPerfil">
-        <img style="margin-bottom: 10px" class="img-circle img-responsive bubble" id="perfil" data-bind="attr: {src: cuerpo, alt: nombre}">
+        <img style="margin-bottom: 10px" class="mg-circle img-responsive bubble" id="perfilNoticia" data-bind="attr: {src: cuerpo, alt: nombre}">
     </div>
 </div>
 

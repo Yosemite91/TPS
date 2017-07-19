@@ -18,6 +18,14 @@ namespace PublicacionEventos {
             }
         };
 
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
+            }
+        };
+
         //Formulario
         public grid: DevExpress.ui.dxDataGridOptions = {
             dataSource: this.eventos,
@@ -42,7 +50,7 @@ namespace PublicacionEventos {
                 pageSize: 9
             },
             columns: [
-                'titulo',
+                { dataField: 'titulo', width: 120 },
                 'descripcion'
             ]
         };

@@ -331,7 +331,7 @@ namespace Usuarios {
         }
 
         public FotoUsuario: KnockoutObservable<IFoto> = ko.observable<IFoto>();
-
+        public loading: KnockoutObservable<boolean> = ko.observable(false);
         constructor() {
 
         }

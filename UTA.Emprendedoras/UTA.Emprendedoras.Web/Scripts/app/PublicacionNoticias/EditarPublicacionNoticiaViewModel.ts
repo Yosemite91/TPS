@@ -156,8 +156,8 @@ namespace PublicacionNoticias {
             editorOptions: {
                 mode: 'text'
             },
-            maxLength: 120,
-            height: 90,            
+            maxLength: 500,
+            height: 100,            
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'

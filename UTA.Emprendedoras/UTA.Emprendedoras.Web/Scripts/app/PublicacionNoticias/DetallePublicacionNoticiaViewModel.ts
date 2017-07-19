@@ -58,8 +58,8 @@ namespace PublicacionNoticias {
             readOnly: true,
             colCount: 'auto',
             colCountByScreen: {
-                lg: 2,
-                md: 2,
+                lg: 1,
+                md: 1,
                 sm: 1,
                 xs: 1
             },
@@ -70,18 +70,19 @@ namespace PublicacionNoticias {
                     items: ['titulo', 
                         <DevExpress.ui.dxFormSimpleItem>{
                             dataField: 'descripcion',
-                            editorType: 'dxTextArea'
+                            editorType: 'dxTextArea',
                         },                        
-                        <DevExpress.ui.dxFormSimpleItem>{
+                        <DevExpress.ui.dxDateBoxOptions>{
                             dataField: 'fechaPublicacion',
-                            editorType: 'dxDateBox',
+                            editorType: 'dxDateBox',                            
                             editorOptions: {
-                                displayFormat: 'MM/dd/yyyy',
+                                displayFormat: 'dd/MM/yyyy',
                                 width: 'auto'
                             }
                         }
                     ]
-                }]
+                }
+            ]
         };
 
         //Foto

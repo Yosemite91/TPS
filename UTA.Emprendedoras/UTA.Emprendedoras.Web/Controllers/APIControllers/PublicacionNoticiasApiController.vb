@@ -147,5 +147,39 @@ Namespace Controllers.APIControllers
         End Function
 #End Region
 
+#Region "Get Lista"
+        <Route("get-lista", Name:="getLista")>
+        <HttpGet>
+        Public Async Function GetLista() As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim noticias As List(Of PublicacionNoticiaModel) = Nothing
+            Dim nueva As PublicacionNoticiaModel = Nothing
+            Dim noticiaFinal As List(Of PublicacionNoticiaModel) = New List(Of PublicacionNoticiaModel)
+
+            Try
+                noticias = Await db.Publicaciones.Where(Function(e) e.PublicacionTipo = TipoPublicacion.Noticia AndAlso e.EsActivo) _
+                .Select(Function(e) New PublicacionNoticiaModel With {
+                                                               .ID = e.ID,
+                                                               .FotoByte = e.Foto,
+                                                               .Titulo = e.Titulo,
+                                                               .Descripcion = e.Descripcion
+                                                            }) _
+                           .ToListAsync()
+
+                For Each nueva In noticias
+                    nueva.Foto = Encoding.Default.GetString(nueva.FotoByte)
+                    noticiaFinal.Add(nueva)
+                Next
+
+                Return Me.Ok(noticias)
+                '.Foto = Encoding.Default.GetString(u.Foto)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuarios. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
+        End Function
+#End Region
+
     End Class
 End Namespace

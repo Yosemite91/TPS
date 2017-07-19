@@ -255,6 +255,8 @@ Namespace Controllers.APIControllers
         Public Async Function GetUsuarios() As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
             Dim usuarios As List(Of UsuarioModel) = Nothing
+            Dim user As UsuarioModel = Nothing
+            Dim usuariosFinal As List(Of UsuarioModel) = New List(Of UsuarioModel)
 
             Try
                 usuarios = Await db.Usuarios _
@@ -264,9 +266,16 @@ Namespace Controllers.APIControllers
                                                                .Apellido = u.Apellido,
                                                                .Run = u.Run,
                                                                .Telefono = u.Telefono,
-                                                               .EsActivo = u.EsActivo
+                                                               .EsActivo = u.EsActivo,
+                                                               .FotoByte = u.Foto
                                                             }) _
                            .ToListAsync()
+
+                For Each User In usuarios
+                    user.Foto = Encoding.Default.GetString(user.FotoByte)
+                    usuariosFinal.Add(User)
+                Next
+
                 Return Me.Ok(usuarios)
                 '.Foto = Encoding.Default.GetString(u.Foto)
             Catch ex As Exception
@@ -309,6 +318,37 @@ Namespace Controllers.APIControllers
             If result IsNot Nothing Then Return Me.Ok(result)
             Return Me.Content(HttpStatusCode.NotFound, "Información no encontrada")
 
+        End Function
+#End Region
+
+#Region "Get Fotos"
+        <Route("get-fotos", Name:="getFotos")>
+        <HttpGet>
+        Public Async Function GetFotos() As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim usuarios As List(Of UsuarioModel) = Nothing
+            Dim user As UsuarioModel = Nothing
+            Dim usuariosFinal As List(Of UsuarioModel) = New List(Of UsuarioModel)
+
+            Try
+                usuarios = Await db.Usuarios _
+                           .Select(Function(u) New UsuarioModel With {
+                                                               .FotoByte = u.Foto
+                                                            }) _
+                           .ToListAsync()
+
+                For Each user In usuarios
+                    user.Foto = Encoding.Default.GetString(user.FotoByte)
+                    usuariosFinal.Add(user)
+                Next
+
+                Return Me.Ok(usuarios.ToArray)
+                '.Foto = Encoding.Default.GetString(u.Foto)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuarios. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
         End Function
 #End Region
 

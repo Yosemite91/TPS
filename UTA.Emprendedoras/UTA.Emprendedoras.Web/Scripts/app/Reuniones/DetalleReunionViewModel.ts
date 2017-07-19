@@ -14,10 +14,18 @@ namespace Reuniones {
         //Buttons
         public botonEditar = {
             text: 'Editar',
-            type: 'success',
+            type: 'default',
             icon: 'edit',
             onClick: function (e: any) {
                 window.location.assign(App.appRoot + 'Reuniones/EditarReunion?id=' + this.asistencia().idAsistencia);
+            }
+        };
+
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
             }
         };
 

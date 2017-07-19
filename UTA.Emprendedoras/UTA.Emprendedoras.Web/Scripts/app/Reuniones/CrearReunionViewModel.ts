@@ -37,29 +37,25 @@ namespace Reuniones {
                     );
             }
         };
+
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
+            }
+        };
         //Formulario
         public dxDescripcion = {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
             },
-            maxLength: 120,
-            height: 90,
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.usuarios().descripcion = e.value;
             }
         }
-
-
 
         public grid: DevExpress.ui.dxDataGridOptions = {
             dataSource: this.usuarios,
@@ -74,10 +70,10 @@ namespace Reuniones {
                 mode: "cell", allowUpdating : true
             },
             columns: [
-                { dataField: 'nombre', allowEditing:false},
+                { dataField: 'nombre', allowEditing: false},
                 { dataField: 'apellido', allowEditing: false},
                 { dataField: 'run', allowEditing: false},
-                { dataField: 'esAsistente', caption: '¿Asistio?', allowEditing:true}
+                { dataField: 'esAsistente', caption: '¿Asistió?', allowEditing:true}
             ]
         };
 

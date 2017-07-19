@@ -1,6 +1,7 @@
 ﻿@Code
     ViewData("Title") = "Crear Usuario"
 End Code
+
 <!-- ko if: esAdministrador === 'true' -->
 <div data-bind="dxPopup: popUpCrear"></div>
 <div data-bind="dxPopup: popUpCancelar"></div>

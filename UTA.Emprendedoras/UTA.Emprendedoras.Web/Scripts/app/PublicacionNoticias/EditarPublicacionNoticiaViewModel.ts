@@ -28,6 +28,7 @@ namespace PublicacionNoticias {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: (e: any): void => {
+                    this.loading(true);
                     if (this.FotoUsuario() === undefined) {
                         let foto: IFoto = {
                             cuerpo: this.fotoDX(),
@@ -59,6 +60,7 @@ namespace PublicacionNoticias {
                             window.location.assign(App.appRoot + 'PublicacionNoticias/ListaPublicacionNoticias');
                         },
                         function (xhr, textStatus, err) {
+                            this.loading(false);
                             alert(err);
                         });
                 }

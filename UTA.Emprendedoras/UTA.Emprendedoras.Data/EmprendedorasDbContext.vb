@@ -14,7 +14,7 @@ Public Class EmprendedorasDbContext
     ' Si desea tener como destino una base de datos y/o un proveedor de base de datos diferente, 
     ' modifique la cadena de conexión 'EmprendedorasDbContext'  en el archivo de configuración de la aplicación.
     Public Sub New()
-        MyBase.New("name=EmprendedorasDbContext")
+        MyBase.New("name=EmprendedorasUtaDbContext")
     End Sub
 
     ' Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 

@@ -223,25 +223,28 @@
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
-    <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\APIControllers\LoginApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionEventosApiController.vb" />
     <Compile Include="Controllers\APIControllers\PublicacionNoticiasApiController.vb" />
+    <Compile Include="Controllers\APIControllers\ReunionesController.vb" />
     <Compile Include="Controllers\APIControllers\UsuariosApiController.vb" />
+    <Compile Include="Controllers\IndexController.vb" />
     <Compile Include="Controllers\LoginController.vb" />
-    <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\PublicacionEventosController.vb" />
     <Compile Include="Controllers\PublicacionNoticiasController.vb" />
+    <Compile Include="Controllers\ReunionesController.vb" />
     <Compile Include="Controllers\UsuariosController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\IdentityModels.vb" />
+    <Compile Include="Models\IndexModel.vb" />
     <Compile Include="Models\LoginModel.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="Models\PublicacionEventoModel.vb" />
     <Compile Include="Models\PublicacionNoticiaModel.vb" />
+    <Compile Include="Models\ReunionModel.vb" />
     <Compile Include="Models\UsuarioModel.vb" />
     <Compile Include="Modules\BasicAuthHttpModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -259,7 +262,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +291,15 @@
     <Content Include="Content\dx.win10.white.css" />
     <Content Include="Content\dx.win8.black.css" />
     <Content Include="Content\dx.win8.white.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\img\bg.jpg" />
+    <Content Include="Content\img\callout.jpg" />
+    <Content Include="Content\img\portfolio-1.jpg" />
+    <Content Include="Content\img\portfolio-2.jpg" />
+    <Content Include="Content\img\portfolio-3.jpg" />
+    <Content Include="Content\img\portfolio-4.jpg" />
     <Content Include="Content\layouts\Desktop\DesktopLayout.css" />
     <Content Include="Content\layouts\Desktop\DesktopLayout.html" />
     <Content Include="Content\layouts\Desktop\DesktopLayout.js" />
@@ -312,6 +323,37 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\less\animated.less" />
+    <Content Include="Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome\less\core.less" />
+    <Content Include="Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\font-awesome\less\icons.less" />
+    <Content Include="Content\font-awesome\less\larger.less" />
+    <Content Include="Content\font-awesome\less\list.less" />
+    <Content Include="Content\font-awesome\less\mixins.less" />
+    <Content Include="Content\font-awesome\less\path.less" />
+    <Content Include="Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome\less\stacked.less" />
+    <Content Include="Content\font-awesome\less\variables.less" />
+    <Content Include="Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font-awesome\scss\_core.scss" />
+    <Content Include="Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\font-awesome\scss\_list.scss" />
+    <Content Include="Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome\scss\_path.scss" />
+    <Content Include="Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\font-awesome\scss\_variables.scss" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -380,24 +422,6 @@
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.debug.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.js" />
     <Content Include="Scripts\vectormap-utils\dx.vectormaputils.node.js" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.vbhtml" />
-    <Content Include="Views\Account\ConfirmEmail.vbhtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.vbhtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.vbhtml" />
-    <Content Include="Views\Account\ForgotPassword.vbhtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.vbhtml" />
-    <Content Include="Views\Account\Login.vbhtml" />
-    <Content Include="Views\Account\Register.vbhtml" />
-    <Content Include="Views\Account\ResetPassword.vbhtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.vbhtml" />
-    <Content Include="Views\Account\SendCode.vbhtml" />
-    <Content Include="Views\Account\VerifyCode.vbhtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.vbhtml" />
-    <Content Include="Views\Manage\ChangePassword.vbhtml" />
-    <Content Include="Views\Manage\Index.vbhtml" />
-    <Content Include="Views\Manage\ManageLogins.vbhtml" />
-    <Content Include="Views\Manage\SetPassword.vbhtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.vbhtml" />
     <Content Include="Views\Shared\Lockout.vbhtml" />
     <Content Include="Views\Shared\_LoginPartial.vbhtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
@@ -410,6 +434,17 @@
     <Content Include="Views\Login\Login.vbhtml" />
     <Content Include="Views\PublicacionEventos\CrearPublicacionEvento.vbhtml" />
     <Content Include="Views\PublicacionNoticias\CrearPublicacionNoticia.vbhtml" />
+    <Content Include="Views\PublicacionEventos\EditarPublicacionEvento.vbhtml" />
+    <Content Include="Views\PublicacionNoticias\EditarPublicacionNoticia.vbhtml" />
+    <Content Include="Views\PublicacionEventos\DetallePublicacionEvento.vbhtml" />
+    <Content Include="Views\PublicacionNoticias\DetallePublicacionNoticia.vbhtml" />
+    <Content Include="Views\PublicacionEventos\ListaPublicacionEventos.vbhtml" />
+    <Content Include="Views\PublicacionNoticias\ListaPublicacionNoticias.vbhtml" />
+    <Content Include="Views\Index\Index.vbhtml" />
+    <Content Include="Views\Reuniones\CrearReunion.vbhtml" />
+    <Content Include="Views\Reuniones\EditarReunion.vbhtml" />
+    <Content Include="Views\Reuniones\DetalleReunion.vbhtml" />
+    <Content Include="Views\Reuniones\ListaReuniones.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -426,9 +461,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.vbhtml" />
-    <Content Include="Views\Home\About.vbhtml" />
-    <Content Include="Views\Home\Contact.vbhtml" />
-    <Content Include="Views\Home\Index.vbhtml" />
     <Content Include="Views\Shared\Error.vbhtml" />
     <Content Include="Views\Shared\_Layout.vbhtml" />
     <Content Include="Views\Web.config" />
@@ -452,15 +484,31 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\app.ts" />
+    <TypeScriptCompile Include="Scripts\app\Index\IndexViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Index\IUsuarioModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Login\LoginModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Login\LoginViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\CrearPublicacionEventoViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionEventos\DetallePublicacionEventoViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionEventos\EditarPublicacionEventoViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionEventos\IFotoPublicacion.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionEventos\IPublicacionEventoModel.d.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionEventos\ListarPublicacionEventosViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\CrearPublicacionNoticiaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\DetallePublicacionNoticiaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\EditarPublicacionNoticiaViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IFotoNoticia.ts" />
     <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\IPublicacionNoticiaModel.d.ts" />
+    <TypeScriptCompile Include="Scripts\app\PublicacionNoticias\ListarPublicacionNoticiasViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\CrearReunionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\DetalleReunionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\EditarReunionViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\IReunionModel.d.ts" />
+    <TypeScriptCompile Include="Scripts\app\Reuniones\ListaReunionesViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\CrearUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\DetalleUsuarioViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\EditarUsuarioViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\app\Usuarios\IFoto.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\IUsuarioModel.d.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\ListaUsuariosViewModel.ts" />
     <TypeScriptCompile Include="Scripts\app\Usuarios\MiPerfilViewModel.ts" />

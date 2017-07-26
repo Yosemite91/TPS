@@ -50,7 +50,6 @@ namespace Usuarios {
                     });
             }
         };
-
         public botonDesbloquear = {
             text: 'Desbloquear',
             icon: 'check',
@@ -77,6 +76,7 @@ namespace Usuarios {
                     });
             }
         };
+
         //Notificaciones
         public applyButtonOptionsRestaurarPass = {
             text: 'Restablecer Contraseña',
@@ -135,7 +135,7 @@ namespace Usuarios {
                                 displayFormat: 'dd/MM/yyyy',
                                 width: 'auto'
                             }
-                        }
+                        }, 'email'
                     ]
                 },
                 <DevExpress.ui.dxFormGroupItem>{
@@ -172,6 +172,18 @@ namespace Usuarios {
             ]
         };
 
+        //Foto
+        public fotoPerfil: KnockoutObservable<IFoto> = ko.observable<IFoto>();
+        public MakePhoto: (cuerpo: string) => void = (cuerpo: string): void => {
+            let foto: IFoto = {
+                id: null,
+                cuerpo: cuerpo,
+                nombre: null,
+                usuarioID: null
+            }
+            this.fotoPerfil(foto);
+        }
+
         public loading: KnockoutObservable<boolean> = ko.observable(false);
         constructor() {
             const run: string = window.location.search.replace('?run=', '');
@@ -179,6 +191,16 @@ namespace Usuarios {
             this.loading(true);
             $.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
                 this.usuario(result);
+                this.MakePhoto(result.foto);
+
+                if (result.esActivo) {
+                    $('#bloquear-button').dxButton({ disabled: false });
+                    $('#desbloquear-button').dxButton({ disabled: true });
+                }
+                else {
+                    $('#bloquear-button').dxButton({ disabled: true });
+                    $('#desbloquear-button').dxButton({ disabled: false });
+                }
                 $('#usuario-form').dxForm('instance').repaint();
                 this.loading(false);
             });

@@ -42,15 +42,19 @@ namespace App {
         return anioMinimo;
     };
    
-    export function alertaFormulario(anyObj: any): void {
-        var i: number;
+    export function alertaFormulario(anyObj: any): boolean {
+        var i: number;        
+        var error: boolean = true;
       
         for (i = 0; i < Object.keys(anyObj).length; i++) {                
             if (anyObj[Object.keys(anyObj)[i]] === null || anyObj[Object.keys(anyObj)[i]] === '' || anyObj[Object.keys(anyObj)[i]] === 0 ) {
                 let name:any = Object.keys(anyObj)[i];
                 DevExpress.ui.notify('Ingrese : ' + name, 'error', 3000);
-                break;
+                error = false;
+                return error;
             }
-        }        
+        }               
+
+        return true;
     }
 }

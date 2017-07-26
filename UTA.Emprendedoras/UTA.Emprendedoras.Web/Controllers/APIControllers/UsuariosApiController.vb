@@ -33,9 +33,21 @@ Namespace Controllers.APIControllers
                     Return Me.Content(HttpStatusCode.BadRequest, $"Ya existe un usuario con el run {model.Run}")
                 End If
                 usuario = db.Usuarios.Create()
-                mapper = mapperConfig.CreateMapper()
-                mapper.Map(model, usuario)
+                'mapper = mapperConfig.CreateMapper()
+                'mapper.Map(model, usuario)
+                usuario.Nombre = model.Nombre
+                usuario.Apellido = model.Apellido
+                usuario.Run = model.Run
+                usuario.Telefono = model.Telefono
+                usuario.Email = model.Email
+                usuario.FechaNacimiento = model.FechaNacimiento
+                usuario.EsAdministrador = model.EsAdministrador
+                usuario.EsAdminPublicacion = model.EsAdminPublicacion
+                usuario.SitioWebUrl = model.SitioWebUrl
+                usuario.Categoria = model.Categoria
+                usuario.Foto = Encoding.ASCII.GetBytes(model.Foto)
                 usuario.Contrasena = My.Settings.PasswordDefault
+                usuario.EsActivo = True
                 db.Usuarios.Add(usuario)
                 Await db.SaveChangesAsync()
             Catch ex As Exception
@@ -52,13 +64,25 @@ Namespace Controllers.APIControllers
         <HttpGet>
         Public Async Function GetUsuario(run As String) As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
-            Dim result As UsuarioModel = New UsuarioModel
+            Dim result As UsuarioModel = Nothing
             Dim mapper As AutoMapper.IMapper
             Try
 
                 Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = run).SingleOrDefaultAsync()
-                mapper = mapperConfig.CreateMapper()
-                mapper.Map(user, result)
+                result = New UsuarioModel With {
+                    .Nombre = user.Nombre,
+                    .Apellido = user.Apellido,
+                    .Run = user.Run,
+                    .Telefono = user.Telefono,
+                    .FechaNacimiento = user.FechaNacimiento,
+                    .EsActivo = user.EsActivo,
+                    .EsAdministrador = user.EsAdministrador,
+                    .EsAdminPublicacion = user.EsAdminPublicacion,
+                    .SitioWebUrl = user.SitioWebUrl,
+                    .Categoria = user.Categoria,
+                    .Email = user.Email,
+                    .Foto = Encoding.Default.GetString(user.Foto)
+                }
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
             Finally
@@ -97,6 +121,9 @@ Namespace Controllers.APIControllers
                     .EsAdminPublicacion = model.EsAdminPublicacion
                     .SitioWebUrl = model.SitioWebUrl
                     .Categoria = model.Categoria
+                    .Email = model.Email
+                    .Foto = Encoding.ASCII.GetBytes(model.Foto)
+                    .EsActivo = model.EsActivo
                 End With
                 Await db.SaveChangesAsync()
             Catch ex As Exception
@@ -228,10 +255,29 @@ Namespace Controllers.APIControllers
         Public Async Function GetUsuarios() As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
             Dim usuarios As List(Of UsuarioModel) = Nothing
+            Dim user As UsuarioModel = Nothing
+            Dim usuariosFinal As List(Of UsuarioModel) = New List(Of UsuarioModel)
 
             Try
-                usuarios = Await db.Usuarios.ProjectTo(Of UsuarioModel)(mapperConfig).ToListAsync()
+                usuarios = Await db.Usuarios _
+                           .Select(Function(u) New UsuarioModel With {
+                                                               .ID = u.ID,
+                                                               .Nombre = u.Nombre,
+                                                               .Apellido = u.Apellido,
+                                                               .Run = u.Run,
+                                                               .Telefono = u.Telefono,
+                                                               .EsActivo = u.EsActivo,
+                                                               .FotoByte = u.Foto
+                                                            }) _
+                           .ToListAsync()
+
+                For Each User In usuarios
+                    user.Foto = Encoding.Default.GetString(user.FotoByte)
+                    usuariosFinal.Add(User)
+                Next
+
                 Return Me.Ok(usuarios)
+                '.Foto = Encoding.Default.GetString(u.Foto)
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuarios. Error: {0}", ex.Message))
             Finally
@@ -241,19 +287,28 @@ Namespace Controllers.APIControllers
 #End Region
 
 #Region "Mi Perfil"
-        <Route("mi-perfil", Name:="miPerfil")>
+        <Route("mi-perfil/{run:regex(^[1-9][0-9]{0,7}-[0-9kK]$)}", Name:="miPerfil")>
         <HttpGet>
-        Public Async Function MiPerfil() As Task(Of IHttpActionResult)
+        Public Async Function MiPerfil(run As String) As Task(Of IHttpActionResult)
             Dim db As New EmprendedorasDbContext()
             Dim result As UsuarioModel = New UsuarioModel
-            Dim mapper As AutoMapper.IMapper
-
 
             Try
-                Dim loggedUser As Usuario = CType(Me.User, Modules.SuitePrincipal).Identity.User
-                Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = loggedUser.Run).SingleOrDefaultAsync()
-                mapper = mapperConfig.CreateMapper()
-                mapper.Map(user, result)
+                Dim user As Usuario = Await db.Usuarios.Where(Function(u) u.Run = run).SingleOrDefaultAsync()
+                result = New UsuarioModel With {
+                   .Nombre = user.Nombre,
+                   .Apellido = user.Apellido,
+                   .Run = user.Run,
+                   .Telefono = user.Telefono,
+                   .FechaNacimiento = user.FechaNacimiento,
+                   .EsActivo = user.EsActivo,
+                   .EsAdministrador = user.EsAdministrador,
+                   .EsAdminPublicacion = user.EsAdminPublicacion,
+                   .SitioWebUrl = user.SitioWebUrl,
+                   .Categoria = user.Categoria,
+                   .Email = user.Email,
+                   .Foto = Encoding.Default.GetString(user.Foto)
+                }
             Catch ex As Exception
                 Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuario. Error: {0}", ex.Message))
             Finally
@@ -263,6 +318,37 @@ Namespace Controllers.APIControllers
             If result IsNot Nothing Then Return Me.Ok(result)
             Return Me.Content(HttpStatusCode.NotFound, "Información no encontrada")
 
+        End Function
+#End Region
+
+#Region "Get Fotos"
+        <Route("get-fotos", Name:="getFotos")>
+        <HttpGet>
+        Public Async Function GetFotos() As Task(Of IHttpActionResult)
+            Dim db As New EmprendedorasDbContext()
+            Dim usuarios As List(Of UsuarioModel) = Nothing
+            Dim user As UsuarioModel = Nothing
+            Dim usuariosFinal As List(Of UsuarioModel) = New List(Of UsuarioModel)
+
+            Try
+                usuarios = Await db.Usuarios _
+                           .Select(Function(u) New UsuarioModel With {
+                                                               .FotoByte = u.Foto
+                                                            }) _
+                           .ToListAsync()
+
+                For Each user In usuarios
+                    user.Foto = Encoding.Default.GetString(user.FotoByte)
+                    usuariosFinal.Add(user)
+                Next
+
+                Return Me.Ok(usuarios.ToArray)
+                '.Foto = Encoding.Default.GetString(u.Foto)
+            Catch ex As Exception
+                Return Me.Content(HttpStatusCode.BadRequest, String.Format("Problemas para retornar usuarios. Error: {0}", ex.Message))
+            Finally
+                db.Dispose()
+            End Try
         End Function
 #End Region
 

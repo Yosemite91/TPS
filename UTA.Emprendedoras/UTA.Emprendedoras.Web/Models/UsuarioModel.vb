@@ -16,6 +16,9 @@ Namespace Models
         Public Property SitioWebUrl As String
         Public Property Categoria As String
         Public Property Foto As String
+        Public Property EsAsistente As Boolean
+        Public Property Email As String
+        Public Property FotoByte As Byte()
     End Class
 
 End Namespace

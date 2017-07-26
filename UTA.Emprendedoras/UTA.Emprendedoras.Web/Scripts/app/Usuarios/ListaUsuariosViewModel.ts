@@ -19,6 +19,14 @@ namespace Usuarios{
             }
         };
 
+        public goBack = {
+            icon: 'back',
+            type: 'normal',
+            onClick: (e: any): void => {
+                window.history.back();
+            }
+        };
+
         //Formulario
         public grid: DevExpress.ui.dxDataGridOptions = {
             dataSource: this.usuarios,
@@ -42,11 +50,19 @@ namespace Usuarios{
             paging: {
                 pageSize: 9
             },
+            loadPanel: true,
             columns: [
+                {
+                    dataField: 'foto',
+                    width: 110,
+                    allowFiltering: false,
+                    allowSorting: false,
+                    cellTemplate: "cellTemplate",
+                },               
                 'nombre',
                 'apellido',
                 'telefono',
-                { dataField: 'esActivo', caption: '¿Activo?' }
+                { dataField: 'esActivo', caption: '¿Activo?', width: 80 }
             ]
         };
 

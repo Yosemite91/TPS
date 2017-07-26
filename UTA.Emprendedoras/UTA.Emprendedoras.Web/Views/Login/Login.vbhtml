@@ -1,12 +1,14 @@
 ﻿@Code
-    ViewData("Title") = "Login"
+    ViewData("Title") = "Inicio Sesión"
 End Code
 
-<div id="cuerpoLogin">
-    <div data-bind="dxLoadPanel: { visible: loading }"></div>
+<div id="titulo" class="long-title"><h3>Asociación de Emprendedoras</h3></div>
 
-    <div id="login-form">
-        <div id="top"> <h3 style="color: white">Inicie Sesión</h3> </div>
+<div class="containerLogin">
+    <div data-bind="dxLoadPanel: { visible: loading }"></div>
+        
+    <div id="elVato">
+        <div id="top2" class="long-title" style="color: white"><h3>Iniciar Sesión</h3></div>
         <div id="formularioLogin" data-bind="dxForm: form"></div>
     </div>
 </div>

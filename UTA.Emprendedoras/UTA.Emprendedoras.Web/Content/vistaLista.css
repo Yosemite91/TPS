@@ -5,15 +5,97 @@
 /*  naranjo: #eaa72f    */
 /* azul button devExtreme: #337ab7  */
 /* negro navbar: #444  */
-
-html {
+.dx-gallery-item-image{
+    border-radius: 7px;
+}
+#gallery{
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#userPic {
+    height: 80px;
+    width: 80px;
+    border-radius: 7px;
+}
+#dxSlider{
+    width: 100%;
+    height: 300px;
+}
+#foto{
+    background-color: #337ab7;
+    width: 100%;
+    height: auto;
+}
+#mision2, #vision2{
+    display: block;
+    width: 70%;
+    height: auto;    
+    font-size: 16px;
+}
+#perfilNoticia {
+    margin: auto;
+    width: 300px;
     height: 100%;
 }
 #perfil {
     margin: auto;
-    width: 40%;
-    height: 40%;
-    border-radius: 1px;
+    width: 140px;
+    height: 100%;
+    border-radius: 7px;
+}
+#aboutUs{
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#titulo{
+    background-color: #337ab7;
+    color: white;
+    width: 100%;
+    padding: 0.25%;
+    margin-bottom: 15px;
+}
+#customPadding{
+    padding-left: 15px;
+    padding-right: 15px;    
+}
+.body-content{        
+    padding-left: 0px;
+    padding-right: 0px;    
+}
+.container{    
+    height:auto;    
+    padding-top: 0px;
+}
+.containerLogin{
+    justify-content: center;
+    align-items: center;
+    display: flex;    
+}
+#footerLogin{
+    height: 20%;
+    background-color: #337ab7;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;    
+}
+.dx-layout-manager dx-widget{
+    padding-top: 5px;
+}
+.long-title h3 {
+    font-family: 'Segoe UI Light', 'Helvetica Neue Light', 'Segoe UI', 'Helvetica Neue', 'Trebuchet MS', Verdana;
+    font-weight: 200;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 #cuerpoLogin {
     display: flex;
@@ -30,32 +112,66 @@ html {
     height: auto;
     width: auto;    
 }
-#formularioLogin {            
-    padding-bottom: 6%;
-    padding-left: 8%;
-    padding-right: 8%;
-    padding-top: 4%;
-    width: auto;
-    height: auto;
+#formularioLogin {
+    position: relative;
+    background: #fff;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 10%;  
 }
-#top {    
-    background-color: #337ab7;    
-    align-content: center;
-    align-items: center;
-    margin-bottom: 5%;     
-    padding-top: 2%;   
-    padding-bottom: 2%;  
-    width: 350px;
-    height: auto; 
+@media (min-width: 375px) {
+    #formularioLogin {
+        padding: 40px;
+    }    
+    #footerLogin{
+        height: 10%;
+    }
+    .long-title{
+        font-size: 17px;
+    }
+@media (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    #customPadding{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    #perfil {    
+        margin: auto;
+        width: 180px;  
+    }
+    #aboutUs{
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+    #userPic {
+        height: 100px;
+        width: 100px;
+    }
 }
-body{
-    background-color: #f5f5f5;  
-    min-height: 100vh;           
+#elVato{
+    margin-top: 7%;
+    width: 100%;
+    max-width: 530px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#top{
+    padding: 10px;   
+    text-align: center;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+#top2{
+    padding: 10px;
+    background: #337ab7;
+    text-align: center;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
 }
 #cuerpoLista {
-    width: 95%;     
-    margin: 0 auto;       
-    min-height: 70vh;
+    width: 100%;
 }
 #cuerpoSolicitud {
     width: 80%;     
@@ -63,13 +179,9 @@ body{
     min-height: 70vh;
     margin-top: 7%;
 }
-#logo{    
-    padding-top: 7px;    
-    max-width: 250px;            
-    height: auto;    
-}
 #botonesDetalle {   
-    display: inline;        
+    display: inline;
+    padding-bottom: 2px;       
 }
 #solicitar-button{
     float: right;
@@ -112,216 +224,343 @@ body{
     text-align:center;       
 }
 
-/* RESPONSIVE NAVBAR */
-@media (max-width: 2000px) {   
-    #cuerpoSolicitud {
-        width: 70%;
-    }
-    .container.body-content {
-        margin-top: 2%;
-    }
-    #perfil {    
-        width: 20%;
-        height: 20%;   
-    }
-}
-@media (max-width: 1200px) {
-    #cuerpoSolicitud {
-        width: 70%;
-    }
-    .container.body-content {
-        margin-top: 0%;
-    }
-    #perfil {    
-        width: 20%;
-        height: 20%;   
-    }
-}
-@media (max-width: 992px) {
-    #cuerpoSolicitud {
-        width: 80%;
-    }
-    .container.body-content {
-        margin-top: 0%;
-    }
-    #perfil {    
-        width: 30%;
-        height: 30%;   
-    }
-}
-@media (max-width: 767px) {
-    #cuerpoSolicitud {
-        width: 90%;
-    }
-    .container.body-content {
-        margin-top: 1%;
-    }
-    #perfil {    
-        width: 30%;
-        height: 30%;   
-    }
-}
-@media (max-width: 600px) {    
-    #logo{    
-        margin-left: 15px;
-    }   
-    #cuerpoSolicitud {
-        width: 90%;
-    }
-    .container.body-content {
-        margin-top: 1%;
-    } 
-    #perfil {    
-        width: 40%;
-        height: 40%;   
-    }
-}
-@media (max-width: 425px) {    
-    #logo{    
-        margin-left: 10px;
-        max-width: 200px; 
-    }
-    #cuerpoSolicitud {
-        width: 100%;
-    }
-    .container.body-content {
-        margin-top: 5%;
-    }
-    #perfil {    
-        width: 40%;
-        height: 40%;   
-    }
+/*#######################################################################################################*/
+/*########################################### CSS INDEX #################################################*/
+/*#######################################################################################################*/
+/*!
+ * Start Bootstrap - Stylish Portfolio (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/* Global Styles */
+
+html,
+body {    
+    width: 100%;
+    height: 100%;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-top: 0px;    
+    background-color: #f5f5f5; 
+    padding-bottom: 0px;
 }
 
-/* Portrait */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-    #login-form {
-        background-color: white;
-        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-        display: table-cell;
-        text-align: center;
-        height: 250px;
-        width: 300px;        
-    }
-    #formularioLogin {            
-        padding-bottom: 0px;
-        padding-left: 6%;
-        padding-right: 6%;
-        padding-top: 2%;
-        width: auto;
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;    
+}
+
+.text-vertical-center h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 4.5em;
+    font-weight: 700;
+}
+
+/* Custom Button Styles */
+
+.btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active {
+    color: #fff;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.btn-light {
+    border-radius: 0;
+    color: #333;
+    background-color: rgb(255,255,255);
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+    color: #333;
+    background-color: rgba(255,255,255,0.8);
+}
+
+/* Custom Horizontal Rule */
+
+hr.small {
+    max-width: 100px;
+}
+
+/* Side Menu */
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    transform: translateX(250px);
+    overflow-y: auto;
+    background: #222;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 55px;
+    font-size: 18px;
+    line-height: 55px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#menu-toggle {
+    z-index: 1;
+    position: fixed;
+    /*top: 0;*/
+    right: 0;
+}
+
+#sidebar-wrapper.active {
+    right: 250px;
+    width: 250px;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+.toggle {
+    margin: 5px 5px 0 0;
+}
+
+/* Header */
+
+.header {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    background: url(img/bg.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;    
+}
+
+/* About */
+
+.about {
+    padding: 50px 0;
+}
+
+/* Services */
+
+.services {
+    padding: 50px 0;
+}
+
+.service-item {
+    margin-bottom: 30px;
+}
+
+/* Callout */
+
+.callout {
+    display: table;
+    width: 100%;
+    height: 400px;
+    color: #fff;
+    background: url(img/callout.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Portfolio */
+
+.portfolio {
+    padding: 50px 0;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.img-portfolio {
+    margin: 0 auto;
+}
+
+.img-portfolio:hover {
+    opacity: 0.8;
+}
+
+/* Call to Action */
+
+.call-to-action {
+    padding: 50px 0;
+}
+
+.call-to-action .btn {
+    margin: 10px;
+}
+
+/* Footer */
+
+footer {    
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+}
+
+#to-top {
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+.btn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;    
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;    
+}
+
+/*########################### dxList ###########################*/
+.list {
+    width: 80%;
+}
+#imgList {
+    width: 100%;    
+}
+@media (min-width: 375px) {    
+    .list-container {
+        min-height: 440px;
         height: auto;
     }
-    #top {    
-        background-color: #337ab7;    
-        align-content: center;
-        align-items: center;
-        margin-bottom: 5%;     
-        padding-top: 1%;   
-        padding-bottom: 1%;  
-        width: 300px;
-        height: auto; 
+    .product {
+        height: auto;
+    }
+    .product > img {
+        display: block;
+        max-height: 300px;        
+        max-width: 375px;    
+        /*float: left;*/        
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .product > div {
+        padding-left: 10px;
+        vertical-align: top;
+        line-height: 65px;
+        font-size: 15px;
+        float: left;
+    }
+    .product > div.price {
+        float: right;
+        font-size: 18px;
     }
 }
 
-/** CSS BOOTSTRAP **/
+@media (min-width: 768px) {
+    .list-container {
+        min-height: 440px;
+        height: auto;
+    }
+    .product {
+        height: auto;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .product > img {
+        display: block;
+        max-height: 500px;
+        max-width: 60%;
+        /*float: left;*/
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .product > div {
+        padding-left: 10px;
+        vertical-align: top;
+        line-height: 65px;
+        font-size: 15px;
+        float: left;
+    }
+    .product > div.price {
+        float: right;
+        font-size: 18px;
+    }
+}
 
-/************************ COLOR TEXTO NavBar *************************/
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
-  color: white;
-  background-color: #eaa72f; /*color cuando se da hover & focus*/  
-}   
-/*********************************************************************/
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
-  color: #fff;
-  background-color: #080808;  
-  border-radius: 25px; /* BORDE NAVBAR */
-}
-.navbar-inverse .navbar-nav > .disabled > a,
-.navbar-inverse .navbar-nav > .disabled > a:hover,
-.navbar-inverse .navbar-nav > .disabled > a:focus {
-  color: #444;
-  background-color: transparent;
-}                                                                                                
-/****************************** TOGGLE *******************************/
-.navbar-inverse .navbar-toggle {
-  border-color: #F7F7F6;
-}
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-  background-color: #F7F7F6;
-}
-.navbar-inverse .navbar-toggle:hover .icon-bar,
-.navbar-inverse .navbar-toggle:focus .icon-bar {
-  background-color: #444;
-}
-/****************************** COLLAPSE *******************************/
-.navbar-inverse .navbar-collapse,
-.navbar-inverse .navbar-form {
-  border-color: #F7F7F6;  
-}
-.navbar-inverse .navbar-nav > .open > a,
-.navbar-inverse .navbar-nav > .open > a:hover,
-.navbar-inverse .navbar-nav > .open > a:focus {
-  color: #F7F7F6;
-  background-color: #080808;
-}
-/************************************************************************/
-/* configuracion navbar cuando se contrae */
-.navbar-toggle {
-  position: relative;
-  float: left ;
-  padding: 9px 10px;
-  margin-top: 8px;
-  margin-left: 15px;
-  margin-bottom: 8px;
-  background-color: #444;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.navbar-toggle:focus {
-  outline: 0;  
-}
-.navbar-toggle .icon-bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  border-radius: 1px;  
-  background-color: white;
-}
-.navbar-toggle .icon-bar + .icon-bar {
-  margin-top: 4px;
-  background-color: white;
-}
-/********************************************/
-.nav > li > a {
-  position: relative;
-  display: block;  
-  color: white; /* color texto items navbar*/
-}
-.navbar-inverse {
-    border-color: transparent;
-}
-.navbar-inverse .navbar-nav > li > a {
-    color: white;
-    border-radius: 25px; /* BORDE NAVBAR */
-}
-.navbar navbar-inverse navbar-fixed-top {
-    border-color: transparent;    
-}
-.long-title h3 {
-    font-family: 'Segoe UI Light', 'Helvetica Neue Light', 'Segoe UI', 'Helvetica Neue', 'Trebuchet MS', Verdana;
-    font-weight: 200;
-    font-size: 26px;
-    text-align: center;
-    margin-bottom: 20px;
-}

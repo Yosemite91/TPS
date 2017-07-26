@@ -11,10 +11,10 @@ namespace Usuarios {
             esActivo: false, esAdministrador: false, esAdminPublicacion: false, sitioWebUrl: null, categoria: null, foto: null,
             email: null
         });
+
         //PopUp
         private popUpCancelarModificar = ko.observable(false);
         private popUpModificarUsuario = ko.observable(false);
-
         public popUpModificar = {
             width: 'auto',
             height: 'auto',
@@ -30,6 +30,17 @@ namespace Usuarios {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: (e: any): void => {
+                    this.loading(true);
+                    if (this.FotoUsuario() === undefined) {
+                        let foto: IFoto = {
+                            cuerpo: this.fotoDX(),
+                            usuarioID: null,
+                            nombre: "foto",
+                            id: null
+                        }
+                        this.FotoUsuario(foto);
+                    }
+
                     var UsuarioDTO = {
                         nombre: this.usuario().nombre,
                         apellido: this.usuario().apellido,
@@ -40,7 +51,9 @@ namespace Usuarios {
                         esAdministrador: this.usuario().esAdministrador,
                         esAdminPublicacion: this.usuario().esAdminPublicacion,
                         sitioWebUrl: this.usuario().sitioWebUrl,
-                        categoria: this.usuario().categoria
+                        categoria: this.usuario().categoria,
+                        email: this.usuario().email,
+                        foto: this.FotoUsuario().cuerpo
                     };
                     var info = JSON.stringify(UsuarioDTO);
 
@@ -57,12 +70,12 @@ namespace Usuarios {
                             window.location.assign(App.appRoot + 'Usuarios/ListaUsuarios');
                         },
                         function (xhr, textStatus, err) {
+                            this.loading(false);
                             alert(err);
                         });
                 }
             }]
         };
-
         public popUpCancelar = {
             width: 'auto',
             height: 'auto',
@@ -94,7 +107,6 @@ namespace Usuarios {
                 var UsuarioValidacion = {
                     Nombre: this.usuario().nombre,
                     Apellido: this.usuario().apellido,
-                    Run: this.usuario().run,
                     FechaNacimiento: this.usuario().fechaNacimiento
                 };
 
@@ -106,7 +118,6 @@ namespace Usuarios {
                 }
             }
         };
-
         public botonCancelarEdicion = {
             text: 'Cancelar',
             icon: 'close',
@@ -115,7 +126,6 @@ namespace Usuarios {
                 this.popUpCancelarModificar(true);
             }
         };
-
        
         //Declaración de observables
         public nombreDX: KnockoutObservable<string> = ko.observable<string>();
@@ -130,9 +140,7 @@ namespace Usuarios {
         public sitioWebUrlDX: KnockoutObservable<string> = ko.observable<string>();
         public categoriaDX: KnockoutObservable<string> = ko.observable<string>();
         public emailDX: KnockoutObservable<string> = ko.observable<string>();
-
         public fotoDX: KnockoutObservable<string> = ko.observable<string>();
-
 
         //Estableciendo el enlace
         public loadObject: (result: IUsuarioModel) => void = (result: IUsuarioModel): void => {
@@ -147,7 +155,8 @@ namespace Usuarios {
             this.esAdminPublicacionDX(result.esAdminPublicacion);
             this.sitioWebUrlDX(result.sitioWebUrl);
             this.categoriaDX(result.categoria);    
-            this.emailDX("agregar@email.cl");
+            this.emailDX(result.email);
+            this.fotoDX(result.foto);
         }
 
         // VALIDADOR DE DATOS
@@ -167,6 +176,26 @@ namespace Usuarios {
                     message: 'Campo requerido'
                 }]
         };
+        public telefonoValidatorOptions: DevExpress.ui.dxValidatorOptions = {
+            validationRules: [{
+                type: "pattern",
+                pattern: /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/,
+                message: 'Formato inválido'
+            }, {
+                    type: 'required',
+                    message: 'Campo requerido'
+                }]
+        };
+        public urlValidatorOptions: DevExpress.ui.dxValidatorOptions = {
+            validationRules: [{
+                type: "pattern",
+                pattern: /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
+                message: 'Formato inválido'
+            }, {
+                    type: 'required',
+                    message: 'Campo requerido'
+                }]
+        };
 
         // FORMULARIO
         public dxNombre = {
@@ -174,15 +203,7 @@ namespace Usuarios {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
-            },
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            },            
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
@@ -197,15 +218,7 @@ namespace Usuarios {
             width: 'auto',
             editorOptions: {
                 mode: 'text'
-            },
-            onKeyDown: (e) => {
-                if (!/[a-zA-Z\s]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-                if (e.jQueryEvent.ctrlKey || e.jQueryEvent.altKey) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            },            
             validationRules: [{
                 type: 'required',
                 message: 'Campo requerido'
@@ -236,6 +249,7 @@ namespace Usuarios {
         public dxTelefono = {
             value: this.telefonoDX,
             width: 'auto',
+            placeholder: '+56 9 1234 5678',
             editorOptions: {
                 mode: 'tel',
                 value: 0
@@ -246,6 +260,8 @@ namespace Usuarios {
             }
         }
         public dxFechaNacimiento = {
+            max: new Date(App.anioMinimo(), 0),
+            min: new Date((App.anioMinimo() - 70), 0),
             value: this.fechaNacimientoDX,
             width: 'auto',
             editorOptions: {
@@ -275,9 +291,18 @@ namespace Usuarios {
                 this.usuario().esAdminPublicacion = e.value;
             }
         }
+        public dxActivo = {
+            value: this.esActivoDX,
+            onText: 'SI',
+            offText: 'NO',
+            onValueChanged: (e: any) => {
+                this.usuario().esActivo = e.value;
+            }
+        }
         public dxSitioWeb = {
             value: this.sitioWebUrlDX,
             width: 'auto',
+            placeholder: 'www.miPagina.com',
             editorOptions: {
                 mode: 'text'
             },
@@ -305,16 +330,10 @@ namespace Usuarios {
                 this.usuario().categoria = e.value;
             }
         }
-
         public dxEmail = {
             value: this.emailDX,
             width: 'auto',
-            placeholder: 'ejemplo@tpa.cl',
-            onKeyDown: (e: any) => {
-                if (!/[_a-zA-Z0-9-@.]$/.test(e.jQueryEvent.key)) {
-                    e.jQueryEvent.preventDefault();
-                }
-            },
+            placeholder: 'ejemplo@tpa.cl',           
             editorOptions: {
                 mode: 'email',
             },
@@ -327,16 +346,51 @@ namespace Usuarios {
                 this.usuario().email = e.value;
             }
         }
+        public dxSubirImagen = {
+            allowCanceling: true,
+            multiple: false,
+            readyToUploadMessage: 'Listo para cargar achivo',
+            selectButtonText: 'Seleccionar imagen',
+            uploadButtonText: 'Subir',
+            uploadedMessage: 'Archivo cargado',
+            uploadedFailMessage: 'Error al cargar archivo',
+            uploadMethod: 'POST',
+            uploadMode: 'useForm',
+            focusStateEnabled: true,
+            uploadUrl: '/',
+            showFileList: true,
+            labelText: '',
+            accept: 'image/*',
+            onValueChanged: (e) => {
+                let createLoadHandler = (nombre: string) => {
+                    return (event) => {
+                        let foto: IFoto = {
+                            cuerpo: event.target.result,
+                            usuarioID: null,
+                            nombre: nombre,
+                            id: null
+                        }
+                        this.FotoUsuario(foto);
+                    }
+                }
+                let frb = new FileReader();
+                frb.onload = createLoadHandler(e.value[0].name);
+                frb.readAsDataURL(e.value[0]);
+            }
+        }
+
+        public FotoUsuario: KnockoutObservable<IFoto> = ko.observable<IFoto>();
 
         public loading: KnockoutObservable<boolean> = ko.observable(false);
         public esNuevo: KnockoutObservable<boolean> = ko.observable(false);
 
         constructor() {
-            const run: string = window.location.search.replace('?run=', '');
-
             this.loading(true);
+            const run: string = window.location.search.replace('?run=', '');
+            
             $.getJSON(App.apiRoot + 'usuarios/get/' + run).then((result: IUsuarioModel): void => {
                 this.loadObject(result);
+                this.fotoDX(result.foto);
                 this.loading(false);
             });
         }

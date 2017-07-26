@@ -13,6 +13,10 @@ Namespace Controllers.APIControllers
     Public Class LoginApiController
         Inherits ApiController
 
+        Dim mapperConfig As New AutoMapper.MapperConfiguration(Sub(config)
+                                                                   config.CreateMap(Of UsuarioModel, Usuario)()
+                                                                   config.CreateMap(Of Usuario, UsuarioModel)()
+                                                               End Sub)
 #Region "Validar Login"
         <Route("", Name:="ValidarLogin")>
         <HttpPost>
@@ -25,6 +29,7 @@ Namespace Controllers.APIControllers
                 End If
 
                 Dim user As Usuario = Await db.Usuarios.SingleOrDefaultAsync(Function(u) u.Run = model.Run)
+
 
                 If user Is Nothing Then
                     Return Me.Content(HttpStatusCode.BadRequest, "Usuario No Registrado.")

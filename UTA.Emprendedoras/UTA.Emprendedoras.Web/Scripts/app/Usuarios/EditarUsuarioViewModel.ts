@@ -260,6 +260,8 @@ namespace Usuarios {
             }
         }
         public dxFechaNacimiento = {
+            max: new Date(App.anioMinimo(), 0),
+            min: new Date((App.anioMinimo() - 70), 0),
             value: this.fechaNacimientoDX,
             width: 'auto',
             editorOptions: {

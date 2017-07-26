@@ -234,6 +234,8 @@ namespace Usuarios {
             }
         }
         public dxFechaNacimiento = {
+            max: new Date(App.anioMinimo(), 0),
+            min: new Date((App.anioMinimo() - 70), 0),
             width: 'auto',
             editorOptions: {
                 format: 'dd/MM/yyyy',

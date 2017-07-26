@@ -6,7 +6,7 @@
 namespace PublicacionEventos {
     export class EditarPublicacionEventoViewModel {
         public evento: KnockoutObservable<IPublicacionEventoModel> = ko.observable<IPublicacionEventoModel>({
-            id: null, titulo: null, descripcion: null, fechaPublicacion: null, foto: null
+            id: null, titulo: null, descripcion: null, fechaPublicacion: null, foto: null, fechaRealizacion: null
         });
 
         //PopUp
@@ -16,7 +16,7 @@ namespace PublicacionEventos {
         public popUpModificar = {
             width: 'auto',
             height: 'auto',
-            contentTemplate: '¿Modificar usuario actual?',
+            contentTemplate: '¿Modificar evento actual?',
             showTitle: true,
             showCloseButton: true,
             title: 'Alerta',
@@ -43,7 +43,8 @@ namespace PublicacionEventos {
                         id: this.evento().id,
                         titulo: this.evento().titulo,
                         descripcion: this.evento().descripcion,
-                        foto: this.FotoUsuario().cuerpo
+                        foto: this.FotoUsuario().cuerpo,
+                        fechaRealizacion: this.evento().fechaRealizacion
                     };
                     var info = JSON.stringify(EventoDTO);
 
@@ -120,12 +121,14 @@ namespace PublicacionEventos {
         //Declaración de observables
         public tituloDX: KnockoutObservable<string> = ko.observable<string>();
         public descripcionDX: KnockoutObservable<string> = ko.observable<string>();
+        public fechaRealizacionDX: KnockoutObservable<Date> = ko.observable<Date>();
         public fotoDX: KnockoutObservable<string> = ko.observable<string>();
 
         public loadObject: (result: IPublicacionEventoModel) => void = (result: IPublicacionEventoModel): void => {
             this.tituloDX(result.titulo);
             this.descripcionDX(result.descripcion);
             this.fotoDX(result.foto);
+            this.fechaRealizacionDX(result.fechaRealizacion);
         }
 
         // VALIDADOR DE DATOS
@@ -167,6 +170,16 @@ namespace PublicacionEventos {
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.evento().descripcion = e.value;
+            }
+        }
+        public dxFechaRealizacion = {
+            value: this.fechaRealizacionDX,
+            editorOptions: {
+                format: 'dd/MM/yyyy'
+            },
+            showClearButton: true,
+            onValueChanged: (e: any) => {
+                this.evento().fechaRealizacion = new Date(e.value);
             }
         }
         public dxSubirImagen = {

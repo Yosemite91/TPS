@@ -28,12 +28,12 @@ End Code
                     </div>
                 </div>
 
-                @*<div class="dx-field">
+                <div class="dx-field">
                     <div class="dx-field-label">Fecha Realización</div>
                     <div class="dx-field-value">
-                        <div data-bind="dxDateBox: dxFechaRealizacion, dxValidator: validatorOptions"></div>
+                        <div data-bind="dxDateBox: dxFechaRealizacion"></div>
                     </div>
-                </div>*@
+                </div>
                 
                 @* UPLOAD IMAGE *@
                 <div class="dx-fieldset-header">Foto Evento</div>

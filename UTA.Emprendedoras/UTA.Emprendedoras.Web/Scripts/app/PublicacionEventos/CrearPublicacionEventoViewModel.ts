@@ -7,7 +7,7 @@ namespace PublicacionEventos {
 
     export class CrearPublicacionEventoViewModel {
         public evento: KnockoutObservable<IPublicacionEventoModel> = ko.observable<IPublicacionEventoModel>({
-            id: null, titulo: null, descripcion: null, fechaPublicacion: null, foto: null
+            id: null, titulo: null, descripcion: null, fechaPublicacion: null, foto: null, fechaRealizacion: null
         });
 
         //PopUp
@@ -67,7 +67,8 @@ namespace PublicacionEventos {
                     var EventoDTO = {
                         titulo: this.evento().titulo,
                         descripcion: this.evento().descripcion,
-                        foto: this.FotoUsuario().cuerpo
+                        foto: this.FotoUsuario().cuerpo,
+                        fechaRealizacion : this.evento().fechaRealizacion
                     };
 
                     var info = JSON.stringify(EventoDTO);
@@ -153,6 +154,16 @@ namespace PublicacionEventos {
             showClearButton: true,
             onValueChanged: (e: any) => {
                 this.evento().descripcion = e.value;
+            }
+        }
+        public dxFechaRealizacion = {
+            width: 'auto',
+            editorOptions: {
+                mode: 'text'
+            },
+            showClearButton: true,
+            onValueChanged: (e: any) => {
+                this.evento().fechaRealizacion = e.value;
             }
         }
         public dxSubirImagen = {

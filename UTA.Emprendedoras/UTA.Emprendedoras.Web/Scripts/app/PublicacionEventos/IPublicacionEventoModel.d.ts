@@ -4,7 +4,8 @@
         titulo: string,
         descripcion: string,
         fechaPublicacion: string,
-        foto: string
+        foto: string,
+        fechaRealizacion: Date
     }
 }
 

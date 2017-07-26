@@ -28,6 +28,13 @@ End Code
                     </div>
                 </div>
 
+                <div class="dx-field">
+                    <div class="dx-field-label">Fecha Realización</div>
+                    <div class="dx-field-value">
+                        <div data-bind="dxDateBox: dxFechaRealizacion"></div>
+                    </div>
+                </div>
+
                 <br />
                 @* UPLOAD IMAGE *@
                 <div class="dx-fieldset-header" style="margin:0">Foto Perfil</div>

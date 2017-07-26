@@ -6,7 +6,7 @@
 namespace PublicacionEventos {
     export class DetallePublicacionEventoViewModel {
         public evento: KnockoutObservable<IPublicacionEventoModel> = ko.observable<IPublicacionEventoModel>({
-            id: null, titulo: null, descripcion: null, fechaPublicacion: null, foto: null
+            id: null, titulo: null, descripcion: null, fechaPublicacion: null, foto: null, fechaRealizacion: null
         });
         //Buttons
         public botonEditar = {
@@ -76,7 +76,15 @@ namespace PublicacionEventos {
                             dataField: 'fechaPublicacion',
                             editorType: 'dxDateBox',
                             editorOptions: {
-                                displayFormat: 'MM/dd/yyyy',
+                                displayFormat: 'dd/MM/yyyy',
+                                width: 'auto'
+                            }
+                        },
+                        <DevExpress.ui.dxFormSimpleItem>{
+                            dataField: 'fechaRealizacion',
+                            editorType: 'dxDateBox',
+                            editorOptions: {
+                                displayFormat: 'dd/MM/yyyy',
                                 width: 'auto'
                             }
                         }

@@ -27,8 +27,6 @@ Namespace Controllers.APIControllers
 
             Try
                 evento = db.Publicaciones.Create()
-                'mapper = mapperConfig.CreateMapper()
-                'mapper.Map(model, evento)
 
                 With evento
                     .Titulo = model.Titulo
@@ -37,6 +35,7 @@ Namespace Controllers.APIControllers
                     .FechaPublicacion = Now
                     .EsActivo = True
                     .PublicacionTipo = TipoPublicacion.Evento
+                    .FechaRealizacion = model.FechaRealizacion
                 End With
 
                 db.Publicaciones.Add(evento)
@@ -65,6 +64,7 @@ Namespace Controllers.APIControllers
                             .ID = evento.ID,
                             .Titulo = evento.Titulo,
                             .Descripcion = evento.Descripcion,
+                            .FechaPublicacion = evento.FechaPublicacion,
                             .FechaRealizacion = evento.FechaRealizacion,
                             .Foto = Encoding.Default.GetString(evento.Foto)
                          }
@@ -93,6 +93,7 @@ Namespace Controllers.APIControllers
                     .Titulo = model.Titulo
                     .Descripcion = model.Descripcion
                     .Foto = Encoding.ASCII.GetBytes(model.Foto)
+                    .FechaRealizacion = model.FechaRealizacion
                 End With
                 Await db.SaveChangesAsync()
             Catch ex As Exception

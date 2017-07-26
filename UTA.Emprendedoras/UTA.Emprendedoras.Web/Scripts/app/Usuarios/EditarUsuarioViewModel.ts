@@ -30,6 +30,7 @@ namespace Usuarios {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: (e: any): void => {
+                    this.loading(true);
                     if (this.FotoUsuario() === undefined) {
                         let foto: IFoto = {
                             cuerpo: this.fotoDX(),
@@ -69,6 +70,7 @@ namespace Usuarios {
                             window.location.assign(App.appRoot + 'Usuarios/ListaUsuarios');
                         },
                         function (xhr, textStatus, err) {
+                            this.loading(false);
                             alert(err);
                         });
                 }
@@ -105,7 +107,6 @@ namespace Usuarios {
                 var UsuarioValidacion = {
                     Nombre: this.usuario().nombre,
                     Apellido: this.usuario().apellido,
-                    Run: this.usuario().run,
                     FechaNacimiento: this.usuario().fechaNacimiento
                 };
 
@@ -188,7 +189,7 @@ namespace Usuarios {
         public urlValidatorOptions: DevExpress.ui.dxValidatorOptions = {
             validationRules: [{
                 type: "pattern",
-                pattern: /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
+                pattern: /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
                 message: 'Formato inválido'
             }, {
                     type: 'required',
@@ -259,6 +260,8 @@ namespace Usuarios {
             }
         }
         public dxFechaNacimiento = {
+            max: new Date(App.anioMinimo(), 0),
+            min: new Date((App.anioMinimo() - 70), 0),
             value: this.fechaNacimientoDX,
             width: 'auto',
             editorOptions: {
@@ -299,7 +302,7 @@ namespace Usuarios {
         public dxSitioWeb = {
             value: this.sitioWebUrlDX,
             width: 'auto',
-            placeholder: 'http://www.miPagina.com',
+            placeholder: 'www.miPagina.com',
             editorOptions: {
                 mode: 'text'
             },

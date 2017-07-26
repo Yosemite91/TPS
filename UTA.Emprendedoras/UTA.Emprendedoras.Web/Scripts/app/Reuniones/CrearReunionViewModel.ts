@@ -9,12 +9,12 @@ namespace Reuniones {
             id: null, nombre: null, apellido: null, run: null, esAsistente: false, descripcion: null
         });
 
-
         public applyButtonOptionsCrear = {
             text: 'Guardar',
             icon: 'plus',
             type: 'success',
             onClick: function (e: any) {
+                this.loading(true);
                 let that: any = this;
                 var listaUsuariosDTO = this.usuarios();
 
@@ -32,9 +32,10 @@ namespace Reuniones {
                         window.location.assign(App.appRoot + 'Reuniones/ListaReuniones');
                     },
                     function (xhr, textStatus, err) {
+                        this.loading(false);
                         alert(err);
                     }
-                    );
+                );
             }
         };
 

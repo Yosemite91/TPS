@@ -28,7 +28,7 @@ namespace Reuniones {
                 widget: 'button',
                 options: { text: 'OK' },
                 onClick: (e: any): void => {
-                    
+                    this.loading(true);
                     var listaUsuariosDTO = this.asistencia();
                     var info = JSON.stringify(listaUsuariosDTO);
                     $.ajax({
@@ -44,6 +44,7 @@ namespace Reuniones {
                             window.location.assign(App.appRoot + 'Reuniones/ListaReuniones');
                         },
                         function (xhr, textStatus, err) {
+                            this.loading(false);
                             alert(err);
                         });
                 }

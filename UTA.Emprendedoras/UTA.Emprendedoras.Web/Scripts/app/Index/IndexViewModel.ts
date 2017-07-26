@@ -45,7 +45,7 @@ namespace Index {
         constructor() {
             //Cargar Usuarios
             $.getJSON(App.apiRoot + 'publicacion-noticias/get-lista/').then((result: IPublicacionNoticiaModel[]): void => {
-                this.noticias(result);
+                this.noticias(result);                
             });
 
             $.getJSON(App.apiRoot + 'usuarios/get-fotos/').then((result: IUsuarioModel[]): void => {
@@ -57,7 +57,7 @@ namespace Index {
                     arreglo[i] = result[i].foto;
                 }
 
-                this.usuarios( arreglo );
+                this.usuarios(arreglo);
             });
         }
     }   

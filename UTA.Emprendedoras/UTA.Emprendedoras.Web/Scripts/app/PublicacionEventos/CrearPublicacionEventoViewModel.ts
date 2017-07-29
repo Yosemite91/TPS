@@ -166,6 +166,7 @@ namespace PublicacionEventos {
                 this.evento().fechaRealizacion = e.value;
             }
         }
+       
         public dxSubirImagen = {
             allowCanceling: true,
             multiple: false,

@@ -3,7 +3,7 @@
         id: number,
         titulo: string,
         descripcion: string,
-        fechaPublicacion: string,
+        fechaPublicacion: Date,
         foto: string
     }
 }

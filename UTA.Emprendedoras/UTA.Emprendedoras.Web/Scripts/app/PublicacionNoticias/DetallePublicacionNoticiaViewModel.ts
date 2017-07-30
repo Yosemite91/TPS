@@ -71,6 +71,7 @@ namespace PublicacionNoticias {
                         <DevExpress.ui.dxFormSimpleItem>{
                             dataField: 'descripcion',
                             editorType: 'dxTextArea',
+                            width: 'auto'
                         },                        
                         <DevExpress.ui.dxFormSimpleItem>{
                             dataField: 'fechaPublicacion',

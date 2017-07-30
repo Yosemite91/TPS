@@ -28,56 +28,37 @@
                 <i class="glyphicon glyphicon-remove"> </i>
             </a>
             <li class="sidebar-brand">
-                @Html.ActionLink("Inicio", "Index", "Index")
-                @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@
+                @Html.ActionLink("Inicio", "Index", "Index")                
             </li>
             @* TIENE SESIÓN *@
             <!-- ko if: Token !== null -->
             <li>
-                @Html.ActionLink("Perfil", "MiPerfil", "Usuarios")
-                @*<a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>*@
+                @Html.ActionLink("Perfil", "MiPerfil", "Usuarios")                
             </li>
-            <!-- /ko -->
-            @* ADMINISTRADOR O ADMIN-PUBLICACION *@
-  
-            <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+            <!-- /ko -->            
             <li>                
                 @Html.ActionLink("Usuarios", "ListaUsuarios", "Usuarios")
-                @*<a href="#top" onclick=$("#menu-close").click();>Home</a>*@                
-            </li>
-            <!-- /ko -->
-
+            </li>            
             <li>
                 @Html.ActionLink("Eventos", "ListaPublicacionEventos", "PublicacionEventos")
-                @*<a href="#about" onclick=$("#menu-close").click();>About</a>*@
             </li>
             <li>
                 @Html.ActionLink("Noticias", "ListaPublicacionNoticias", "PublicacionNoticias")
-                @*<a href="#services" onclick=$("#menu-close").click();>Services</a>*@
             </li>            
             @* ADMINISTRADOR O ADMIN-PUBLICACION *@
-            <!-- ko if: esAdministrador === 'true' || esAdminPublicacion === 'true' -->
+            <!-- ko if: esAdministrador === 'true' -->
             <li>
                 @Html.ActionLink("Reuniones", "ListaReuniones", "Reuniones")
-                @*<a href="#top" onclick=$("#menu-close").click();>Home</a>*@
             </li>
-            <!-- /ko -->
-            <li>
-                <a id="acercaDe" onclick=$("#menu-close").click();>Acerca de Nosotros</a>
-            </li>
-            <li>
-                <a id="contact" onclick=$("#menu-close").click();>Contacto</a>
-            </li>
+            <!-- /ko -->           
             <!-- ko if: Token === null -->
             <li>
                 @Html.ActionLink("Iniciar Sesión", "Login", "Login")
-                @*<a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>*@
             </li>
             <!-- /ko -->
             <!-- ko if: Token !== null -->
             <li>
                 <a href="#" onClick="Salir();"> Cerrar Sesión</a>
-                @*<a href="#contact" onclick=$("#menu-close").click();>Contact</a>*@
             </li>            
             <!-- /ko -->
         </ul>

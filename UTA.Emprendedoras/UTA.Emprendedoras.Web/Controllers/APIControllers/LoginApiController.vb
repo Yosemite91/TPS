@@ -52,7 +52,7 @@ Namespace Controllers.APIControllers
                 Return Me.Ok(New With {
                                     .Run = user.Run,
                                     .Token = Modules.BasicAuthHttpModule.Encode(user.ID, tokenActual),
-                                    .EsAdminSistema = user.EsAdministrador,
+                                    .EsAdministrador = user.EsAdministrador,
                                     .EsAdminPublicacion = user.EsAdminPublicacion
                                 })
             Catch ex As Exception

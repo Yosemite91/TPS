@@ -29,6 +29,7 @@ namespace Usuarios {
             type: 'danger',
             icon: 'close',
             onClick: function (e: any) {
+                this.loading(true);
                 var UsuarioDTO = {
                     run: this.usuario().run,
                 };
@@ -55,6 +56,7 @@ namespace Usuarios {
             icon: 'check',
             type: 'success',
             onClick: (e: any): void => {
+                this.loading(true);
                 var UsuarioDTO = {
                     run: this.usuario().run,
                 };
